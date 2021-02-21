@@ -1,0 +1,94 @@
+// vim:ts=4:sw=4:et
+{
+    // splitv split container with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "marks": [],
+    "percent": 0.1,
+    "type": "con",
+    "nodes": [
+        {
+            // splith split container with 1 children
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "splith",
+            "marks": [],
+            "percent": 0.5,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 364,
+                       "width": 564,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "marks": [],
+                    "name": "st",
+                    "percent": 1,
+                    "swallows": [
+                       {
+                        "class": "^St$",
+                       "instance": "^st$",
+                       "machine": "^user\\-MS\\-7C09$",
+                       "title": "^st$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 364,
+               "width": 564,
+               "x": 0,
+               "y": 0
+            },
+            "marks": [],
+            "name": "st",
+            "percent": 0.5,
+            "swallows": [
+               {
+               "class": "^St$",
+               "instance": "^st$",
+               "machine": "^user\\-MS\\-7C09$",
+               "title": "^st$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 364,
+       "width": 564,
+       "x": 0,
+       "y": 0
+    },
+    "marks": [],
+    "name": "st",
+    "percent": 0.9,
+    "swallows": [
+       {
+       "class": "^St$",
+       "instance": "^st$",
+       "machine": "^user\\-MS\\-7C09$",
+       "title": "^st$"
+       }
+    ],
+    "type": "con"
+}
+
