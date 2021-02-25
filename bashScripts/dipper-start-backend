@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# First run backend
+docker-compose -f /home/joaquin/Documents/Proyectos/Dipper/api/docker/docker-compose.yaml up --build >> /home/joaquin/Documents/Proyectos/Dipper/api.log 2>&1
+ 
+

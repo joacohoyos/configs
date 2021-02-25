@@ -87,7 +87,7 @@ monitor = DP-1
 height = 30
 modules-left = logo i3 
 modules-center = xwindow
-modules-right =  pulseaudio xkeyboard spotify spotify-prev spotify-play-pause spotify-next date
+modules-right =  xkeyboard pulseaudio spotify spotify-prev spotify-play-pause spotify-next date
 
 padding-left = 0
 padding-right = 2
@@ -114,7 +114,7 @@ enable-ipc = true
 height = 30
 modules-left = logo i3
 modules-center = xwindow
-modules-right =  pulseaudio xkeyboard spotify spotify-prev spotify-play-pause spotify-next date
+modules-right =  xkeyboard pulseaudio spotify spotify-prev spotify-play-pause spotify-next date
 
 padding-left = 0
 padding-right = 2
@@ -132,6 +132,14 @@ padding-right = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+[module/xkeyboard]
+type = internal/xkeyboard
+
+format = %{A1:~/configs/polybar/scripts/keyboard.sh &:}<label-layout> <label-variant>%{A}
+label-layout = %name% 
+; List of indicators to ignore
+blacklist-0 = num lock
+blacklist-1 = scroll lock
 
 [module/logo]
 type = custom/text

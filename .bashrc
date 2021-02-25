@@ -145,4 +145,4 @@ else
     start_agent;
 fi
 
-export PATH=/home/joaquin/bashScripts:$PATH
+export PATH=/home/joaquin/configs/bashScripts:$PATH

@@ -59,9 +59,9 @@ highlight LineNr guibg=NONE ctermbg=NONE ctermfg=Yellow
 highlight SignColumn guibg=NONE ctermbg=NONE
 let NERDTreeQuitOnOpen=1
 let mapleader = " "
-nmap <Leader><Leader>s <Plug>(easymotion-s2)
+nmap <Leader>s <Plug>(easymotion-s2)
 nmap <C-f> :NERDTreeToggle<CR>
-nmap <Leader><Leader>w :w<CR>
+nmap <Leader>w :w<CR>
 nmap <Leader>d :w!<CR>
 nmap <Leader>as :terminal
 nmap <Leader>gs :G<CR>
@@ -69,7 +69,7 @@ nmap <Leader>ga :
 nmap <Leader>fs :GFiles<CR>
 nmap <Leader>fh :History<CR>
 nmap <Leader>gf :Rg<CR>
-nmap <Leader><Leader>q :q<CR>
+nmap <Leader>q :q<CR>
 nmap <Leader>wq :wq<CR>
 nmap <Leader>z :q!<CR>
 nmap <Leader>t :vsplit term://npm test -- -u<CR>
@@ -96,9 +96,9 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
 " AIRLINE
 let g:airline#extensions#branch#enabled = 1
 let g:airline_theme = 'codedark'
-let g:airline#extensions#tmuxline#enabled = 1
+let g:airline#extensions#tmuxline#enabled = 0 
 let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
-
+let g:tmuxline_powerline_separators = 1
 " CLOSETAG
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.

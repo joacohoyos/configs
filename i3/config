@@ -214,7 +214,6 @@ exec_always --no-startup-id amixer set "Headphone" playback 100% unmute
 exec --no-startup-id xrandr --output DP-1 --left-of HDMI-1
 
 # Layouts
-exec --no-startup-id "i3-msg 'workspace 6; append_layout /home/joaquin/.config/i3/workspaces/workspace-6.json'"
 exec --no-startup-id chromium
 exec --no-startup-id spotify
 exec --no-startup-id slack
@@ -228,7 +227,8 @@ assign [class="St"] 1
 assign [class="Slack"] 5
 assign [class="discord"] 5
 assign [class="Spotify"] 4
-assign [class="spotify"] 4
+assign [class="^Spotify*"] 4
+for_window [class="Spotify"] move to workspace $ws4
 
 # Shortcuts
 
