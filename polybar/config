@@ -136,7 +136,7 @@ cursor-scroll = ns-resize
 type = internal/xkeyboard
 
 format = %{A1:~/configs/polybar/scripts/keyboard.sh &:}<label-layout> <label-variant>%{A}
-label-layout = %name% 
+label-layout = %variant% 
 ; List of indicators to ignore
 blacklist-0 = num lock
 blacklist-1 = scroll lock
