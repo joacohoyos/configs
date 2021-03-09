@@ -25,11 +25,6 @@ set noshowmode
 set splitright
 
 call plug#begin('~/.vim/plugged')
-
-" Temas
-Plug 'morhetz/gruvbox'
-
-" IDE
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
@@ -48,8 +43,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'airblade/vim-gitgutter'
 Plug 'edkolev/tmuxline.vim'
+Plug 'tpope/vim-rails'
+
 call plug#end()
 
+set nocompatible
+
+set t_Co=256
+set t_ut=
 colorscheme codedark
 highlight Normal guibg=NONE ctermbg=NONE
 highlight nonText guibg=NONE ctermbg=NONE
@@ -59,21 +60,31 @@ highlight LineNr guibg=NONE ctermbg=NONE ctermfg=Yellow
 highlight SignColumn guibg=NONE ctermbg=NONE
 let NERDTreeQuitOnOpen=1
 let mapleader = " "
-nmap <Leader>s <Plug>(easymotion-s2)
-nmap <C-f> :NERDTreeToggle<CR>
-nmap <Leader>w :w<CR>
-nmap <Leader>d :w!<CR>
-nmap <Leader>as :terminal
-nmap <Leader>gs :G<CR>
-nmap <Leader>ga :
-nmap <Leader>fs :GFiles<CR>
-nmap <Leader>fh :History<CR>
-nmap <Leader>gf :Rg<CR>
-nmap <Leader>q :q<CR>
-nmap <Leader>wq :wq<CR>
-nmap <Leader>z :q!<CR>
-nmap <Leader>t :vsplit term://npm test -- -u<CR>
-nmap <Leader>l :! npm run lint<CR>
+nnoremap <Leader>s <Plug>(easymotion-s2)
+nnoremap <C-f> :NERDTreeToggle<CR>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>d :w!<CR>
+nnoremap <Leader>as :terminal
+nnoremap <Leader>gs :G<CR>
+nnoremap <Leader>ga :
+nnoremap <Leader>fs :GFiles<CR>
+nnoremap <Leader>fh :History<CR>
+nnoremap <Leader>gf :Rg<CR>
+nnoremap <Leader>q :bd<CR>
+nnoremap <Leader>wq :w<CR>:bd<CR>
+nnoremap <Leader>z :q!<CR>
+nnoremap <Leader>t :vsplit term://npm test -- -u<CR>
+nnoremap <Leader>l :! npm run lint<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>, <<
+nnoremap <Leader>. >>
+nnoremap <Leader>o o<ESC>
+nnoremap <Leader>O O<ESC>
+nnoremap <Leader>m =i{
+nnoremap <Leader>d "_d
+vnoremap <Leader>d "_d
+nnoremap <Leader>d "_dP
+vnoremap <Leader>d "_dP
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-t>   :tabnext<CR>
 inoremap <C-h> <Left>

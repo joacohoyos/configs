@@ -3,6 +3,8 @@
 
 PERSONAL="~"
 DIPPER="~/dipper"
+ROBOTIX="~/robotix"
+PEER_COLLECTIVE="~/peercollective"
 
 createWindow() {
     session=$1
@@ -39,8 +41,20 @@ while [ "$#" -gt 0 ]; do
     "-dipper")
         createSession dipper app -c $DIPPER/app "ranger"
         createWindow dipper api -c $DIPPER/api "ranger"
-        createWindow dipper run-app -c $DIPPER/app "npm start"
-        createWindow dipper run-api -c $DIPPER/api "docker-compose -f docker/docker-compose.yaml up --build"
+        ;;
+    "-peer")
+        createSession peer app -c $PEER_COLLECTIVE/app "ranger"
+        createWindow peer api -c $PEER_COLLECTIVE/api "ranger"
+        createWindow peer run-app -c $PEER_COLLECTIVE/app "npm start"
+        createWindow peer run-api -c $PEER_COLLECTIVE/api "docker-compose -f docker/docker-compose.yml up --build"
+        ;;
+    "-robotix")
+        createSession robotix app -c $ROBOTIX/app "ranger"
+        createWindow robotix admin -c $ROBOTIX/admin "ranger"
+        createWindow robotix api -c $ROBOTIX/api "ranger"
+        createWindow robotix run-app -c $ROBOTIX/app "npm start"
+        createWindow robotix run-admin -c $ROBOTIX/admin "npm start"
+        createWindow robotix run-api -c $ROBOTIX/api "npm run start:dev"
         ;;
     "-personal")
         createSession personal console 

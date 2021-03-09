@@ -191,6 +191,7 @@ exec_always --no-startup-id feh --bg-fill /home/joaquin/Documents/Wallpapers/mou
 
 # Keyboard Layout
 exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl -option caps:swapescape
+exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant dvorak -option caps:swapescape
 
 # Polybar
 exec_always --no-startup-id /home/joaquin/.config/polybar/launch.sh
