@@ -1,0 +1,11 @@
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/id_rsa_joaquin
+
+Host gitlab.wearepsh.com
+  HostName gitlab.wearepsh.com
+  IdentityFile ~/.ssh/id_rsa
+
+Host bitbucket.org
+  HostName bitbcuket.org-joaquinhoyos
+  IdentityFile ~/.ssh/id_rsa_bitbcuket_pc
