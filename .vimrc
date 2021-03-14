@@ -76,6 +76,8 @@ nnoremap <Leader>z :q!<CR>
 nnoremap <Leader>t :vsplit term://npm test -- -u<CR>
 nnoremap <Leader>l :! npm run lint<CR>
 nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>n :bp
+nnoremap <Leader>m :bn
 nnoremap <Leader>, <<
 nnoremap <Leader>. >>
 nnoremap <Leader>o o<ESC>
@@ -83,8 +85,8 @@ nnoremap <Leader>O O<ESC>
 nnoremap <Leader>m =i{
 nnoremap <Leader>d "_d
 vnoremap <Leader>d "_d
-nnoremap <Leader>d "_dP
-vnoremap <Leader>d "_dP
+nnoremap <Leader>dp "_dP
+vnoremap <Leader>dp "_dP
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-t>   :tabnext<CR>
 inoremap <C-h> <Left>
@@ -292,7 +294,7 @@ nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.

@@ -133,7 +133,10 @@ SSH_ENV=$HOME/.ssh/environment
     echo succeeded
     chmod 600 "${SSH_ENV}"
     . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add
+    /usr/bin/ssh-add 
+    /usr/bin/ssh-add ~/.ssh/id_rsa_joaquin
+    /usr/bin/ssh-add ~/.ssh/id_rsa_bitbcuket_pc
+
 }
 
 if [ -f "${SSH_ENV}" ]; then
