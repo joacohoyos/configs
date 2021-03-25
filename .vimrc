@@ -44,6 +44,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'airblade/vim-gitgutter'
 Plug 'edkolev/tmuxline.vim'
 Plug 'tpope/vim-rails'
+Plug 'ThePrimeagen/vim-be-good'
 
 call plug#end()
 
