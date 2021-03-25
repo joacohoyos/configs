@@ -23,6 +23,7 @@ set laststatus=2
 set wrap 
 set noshowmode
 set splitright
+set diffopt+=vertical
 
 call plug#begin('~/.vim/plugged')
 Plug 'easymotion/vim-easymotion'
@@ -69,6 +70,7 @@ nnoremap <Leader>as :terminal
 nnoremap <Leader>gs :G<CR>
 nnoremap <Leader>ga :
 nnoremap <Leader>fs :GFiles<CR>
+nnoremap <Leader>ff :Files<CR>
 nnoremap <Leader>fh :History<CR>
 nnoremap <Leader>gf :Rg<CR>
 nnoremap <Leader>q :bd<CR>
