@@ -1,8 +1,11 @@
 #!/bin/bash
 
 # The name of polybar bar which houses the main spotify module and the control modules.
-PARENT_BAR="mainbar"
-PARENT_BAR_PID=$(pgrep -a "polybar" | grep "$PARENT_BAR" | cut -d" " -f1)
+HDMI_BAR="hdmi"
+HDMI_BAR_PID=$(pgrep -a "polybar" | grep "$HDMI_BAR" | cut -d" " -f1)
+DP1_BAR="dp1"
+DP1_BAR_PID=$(pgrep -a "polybar" | grep "$DP1_BAR" | cut -d" " -f1)
+
 
 # Set the source audio player here.
 # Players supporting the MPRIS spec are supported.
@@ -39,12 +42,14 @@ else
     if [ "$STATUS" = "Stopped" ]; then
         echo "No music is playing"
     elif [ "$STATUS" = "Paused"  ]; then
-        update_hooks "$PARENT_BAR_PID" 2
+        update_hooks "$HDMI_BAR_PID" 2
+        update_hooks "$DP1_BAR_PID" 2
         playerctl --player=$PLAYER metadata --format "$FORMAT"
     elif [ "$STATUS" = "No player is running"  ]; then
         echo "$STATUS"
     else
-        update_hooks "$PARENT_BAR_PID" 1
+        update_hooks "$HDMI_BAR_PID" 1
+        update_hooks "$DP1_BAR_PID" 1
         playerctl --player=$PLAYER metadata --format "$FORMAT"
     fi
 fi
