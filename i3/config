@@ -197,7 +197,7 @@ exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -vari
 exec_always --no-startup-id /home/joaquin/.config/polybar/launch.sh
 
 # Compton
-exec --no-startup-id "compton -b"
+exec_always --no-startup-id "compton -b"
 
 # Dunst
 exec --no-startup-id dunst
