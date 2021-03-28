@@ -24,6 +24,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'cohama/lexima.vim'
 Plug 'vim-ruby/vim-ruby'
+Plug 'mhartington/formatter.nvim'
 call plug#end()
 
 syntax enable
