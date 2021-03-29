@@ -1,4 +1,5 @@
 set mouse=a
+set colorcolumn=81
 set numberwidth=1
 set clipboard=unnamedplus
 set hidden
@@ -16,6 +17,7 @@ set expandtab
 set sw=2
 set softtabstop=2
 set tabstop=2
+set number
 set relativenumber
 set laststatus=2
 set wrap 

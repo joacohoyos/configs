@@ -49,4 +49,5 @@ let g:airline_theme = 'gruvbox'
 let g:airline#extensions#tmuxline#enabled = 0 
 let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
 let g:tmuxline_powerline_separators = 1
+
 lua require("clarkyex")

@@ -19,11 +19,10 @@ end
 require('formatter').setup({
   logging = false,
   filetype = {
-    -- javascript = {prettier, eslint},
-    -- javascriptreact = {prettier, eslint},
-    -- typescript = {prettier, eslint},
-    -- typescriptreact = {prettier, eslint},
-
+    javascript = {prettier, eslint},
+    javascriptreact = {prettier, eslint},
+    typescript = {prettier, eslint},
+    typescriptreact = {prettier, eslint},
   }
 })
 
