@@ -1,8 +1,0 @@
-{
-  "pairs.enableCharacters": ["(","[","{","'","\"","`"],
-  "eslint.autoFixOnSave": true,
-  "eslint.workingDirectories": [
-    "/home/joaquin/Documents/Proyectos/Dipper/api",
-    "/home/joaquin/Documents/Proyectos/Dipper/app"
-  ]
-}
