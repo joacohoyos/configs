@@ -8,8 +8,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'leafgarland/typescript-vim'
   Plug 'alvan/vim-closetag'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'tpope/vim-rails'
@@ -26,6 +24,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'ThePrimeagen/harpoon'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lua/popup.nvim'
+  Plug 'itchyny/lightline.vim'
 call plug#end()
 
 syntax enable
@@ -48,11 +47,33 @@ highlight CursorLineNr term=bold ctermfg=Yellow ctermbg=NONE guibg=NONE
 highlight LineNr guibg=NONE ctermbg=NONE ctermfg=Yellow
 highlight SignColumn guibg=NONE ctermbg=NONE
 
-let g:airline#extensions#branch#enabled = 1
-let g:airline_theme = 'gruvbox'
-let g:airline#extensions#tmuxline#enabled = 0 
-let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
-let g:tmuxline_powerline_separators = 1
 let g:rainbow_active = 1
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [['lineinfo']]
+      \ },
+      \ 'component': {
+      \   'lineinfo': '%3l:%-2v%<',
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead',
+      \ },
+      \ 'mode_map': {
+      \   'n' : 'N',
+      \   'i' : 'I',
+      \   'R' : 'R',
+      \   'v' : 'V',
+      \   'V' : 'VL',
+      \   "\<C-v>": 'VB',
+      \   'c' : 'C',
+      \   's' : 'S',
+      \   'S' : 'SL',
+      \   "\<C-s>": 'SB',
+      \   't': 'T',
+      \ },
+      \ }
 
 lua require("clarkyex")

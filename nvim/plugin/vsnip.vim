@@ -1,7 +1,7 @@
 " NOTE: You can use other key to expand snippet.
 
 " Expand
-imap <expr> <C-t>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-t>'
+imap <expr> <C-t>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<Right>'
 smap <expr> <C-t>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-t>'
 
 " Expand or jump

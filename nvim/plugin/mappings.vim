@@ -50,7 +50,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 inoremap <C-c> <ESC>
 " for when wanting to move one char after autopairing bracket
-inoremap <C-l> <Right>
+inoremap <C-h> <Left>
 tnoremap <Esc> <C-\><C-n>
 nnoremap Q <nop>
 
