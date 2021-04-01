@@ -49,11 +49,12 @@ nnoremap <Leader>m :MaximizerToggle<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 inoremap <C-c> <ESC>
+" for when wanting to move one char after autopairing bracket
 inoremap <C-l> <Right>
 tnoremap <Esc> <C-\><C-n>
 nnoremap Q <nop>
 
-"LSP
+" LSP mapings (need to figure out why lsp.vim is not working)
 nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
@@ -65,6 +66,7 @@ nnoremap <leader>vsd :lua vim.lsp.util.show_line_diagnostics(); vim.lsp.util.sho
 nnoremap <leader>vn :lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <leader>vll :lua vim.lsp.diagnostic.set_loclist()<CR>
 
+" Harpoon! mapings (need to figure out why harpoon.vim is not working)
 nnoremap <C-m> :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <C-h> :lua require("harpoon.ui").nav_file(1)<CR>
