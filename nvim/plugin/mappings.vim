@@ -2,6 +2,9 @@ let mapleader = " "
 nnoremap <C-f> :NERDTreeToggle<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>g :G<CR>
+nnoremap <Leader>ga :G add .<CR>
+nnoremap <Leader>gc :G commit -m ""
+nnoremap <Leader>gp :G push origin HEAD
 nnoremap <C-p> :GFiles<CR>
 nnoremap <Leader>pf :Files<CR>
 nnoremap <Leader>fh :History<CR>
@@ -15,20 +18,40 @@ nnoremap <Leader>, <<
 nnoremap <Leader>. >>
 nnoremap <Leader>o o<ESC>
 nnoremap <Leader>O O<ESC>
-nnoremap <Leader>m =i{
-vnoremap <Leader>d "_d
-vnoremap <Leader>p "_dP
-nnoremap <Leader>d "_dd
-nnoremap <Leader>p "_ddP
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
+inoremap ,, <ESC>A,<ESC>
+inoremap ;; <ESC>A;<ESC>
+nnoremap <CR> i<CR><ESC> 
+vnoremap <Leader>dd "_d
+nnoremap <Leader>dd "_dd
+vnoremap <Leader>pp "_dP
+nnoremap <Leader>pp "_ddP
+vnoremap <Leader>d" "_di"
+nnoremap <Leader>d" "_di"
+vnoremap <Leader>p" "_di"P
+nnoremap <Leader>p" "_di"P
+vnoremap <Leader>d' "_di'
+nnoremap <Leader>d' "_di'
+vnoremap <Leader>p' "_di'P
+nnoremap <Leader>p' "_di'P
+vnoremap <Leader>d{ "_di{
+nnoremap <Leader>d{ "_di{
+vnoremap <Leader>p{ "_di{P
+nnoremap <Leader>p{ "_di{P
+vnoremap <Leader>d( "_di(
+nnoremap <Leader>d( "_di(
+vnoremap <Leader>p( "_di(P
+nnoremap <Leader>p( "_di(P
+inoremap <silent> <C-g>u <ESC>guawea
+inoremap <silent> <C-g>U <ESC>gUawea
+inoremap <silent> <C-g>w <ESC>0gu$
+inoremap <silent> <C-g>W <ESC>0gU$
+nnoremap <Leader>m :MaximizerToggle<CR>
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-c> <ESC>
 inoremap <C-l> <Right>
-cnoremap <C-h> <Left>
-cnoremap <C-j> <Down>
-cnoremap <C-k> <Up>
-cnoremap <C-l> <Right>
 tnoremap <Esc> <C-\><C-n>
+nnoremap Q <nop>
 
 "LSP
 nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
@@ -42,3 +65,12 @@ nnoremap <leader>vsd :lua vim.lsp.util.show_line_diagnostics(); vim.lsp.util.sho
 nnoremap <leader>vn :lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <leader>vll :lua vim.lsp.diagnostic.set_loclist()<CR>
 
+nnoremap <C-m> :lua require("harpoon.mark").add_file()<CR>
+nnoremap <C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <C-h> :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <C-t> :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <C-n> :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <C-s> :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <C-g> :lua require("harpoon.mark").rm_file()<CR>
+nnoremap <leader><C-r> :lua require("harpoon.mark").shorten_list()<CR>
+nnoremap <leader><C-d> :lua require("harpoon.mark").clear_all()<CR>

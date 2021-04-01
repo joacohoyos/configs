@@ -1,33 +1,37 @@
 call plug#begin('~/.vim/plugged')
-Plug 'morhetz/gruvbox'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'alvan/vim-closetag'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tomasiser/vim-code-dark'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'airblade/vim-gitgutter'
-Plug 'edkolev/tmuxline.vim'
-Plug 'tpope/vim-rails'
-Plug 'ThePrimeagen/vim-be-good'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'cohama/lexima.vim'
-Plug 'vim-ruby/vim-ruby'
-Plug 'mhartington/formatter.nvim'
+  Plug 'morhetz/gruvbox'
+  Plug 'scrooloose/nerdtree'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-commentary'
+  Plug 'maxmellon/vim-jsx-pretty'
+  Plug 'pangloss/vim-javascript'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'alvan/vim-closetag'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'tpope/vim-rails'
+  Plug 'ThePrimeagen/vim-be-good'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/nvim-compe'
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'hrsh7th/vim-vsnip-integ'
+  Plug 'cohama/lexima.vim'
+  Plug 'vim-ruby/vim-ruby'
+  Plug 'mhartington/formatter.nvim'
+  Plug 'frazrepo/vim-rainbow'
+  Plug 'szw/vim-maximizer'
+  Plug 'ThePrimeagen/harpoon'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-lua/popup.nvim'
 call plug#end()
 
 syntax enable
+set nocompatible
+set t_Co=256
+set termguicolors
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
 
@@ -49,5 +53,6 @@ let g:airline_theme = 'gruvbox'
 let g:airline#extensions#tmuxline#enabled = 0 
 let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
 let g:tmuxline_powerline_separators = 1
+let g:rainbow_active = 1
 
 lua require("clarkyex")

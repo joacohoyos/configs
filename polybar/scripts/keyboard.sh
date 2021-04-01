@@ -5,10 +5,10 @@ if [ -z "$layoutUS" ]
 then
   if [ -z "$layoutLatam" ]
   then
-    setxkbmap -layout latam;
+    setxkbmap -layout latam -option caps:swapescape;
   else
-    setxkbmap -layout us -variant intl;
+    setxkbmap -layout us -variant intl -option caps:swapescape;
   fi
 else 
-  setxkbmap -layout us -variant dvorak;
+  setxkbmap -layout us -variant dvorak -option;
 fi

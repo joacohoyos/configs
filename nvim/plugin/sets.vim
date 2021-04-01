@@ -24,8 +24,5 @@ set wrap
 set noshowmode
 set splitright
 set diffopt+=vertical
-set updatetime=100
+set updatetime=50
 set shortmess+=c
-set nocompatible
-set t_Co=256
-set termguicolors
