@@ -190,7 +190,6 @@ gaps outer 5
 exec_always --no-startup-id feh --bg-fill /home/joaquin/Documents/Wallpapers/mountain.jpg
 
 # Keyboard Layout
-exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl -option caps:swapescape
 exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant dvorak 
 
 # Polybar
