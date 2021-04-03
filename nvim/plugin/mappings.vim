@@ -1,3 +1,5 @@
+lua require("clarkyex")
+
 let mapleader = " "
 nnoremap <C-f> :NERDTreeToggle<CR>
 nnoremap <Leader>w :w<CR>
@@ -5,10 +7,11 @@ nnoremap <Leader>g :G<CR>
 nnoremap <Leader>ga :G add .<CR>
 nnoremap <Leader>gc :G commit -m ""
 nnoremap <Leader>gp :G push origin HEAD
-nnoremap <C-p> :GFiles<CR>
-nnoremap <Leader>pf :Files<CR>
-nnoremap <Leader>fh :History<CR>
-nnoremap <Leader>ps :Rg<CR>
+nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
+nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
+nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
+nnoremap <leader>vrc :lua require('theprimeagen.telescope').search_dotfiles()<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>b :Buffers<CR>

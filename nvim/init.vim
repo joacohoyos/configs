@@ -8,15 +8,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'leafgarland/typescript-vim'
   Plug 'alvan/vim-closetag'
-  Plug 'junegunn/fzf.vim'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  " Plug 'junegunn/fzf.vim'
+  " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'tpope/vim-rails'
   Plug 'ThePrimeagen/vim-be-good'
   Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/nvim-compe'
   Plug 'hrsh7th/vim-vsnip'
   Plug 'hrsh7th/vim-vsnip-integ'
-  Plug 'cohama/lexima.vim'
+  " Plug 'cohama/lexima.vim'
   Plug 'vim-ruby/vim-ruby'
   Plug 'mhartington/formatter.nvim'
   Plug 'frazrepo/vim-rainbow'
@@ -24,6 +24,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'ThePrimeagen/harpoon'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-fzy-native.nvim'
   Plug 'itchyny/lightline.vim'
 call plug#end()
 
