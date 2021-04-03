@@ -10,5 +10,5 @@ then
     setxkbmap -layout us -variant intl -option caps:swapescape;
   fi
 else 
-  setxkbmap -layout us -variant dvorak -option;
+  setxkbmap -layout us -variant dvp -option;
 fi
