@@ -4,9 +4,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
-  Plug 'maxmellon/vim-jsx-pretty'
-  Plug 'pangloss/vim-javascript'
-  Plug 'leafgarland/typescript-vim'
+  " Plug 'maxmellon/vim-jsx-pretty'
+  " Plug 'pangloss/vim-javascript'
+  " Plug 'leafgarland/typescript-vim'
   Plug 'alvan/vim-closetag'
   Plug 'tpope/vim-rails'
   Plug 'ThePrimeagen/vim-be-good'
@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
   Plug 'itchyny/lightline.vim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 syntax enable
@@ -45,6 +46,8 @@ highlight EndOfBuffer guibg=NONE ctermbg=NONE
 highlight CursorLineNr term=bold ctermfg=Yellow ctermbg=NONE guibg=NONE
 highlight LineNr guibg=NONE ctermbg=NONE ctermfg=Yellow
 highlight SignColumn guibg=NONE ctermbg=NONE
+
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true, }, }
 
 let g:rainbow_active = 1
 let g:lightline = {
