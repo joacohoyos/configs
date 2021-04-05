@@ -245,7 +245,7 @@ bindsym $mod+Shift+b exec --no-startup-id chromium
 bindsym $mod+Shift+d exec --no-startup-id discord
 
 # Run VSCode
-bindsym $mod+Shift+f --no-startup-id exec flameshot gui
+bindsym $mod+Shift+f exec --no-startup-id flameshot gui
 
 # Run spotify
 bindsym $mod+Shift+s exec --no-startup-id spotify
