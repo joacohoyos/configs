@@ -190,9 +190,7 @@ gaps outer 5
 exec_always --no-startup-id feh --bg-fill /home/joaquin/Documents/Wallpapers/mountain.jpg
 
 # Keyboard Layout
-exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl -option caps:swapescape
-exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant dvorak -option caps:swapescape
-exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout es -variant latam -option caps:swapescape
+exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant dvp
 
 # Polybar
 exec_always --no-startup-id /home/joaquin/.config/polybar/launch.sh
@@ -238,19 +236,25 @@ for_window [class="Spotify"] move to workspace $ws4
 # Shortcuts
 
 # Start a terminal
-bindsym $mod+Shift+t exec st
+bindsym $mod+Shift+t exec --no-startup-id st
 
 # Run Chromium
-bindsym $mod+Shift+b exec chromium
+bindsym $mod+Shift+b exec --no-startup-id chromium
+
+# Run Discord
+bindsym $mod+Shift+d exec --no-startup-id discord
+
+# Run VSCode
+bindsym $mod+Shift+f --no-startup-id exec flameshot gui
 
 # Run spotify
-bindsym $mod+Shift+s exec spotify
+bindsym $mod+Shift+s exec --no-startup-id spotify
 
 # Run Slack
-bindsym $mod+Shift+g exec slack
+bindsym $mod+Shift+g exec --no-startup-id slack
 
 # Run Slack
-bindsym $mod+Shift+u exec st -e ranger
+bindsym $mod+Shift+u exec --no-startup-id st -e ranger
 
 # Volume Up
 bindsym $mod+F12 exec amixer set Master -q 5%+
