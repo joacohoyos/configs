@@ -57,6 +57,7 @@ let g:lightline = {
       \ },
       \ 'component': {
       \   'lineinfo': '%3l:%-2v%<',
+      \   'filename': "%{expand('%:p:h:t')}/%t",
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead',
