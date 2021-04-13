@@ -46,6 +46,7 @@ while [ "$#" -gt 0 ]; do
         createSession peer app -c $PEER_COLLECTIVE/app "ranger"
         createWindow peer api -c $PEER_COLLECTIVE/api "ranger"
         createWindow peer run-app -c $PEER_COLLECTIVE/app "npm start"
+        createWindow peer run-www -c $PEER_COLLECTIVE/www/peer-collective "npm start"
         createWindow peer run-api -c $PEER_COLLECTIVE/api "docker-compose -f docker/docker-compose.yml up --build"
         ;;
     "-robotix")

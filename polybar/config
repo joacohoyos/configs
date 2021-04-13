@@ -144,8 +144,8 @@ blacklist-1 = scroll lock
 [module/logo]
 type = custom/text
 content = "    %{T11}%{F#C140C1}%{F-}%{T-}   %{F#555}|%{F-}"
-click-left = ~/.config/polybar/scripts/launcher.sh --unity
 click-right = ~/.config/polybar/scripts/launcher.sh --unity
+click-left = env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
 
 [module/xwindow]
 ;https://github.com/jaagr/polybar/wiki/Module:-xwindow

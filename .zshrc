@@ -71,7 +71,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #You don't have /home/joaquin/.gem/ruby/3.0.0/bin
-export PATH=/home/joaquin/.gem/ruby/3.0.0/bin:/home/joaquin/configs/bashScripts:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:/home/joaquin/.gem/ruby/3.0.0/bin:/home/joaquin/configs/bashScripts:$PATH
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
