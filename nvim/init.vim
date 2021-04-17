@@ -76,5 +76,5 @@ let g:lightline = {
       \   't': 'T',
       \ },
       \ }
-
+autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
 lua require("clarkyex")

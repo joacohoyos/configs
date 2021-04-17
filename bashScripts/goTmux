@@ -9,28 +9,38 @@ PEER_COLLECTIVE="~/peercollective"
 createWindow() {
     session=$1
     window=$2
+    workingDirectory=$3
+    command=$4
     shift
     shift
     hasWindow=$(tmux list-windows -t $session | grep "$window")
     if [ -z "$hasWindow" ]; then
         cmd="tmux neww -t $session: -n $window -d"
         if [ $# -gt 0 ]; then
-            cmd="$cmd $@"
+            cmd="$cmd -c $workingDirectory"
         fi
         echo "Creating Window(\"$hasWindow\"): $cmd"
         eval $cmd
+        if [ ! -z "$command" ]; then
+          eval "tmux send-keys -t $session:$window \"$command\" C-m"
+        fi
     fi
 }
 
 createSession() {
     session=$1
     window=$2
+    workingDirectory=$3
+    command=$4
     shift
     shift
-    cmd="tmux new -s $session -d -n $window $@ > /dev/null 2>&1"
+    cmd="tmux new -s $session -d -n $window -c $workingDirectory > /dev/null 2>&1"
 
     echo "Creating Session: $cmd"
     eval $cmd
+    if [ ! -z "$command" ]; then
+      eval "tmux send-keys -t $session:$window $command C-m"
+    fi
 }
 
 while [ "$#" -gt 0 ]; do
@@ -38,28 +48,24 @@ while [ "$#" -gt 0 ]; do
     shift
 
     case "$curr" in
-    "-dipper")
-        createSession dipper app -c $DIPPER/app "ranger"
-        createWindow dipper api -c $DIPPER/api "ranger"
-        ;;
     "-peer")
-        createSession peer app -c $PEER_COLLECTIVE/app "ranger"
-        createWindow peer api -c $PEER_COLLECTIVE/api "ranger"
-        createWindow peer run-app -c $PEER_COLLECTIVE/app "npm start"
-        createWindow peer run-www -c $PEER_COLLECTIVE/www/peer-collective "npm start"
-        createWindow peer run-api -c $PEER_COLLECTIVE/api "docker-compose -f docker/docker-compose.yml up --build"
+        createSession peer app $PEER_COLLECTIVE/app  
+        createWindow peer api  $PEER_COLLECTIVE/api 
+        createWindow peer www $PEER_COLLECTIVE/www 
+        createWindow peer run-app $PEER_COLLECTIVE/app "npm start"
+        createWindow peer run-www $PEER_COLLECTIVE/www "npm start"
+        createWindow peer run-api $PEER_COLLECTIVE/api "docker-compose -f docker/docker-compose.yml up --build"
         ;;
     "-robotix")
-        createSession robotix app -c $ROBOTIX/app "ranger"
-        createWindow robotix admin -c $ROBOTIX/admin "ranger"
-        createWindow robotix api -c $ROBOTIX/api "ranger"
-        createWindow robotix run-app -c $ROBOTIX/app "npm start"
-        createWindow robotix run-admin -c $ROBOTIX/admin "npm start"
-        createWindow robotix run-api -c $ROBOTIX/api "npm run start:dev"
+        createSession robotix app  $ROBOTIX/app
+        createWindow robotix admin  $ROBOTIX/admin
+        createWindow robotix api  $ROBOTIX/api
+        createWindow robotix run-app  $ROBOTIX/app "npm start"
+        createWindow robotix run-admin  $ROBOTIX/admin "npm start"
+        createWindow robotix run-api  $ROBOTIX/api "npm run start:dev"
         ;;
     "-personal")
         createSession personal console 
-        createWindow personal ranger -c $PERSONAL "ranger"
         ;;
     *) echo "Unavailable command... $curr"
     esac
