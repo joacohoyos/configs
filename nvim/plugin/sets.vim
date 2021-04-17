@@ -8,7 +8,7 @@ set noswapfile
 set nobackup
 set nowritebackup
 set incsearch
-set scrolloff=15
+set scrolloff=8
 set showcmd
 set ruler
 set encoding=utf-8
