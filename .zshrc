@@ -75,8 +75,9 @@ export PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:/home/joaquin/.gem/ruby/3.0
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
-plugins=(git ssh-agent)
-zstyle :omz:plugins:ssh-agent identities id_rsa_bitbucket id_rsa_joacohoyos id_rsa_psh_gitlab
+plugins=(git ssh-agent docker docker-compose zsh-autosuggestions zsh-syntax-highlighting)
+zstyle :omz:plugins:ssh-agent identities id_rsa_bitbcuket_pc id_rsa id_rsa_joaquin
+# zstyle :omz:plugins:ssh-agent identities id_rsa_bitbucket id_rsa_joacohoyos id_rsa_psh_gitlab
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -111,3 +112,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+neofetch
