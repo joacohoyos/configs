@@ -49,12 +49,12 @@ while [ "$#" -gt 0 ]; do
 
     case "$curr" in
     "-peer")
-        createSession peer app $PEER_COLLECTIVE/app  
-        createWindow peer api  $PEER_COLLECTIVE/api 
-        createWindow peer www $PEER_COLLECTIVE/www 
-        createWindow peer run-app $PEER_COLLECTIVE/app "npm start"
-        createWindow peer run-www $PEER_COLLECTIVE/www "npm start"
-        createWindow peer run-api $PEER_COLLECTIVE/api "docker-compose -f docker/docker-compose.yml up --build"
+        createSession peer app $PEER_COLLECTIVE/app/master  
+        createWindow peer api  $PEER_COLLECTIVE/api/master 
+        createWindow peer www $PEER_COLLECTIVE/www/master 
+        createWindow peer run-app $PEER_COLLECTIVE/app/master "npm start"
+        createWindow peer run-www $PEER_COLLECTIVE/www/master "npm start"
+        createWindow peer run-api $PEER_COLLECTIVE/api/master "docker-compose -f docker/docker-compose.yml up --build"
         ;;
     "-robotix")
         createSession robotix app  $ROBOTIX/app
