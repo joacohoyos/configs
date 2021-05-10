@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
   Plug 'itchyny/lightline.vim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'ThePrimeagen/git-worktree.nvim'
 call plug#end()
 
 syntax enable

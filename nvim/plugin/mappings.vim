@@ -3,7 +3,8 @@ lua require("clarkyex")
 let mapleader = " "
 nnoremap <C-f> :NERDTreeToggle<CR>
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>g :G<CR>
+nnoremap <Leader>gg :lua require('telescope').extensions.git_worktree.git_worktrees()<CR>
+nnoremap <Leader>gn :lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>
 nnoremap <Leader>ga :G add .<CR>
 nnoremap <Leader>gc :G commit -m ""
 nnoremap <Leader>gp :G push origin HEAD
