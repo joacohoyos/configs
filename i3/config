@@ -217,13 +217,12 @@ exec --no-startup-id xrandr --output DP-1 --left-of HDMI-1
 exec --no-startup-id chromium
 exec --no-startup-id spotify
 exec --no-startup-id slack
-exec --no-startup-id discord
-exec --no-startup-id st
+exec --no-startup-id alacritty
 
 # Asign workspaces
 assign [class="Chromium"] 2
 assign [class="Code"] 1
-assign [class="St"] 1
+assign [class="Alacritty"] 1
 assign [class="Slack"] 5
 assign [class="discord"] 5
 assign [class="Spotify"] 4
@@ -233,7 +232,7 @@ for_window [class="Spotify"] move to workspace $ws4
 # Shortcuts
 
 # Start a terminal
-bindsym $mod+Shift+t exec --no-startup-id st
+bindsym $mod+Shift+t exec --no-startup-id alacritty
 
 # Run Chromium
 bindsym $mod+Shift+b exec --no-startup-id chromium
