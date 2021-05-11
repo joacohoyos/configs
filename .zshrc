@@ -3,6 +3,8 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/joaquin/.oh-my-zsh"
+export PC_PATH="/home/joaquin/Documents/Proyectos/PeerCollective"
+export TERM=alacritty
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
