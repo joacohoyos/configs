@@ -9,6 +9,7 @@ nnoremap <Leader>ga :G add .<CR>
 nnoremap <Leader>gc :G commit -m ""
 nnoremap <Leader>gp :G push origin HEAD
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <leader>pc :lua require("telescope.builtin").find_files({prompt_title = "< VimRC >",cwd = "$HOME/configs"})<CR>
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
 nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
