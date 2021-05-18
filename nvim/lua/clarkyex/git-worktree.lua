@@ -35,21 +35,21 @@ end
 Worktree.on_tree_change(function(op, path, upstream)
     dir = path["path"]
     if op == Worktree.Operations.Switch and is_pc_api() then
-      kill_window("peer:run-api")
+      kill_window("peer-api:run")
       tree_dir = get_dir(dir, "api")
-      add_window("peer", "run-api", tree_dir, "docker-compose -f docker/docker-compose.yml up --build")
+      add_window("peer-api", "run", tree_dir, "docker-compose -f docker/docker-compose.yml up --build")
     end
 
     if op == Worktree.Operations.Switch and is_pc_app() then
       tree_dir = get_dir(dir, "app")
-      kill_window("peer:run-app")
-      add_window("peer", "run-app", tree_dir, "npm start")
+      kill_window("peer-app:run")
+      add_window("peer-app", "run", tree_dir, "npm start")
     end
 
     if op == Worktree.Operations.Switch and is_pc_www() then
       tree_dir = get_dir(dir, "www")
-      kill_window("peer:run-www")
-      add_window("peer", "run-www", tree_dir, "npm start")
+      kill_window("peer-www:run")
+      add_window("peer-www", "run", tree_dir, "npm start")
     end
 
     if op == Worktree.Operations.Create and is_pc_www() then
