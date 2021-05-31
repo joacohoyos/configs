@@ -12,6 +12,10 @@ local function is_pc_www()
     return not not (string.find(vim.loop.cwd(), vim.env.PC_PATH .. "/www",1, true))
 end
 
+local function is_pc_www()
+    return not not (string.find(vim.loop.cwd(), vim.env.PC_PATH .. "/admin",1, true))
+end
+
 local function kill_window(session_name)
     os.execute(string.format("tmux kill-window -t %s", session_name))
 end
@@ -52,6 +56,12 @@ Worktree.on_tree_change(function(op, path, upstream)
       add_window("peer-www", "run", tree_dir, "npm start")
     end
 
+    if op == Worktree.Operations.Switch and is_pc_admin() then
+      tree_dir = get_dir(dir, "admin")
+      kill_window("peer-admin:run")
+      add_window("peer-admin", "run", tree_dir, "npm start")
+    end
+
     if op == Worktree.Operations.Create and is_pc_www() then
         os.execute(string.format("cp -r $PC_PATH/www/master/node_modules $PC_PATH/www/%s", dir))
         os.execute(string.format("cp -r $PC_PATH/www/master/.env.development $PC_PATH/www/%s", dir))
@@ -65,6 +75,11 @@ Worktree.on_tree_change(function(op, path, upstream)
     if op == Worktree.Operations.Create and is_pc_api() then
         os.execute(string.format("cp -r $PC_PATH/api/master/.env $PC_PATH/api/%s", dir))
         os.execute(string.format("cp -r  $PC_PATH/api/%s/config/database.sample.yml $PC_PATH/api/%s/config/database.yml", dir, dir))
+    end
+
+    if op == Worktree.Operations.Create and is_pc_admin() then
+        os.execute(string.format("cp -r $PC_PATH/admin/master/node_modules $PC_PATH/admin/%s", dir))
+        os.execute(string.format("cp -r $PC_PATH/admin/master/.env $PC_PATH/admin/%s", dir))
     end
 
 end)
