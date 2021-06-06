@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'itchyny/lightline.vim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'ThePrimeagen/git-worktree.nvim'
+  Plug 'TovarishFin/vim-solidity'
 call plug#end()
 
 syntax enable
