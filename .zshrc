@@ -107,6 +107,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias gpl="git pull"
+alias grh="git reset --hard HEAD"
+alias grs="git reset --soft HEAD"
+alias gco="git checkout"
+alias gcm="git commit -m "
+alias gps="git push origin HEAD"
+alias gwa="git worktree add"
+alias gwr="git worktree remove"
+alias gwr="git worktree remove"
 
 export EDITOR='nvim'
 export NVM_DIR="$HOME/.nvm"
@@ -114,6 +123,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
