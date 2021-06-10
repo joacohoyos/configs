@@ -52,17 +52,19 @@ while [ "$#" -gt 0 ]; do
         createSession peer-app nvim $PEER_COLLECTIVE/app/master  
         createWindow peer-app run $PEER_COLLECTIVE/app/master "npm start"
         ;;
-    "-peer-api")
-        createSession peer-api nvim  $PEER_COLLECTIVE/api/develop 
-        createWindow peer-api run $PEER_COLLECTIVE/api/develop "docker-compose -f docker/docker-compose.yml up --build"
+    "-peer-api-node")
+        createSession peer-api nvim  $PEER_COLLECTIVE/api-node/develop 
+        createWindow peer-api run $PEER_COLLECTIVE/api-node/develop "docker-compose -f docker/docker-compose.yml up --build"
+        ;;
+    "-peer-api-rails")
+        createSession peer-api nvim  $PEER_COLLECTIVE/api-rails/develop 
+        createWindow peer-api run $PEER_COLLECTIVE/api-rails/develop "docker-compose -f docker/docker-compose.yml up --build"
         ;;
     "-peer-www")
-        createSession peer-www nvim $PEER_COLLECTIVE/www/master 
-        createWindow peer-www run $PEER_COLLECTIVE/www/master "npm start"
-        ;;
-    "-peer-admin")
-        createSession peer-admin nvim $PEER_COLLECTIVE/admin/master 
-        createWindow peer-admin run $PEER_COLLECTIVE/admin/master "docker-compose -f docker/docker-compose.yaml up --build"
+        createSession peer-www nvim-www $PEER_COLLECTIVE/www/master 
+        createWindow peer-www run-www $PEER_COLLECTIVE/www/master "npm start"
+        createWindow peer-www nvim-cms $PEER_COLLECTIVE/cms/master
+        createWindow peer-www run-cms $PEER_COLLECTIVE/cms/master "npm start"
         ;;
     "-robotix")
         createSession robotix app  $ROBOTIX/app

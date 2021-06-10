@@ -1,7 +1,11 @@
 local Worktree = require("git-worktree")
 
-local function is_pc_api()
-    return not not (string.find(vim.loop.cwd(), vim.env.PC_PATH .. "/api",1, true))
+local function is_pc_api_rails()
+    return not not (string.find(vim.loop.cwd(), vim.env.PC_PATH .. "/api-rails",1, true))
+end
+
+local function is_pc_api_node()
+    return not not (string.find(vim.loop.cwd(), vim.env.PC_PATH .. "/api-node",1, true))
 end
 
 local function is_pc_app()
@@ -12,8 +16,8 @@ local function is_pc_www()
     return not not (string.find(vim.loop.cwd(), vim.env.PC_PATH .. "/www",1, true))
 end
 
-local function is_pc_www()
-    return not not (string.find(vim.loop.cwd(), vim.env.PC_PATH .. "/admin",1, true))
+local function is_pc_cms()
+    return not not (string.find(vim.loop.cwd(), vim.env.PC_PATH .. "/cms",1, true))
 end
 
 local function kill_window(session_name)
@@ -38,12 +42,11 @@ end
 
 Worktree.on_tree_change(function(op, path, upstream)
     dir = path["path"]
-    if op == Worktree.Operations.Switch and is_pc_api() then
-      kill_window("peer-api:run")
-      tree_dir = get_dir(dir, "api")
-      add_window("peer-api", "run", tree_dir, "docker-compose -f docker/docker-compose.yml up --build")
+    if op == Worktree.Operations.Switch and is_pc_api_rails() then
+      kill_window("peer-api-rails:run")
+      tree_dir = get_dir(dir, "api-rails")
+      add_window("peer-api-rails", "run", tree_dir, "docker-compose -f docker/docker-compose.yml up --build")
     end
-
     if op == Worktree.Operations.Switch and is_pc_app() then
       tree_dir = get_dir(dir, "app")
       kill_window("peer-app:run")
@@ -52,14 +55,20 @@ Worktree.on_tree_change(function(op, path, upstream)
 
     if op == Worktree.Operations.Switch and is_pc_www() then
       tree_dir = get_dir(dir, "www")
-      kill_window("peer-www:run")
-      add_window("peer-www", "run", tree_dir, "npm start")
+      kill_window("peer-www:run-www")
+      add_window("peer-www", "run-www", tree_dir, "npm start")
     end
 
-    if op == Worktree.Operations.Switch and is_pc_admin() then
-      tree_dir = get_dir(dir, "admin")
-      kill_window("peer-admin:run")
-      add_window("peer-admin", "run", tree_dir, "npm start")
+    if op == Worktree.Operations.Switch and is_pc_cms() then
+      tree_dir = get_dir(dir, "cms")
+      kill_window("peer-www:run-cms")
+      add_window("peer-www", "run-cms", tree_dir, "npm start")
+    end
+
+    if op == Worktree.Operations.Switch and is_pc_api_node() then
+      tree_dir = get_dir(dir, "api-node")
+      kill_window("peer-api-node:run")
+      add_window("peer-api-node", "run", tree_dir, "docker-compose -f docker/docker-compose.yaml up --build")
     end
 
     if op == Worktree.Operations.Create and is_pc_www() then
@@ -72,14 +81,14 @@ Worktree.on_tree_change(function(op, path, upstream)
         os.execute(string.format("cp -r $PC_PATH/app/master/.env $PC_PATH/app/%s", dir))
     end
 
-    if op == Worktree.Operations.Create and is_pc_api() then
-        os.execute(string.format("cp -r $PC_PATH/api/master/.env $PC_PATH/api/%s", dir))
-        os.execute(string.format("cp -r  $PC_PATH/api/%s/config/database.sample.yml $PC_PATH/api/%s/config/database.yml", dir, dir))
+    if op == Worktree.Operations.Create and is_pc_api_node() then
+        os.execute(string.format("cp -r $PC_PATH/api-node/master/node_modules $PC_PATH/api-node/%s", dir))
+        os.execute(string.format("cp -r $PC_PATH/api-node/master/.env $PC_PATH/api-node/%s", dir))
     end
 
-    if op == Worktree.Operations.Create and is_pc_admin() then
-        os.execute(string.format("cp -r $PC_PATH/admin/master/node_modules $PC_PATH/admin/%s", dir))
-        os.execute(string.format("cp -r $PC_PATH/admin/master/.env $PC_PATH/admin/%s", dir))
+    if op == Worktree.Operations.Create and is_pc_api_rails() then
+        os.execute(string.format("cp -r $PC_PATH/api-rails/master/.env $PC_PATH/api-rails/%s", dir))
+        os.execute(string.format("cp -r  $PC_PATH/api-rails/%s/config/database.sample.yml $PC_PATH/api-rails/%s/config/database.yml", dir, dir))
     end
 
 end)
