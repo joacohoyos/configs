@@ -1,0 +1,3 @@
+sudo apt-get install avr-libc gcc-avr
+sudo apt-get install libhidapi-dev
+python3 -m pip install --user qmk

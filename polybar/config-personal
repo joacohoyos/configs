@@ -80,6 +80,7 @@ font-9 = "Inconsolata Nerd Font Mono:style=Medium:pixelsize=29;5"
 font-10 = "Inconsolata Nerd Font Mono:style=Medium:pixelsize=34;7"
 
 [bar/mainbar]
+monitor= eDP-1
 inherit = bar/main
 enable-ipc = true
 
