@@ -53,12 +53,12 @@ while [ "$#" -gt 0 ]; do
         createWindow peer-app run $PEER_COLLECTIVE/app/master "npm start"
         ;;
     "-peer-api-node")
-        createSession peer-api nvim  $PEER_COLLECTIVE/api-node/develop 
-        createWindow peer-api run $PEER_COLLECTIVE/api-node/develop "docker-compose -f docker/docker-compose.yml up --build"
+        createSession peer-api-node nvim  $PEER_COLLECTIVE/api-node/master 
+        createWindow peer-api-node run $PEER_COLLECTIVE/api-node/master "docker-compose -f docker/docker-compose.yaml up --build"
         ;;
     "-peer-api-rails")
-        createSession peer-api nvim  $PEER_COLLECTIVE/api-rails/develop 
-        createWindow peer-api run $PEER_COLLECTIVE/api-rails/develop "docker-compose -f docker/docker-compose.yml up --build"
+        createSession peer-api-rails nvim  $PEER_COLLECTIVE/api-rails/develop 
+        createWindow peer-api-rails run $PEER_COLLECTIVE/api-rails/develop "docker-compose -f docker/docker-compose.yml up --build"
         ;;
     "-peer-www")
         createSession peer-www nvim-www $PEER_COLLECTIVE/www/master 
