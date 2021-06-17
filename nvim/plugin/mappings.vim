@@ -8,8 +8,8 @@ nnoremap <Leader>gn :lua require('telescope').extensions.git_worktree.create_git
 nnoremap <Leader>ga :G add .<CR>
 nnoremap <Leader>gc :G commit -m ""
 nnoremap <Leader>gp :G push origin HEAD
-nnoremap <Leader>gmt :G mergetool
-nnoremap <Leader>gds :Gdiffsplit!
+nnoremap <Leader>gmt :G mergetool<CR>
+nnoremap <Leader>gds :Gdiffsplit!<CR>
 nnoremap <Leader>dgo :diffget //2<CR>
 nnoremap <Leader>dgu :diffget //3<CR>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
