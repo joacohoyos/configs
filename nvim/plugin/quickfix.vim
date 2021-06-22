@@ -1,5 +1,5 @@
-nnoremap <C-k> :cnext<CR>zz
-nnoremap <C-j> :cprev<CR>zz
+nnoremap <C-k> :cnext<CR>zz<C-w>o
+nnoremap <C-j> :cprev<CR>zz<C-w>o
 nnoremap <leader>k :lnext<CR>zz
 nnoremap <leader>j :lprev<CR>zz
 nnoremap <C-q> :call ToggleQFList(1)<CR>

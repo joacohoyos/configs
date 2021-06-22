@@ -54,7 +54,7 @@ while [ "$#" -gt 0 ]; do
         ;;
     "-peer-api-node")
         createSession peer-api-node nvim  $PEER_COLLECTIVE/api-node/master
-        createWindow peer-api-node run $PEER_COLLECTIVE/api-node/master "docker-compose -f docker/docker-compose.yaml up --build"
+        createWindow peer-api-node run $PEER_COLLECTIVE/api-node/master "docker-compose -f docker/docker-compose.yaml up"
         ;;
     "-peer-api-rails")
         createSession peer-api-rails nvim  $PEER_COLLECTIVE/api-rails/develop 
