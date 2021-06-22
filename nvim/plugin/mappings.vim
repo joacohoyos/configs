@@ -6,7 +6,9 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>gg :lua require('telescope').extensions.git_worktree.git_worktrees()<CR>
 nnoremap <Leader>gn :lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>
 nnoremap <Leader>ga :G add .<CR>
-nnoremap <Leader>gc :G commit -m ""
+" nnoremap <Leader>gc :G commit -m "vi
+nnoremap <leader>gc :lua require("harpoon.term").sendCommand(1 , require("helpers.commit").command())
+nnoremap <leader>gc :lua require("helpers.commit").command()
 nnoremap <Leader>gp :G push origin HEAD
 nnoremap <Leader>gmt :G mergetool<CR>
 nnoremap <Leader>gds :Gdiffsplit!<CR>
@@ -83,5 +85,7 @@ nnoremap <C-t> :lua require("harpoon.ui").nav_file(2)<CR>
 nnoremap <C-n> :lua require("harpoon.ui").nav_file(3)<CR>
 nnoremap <C-s> :lua require("harpoon.ui").nav_file(4)<CR>
 nnoremap <C-g> :lua require("harpoon.mark").rm_file()<CR>
+nnoremap <leader>tu :lua require("harpoon.term").gotoTerminal(1)<CR>
+nnoremap <leader>te :lua require("harpoon.term").gotoTerminal(2)<CR>
 nnoremap <leader><C-r> :lua require("harpoon.mark").shorten_list()<CR>
 nnoremap <leader><C-d> :lua require("harpoon.mark").clear_all()<CR>
