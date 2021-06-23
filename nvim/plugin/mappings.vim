@@ -7,8 +7,7 @@ nnoremap <Leader>gg :lua require('telescope').extensions.git_worktree.git_worktr
 nnoremap <Leader>gn :lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>
 nnoremap <Leader>ga :G add .<CR>
 " nnoremap <Leader>gc :G commit -m "vi
-nnoremap <leader>gc :lua require("harpoon.term").sendCommand(1 , require("helpers.commit").command())
-nnoremap <leader>gc :lua require("helpers.commit").command()
+nnoremap <leader>gc :lua require("helpers.commit").command()<CR>
 nnoremap <Leader>gp :G push origin HEAD
 nnoremap <Leader>gmt :G mergetool<CR>
 nnoremap <Leader>gds :Gdiffsplit!<CR>
