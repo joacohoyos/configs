@@ -66,10 +66,9 @@ while [ "$#" -gt 0 ]; do
         createWindow peer-www run-cms $PEER_COLLECTIVE/cms/master "npm start"
         ;;
     "-eyewear")
-        createSession eyewear-api nvim  $EYEWEAR/api/master
-        createWindow eyewear-api run $EYEWEAR/api/master "docker-compose -f docker/docker-compose.yml up"
-        createSession eyewear-app nvim  $EYEWEAR/app/master
-        createWindow eyewear-app run $EYEWEAR/api/master "npm start"
+        createSession eyewear nvim-api  $EYEWEAR/api
+        createSession eyewear nvim-app  $EYEWEAR/app
+        createWindow eyewear run $EYEWEAR/docker "./scripts/start.bash"
         ;;
     "-personal")
         createSession personal console 
