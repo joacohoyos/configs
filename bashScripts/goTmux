@@ -2,8 +2,7 @@
 #!/usr/bin/env bash
 
 PERSONAL="~"
-DIPPER="~/dipper"
-ROBOTIX="~/robotix"
+EYEWEAR="~/eyewear"
 PEER_COLLECTIVE="~/peercollective"
 
 createWindow() {
@@ -66,13 +65,11 @@ while [ "$#" -gt 0 ]; do
         createWindow peer-www nvim-cms $PEER_COLLECTIVE/cms/master
         createWindow peer-www run-cms $PEER_COLLECTIVE/cms/master "npm start"
         ;;
-    "-robotix")
-        createSession robotix app  $ROBOTIX/app
-        createWindow robotix admin  $ROBOTIX/admin
-        createWindow robotix api  $ROBOTIX/api
-        createWindow robotix run-app  $ROBOTIX/app "npm start"
-        createWindow robotix run-admin  $ROBOTIX/admin "npm start"
-        createWindow robotix run-api  $ROBOTIX/api "npm run start:dev"
+    "-eyewear")
+        createSession eyewear-api nvim  $EYEWEAR/api/master
+        createWindow eyewear-api run $EYEWEAR/api/master "docker-compose -f docker/docker-compose.yml up"
+        createSession eyewear-app nvim  $EYEWEAR/app/master
+        createWindow eyewear-app run $EYEWEAR/api/master "npm start"
         ;;
     "-personal")
         createSession personal console 

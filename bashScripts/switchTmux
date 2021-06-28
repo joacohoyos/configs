@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+keymap=$1
+currentSession=$(tmux display-message -p '#S')
+    case "$keymap" in
+    "G")
+      case "$currentSession" in
+        "peer"*)
+          tmux switch -t peer-api-node
+          ;;
+        "eyewear"*)
+          tmux switch -t eyewear-api
+          ;;
+        *) echo "Unavailable command... $curr"
+      esac
+      ;;
+    "C")
+      case "$currentSession" in
+        "peer"*)
+          tmux switch -t peer-app
+          ;;
+        "eyewear"*)
+          tmux switch -t eyewear-app
+          ;;
+        *) echo "Nothing fonud"
+      esac
+        ;;
+    "R")
+      case "$currentSession" in
+        "peer"*)
+          tmux switch -t peer-www
+          ;;
+        *) echo "Nothing fonud"
+      esac
+       ;;
+    "L")
+      case "$currentSession" in
+        "peer"*)
+          tmux switch -t peer-api-rails
+          ;;
+        *) echo "Nothing fonud"
+      esac
+        ;;
+    "D")
+      case "$currentSession" in
+        "peer"*)
+        tmux neww -t peer-api-node: -n db -d && tmux send-keys -t peer-api-node:db "docker exec -it psql_peer_collective psql -U postgres -d \"peer-collective-db\"" C-m
+          ;;
+        "eyewear"*)
+          # tmux neww -t peer-api-node: -n db -d && tmux send-keys -t peer-api-node:db "docker exec -it psql_peer_collective psql -U postgres -d \"peer-collective-db\"" C-m
+          echo "eyeweaor"
+          ;;
+        *) echo "Nothing fonud"
+      esac
+        ;;
+    "S")
+      case "$currentSession" in
+        "peer"*)
+          tmux neww -t peer-api-rails: -n rails -d && tmux send-keys -t peer-api:rails "docker exec -it web_peer_collective bash" C-m
+          ;;
+        "eyewear"*)
+          echo "eyeweaor"
+          # tmux neww -t peer-api-rails: -n rails -d && tmux send-keys -t peer-api:rails "docker exec -it web_peer_collective bash" C-m
+          ;;
+        *) echo "Nothing fonud"
+      esac
+        ;;
+    *) echo "Unavailable command... $curr"
+    esac
