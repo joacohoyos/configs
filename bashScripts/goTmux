@@ -67,7 +67,7 @@ while [ "$#" -gt 0 ]; do
         ;;
     "-eyewear")
         createSession eyewear nvim-api  $EYEWEAR/api
-        createSession eyewear nvim-app  $EYEWEAR/app
+        createWindow eyewear nvim-app  $EYEWEAR/app
         createWindow eyewear run $EYEWEAR/docker "./scripts/start.bash"
         ;;
     "-personal")
