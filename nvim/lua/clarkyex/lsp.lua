@@ -61,32 +61,3 @@ lsp.jsonls.setup {
     }
   }
 }
-
-local eslint = {
-  lintCommand = "./node_modules/.bin/eslint -f unix --stdin --stdin-filename ${INPUT}",
-  lintStdin = true,
-  lintFormats = { "%f:%l:%c: %m" },
-  lintIgnoreExitCode = true,
-  formatCommand = "./node_modules/.bin/eslint --fix-to-stdout --stdin --stdin-filename=${INPUT}",
-  formatStdin = true,
-}
-
-lsp.efm.setup({
-  filetypes = {
-    "typescript","javascript","typescriptreact","javascriptreact"
-  },
-  on_attach = custom_on_attach,
-  root_dir = function(fname)
-    return lsp.util.find_git_ancestor(fname) or vim.loop.os_homedir()
-  end,
-  init_options = { documentFormatting = true },
-  settings = {
-    rootMarkers = { ".git/" },
-    languages = {
-      typescript = { eslint },
-      javascript = { eslint },
-      javascriptreact = { eslint },
-      typescriptreact = { eslint },
-    },
-  },
-})
