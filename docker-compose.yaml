@@ -1,0 +1,121 @@
+version: '3.7'
+
+services:
+  pair-eyewear-traefik:
+    image: traefik:v2.3
+    container_name: pair-eyewear-traefik-proxy
+    command:
+      - --api.insecure=true
+      - --providers.docker=true
+      - --providers.docker.network=pair_eyewear_web
+      - --entrypoints.web.address=:80
+      - --entrypoints.web.http.redirections.entryPoint.to=websecure
+      - --entrypoints.web.http.redirections.entryPoint.scheme=https
+      - --entrypoints.web.http.redirections.entrypoint.permanent=true
+      - --entrypoints.websecure.address=:443
+      - --providers.file.directory=/etc/traefik/dynamic_conf
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    labels:
+      - traefik.http.routers.http-catchall.rule=hostregexp(`{host:.+}`)
+      - traefik.http.routers.http-catchall.entrypoints=websecure
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/log/traefik/:/var/log/traefik/
+      - ./traefik/certs:/etc/traefik/certs
+      - ./traefik/traefik.yml:/etc/traefik/dynamic_conf/conf.yml:ro
+    networks:
+      pair_eyewear_web:
+        aliases:
+          - app.eyewear.local.com
+          - api.eyewear.local.com
+
+  pair-eyewear-app:
+    build:
+      context: ../app/${APP}
+      dockerfile: docker/Dockerfile
+      target: local
+      args:
+        user_id: ${USER_ID}
+        group_id: ${GROUP_ID}
+    container_name: pair-eyewear-app
+    env_file: ../app/${APP}/.env
+    volumes:
+      - ../app/${APP}:/app
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.pair-eyewear-app.rule=Host(`app.eyewear.local.com`)
+      - traefik.http.routers.pair-eyewear-app.entrypoints=websecure
+      - traefik.http.routers.pair-eyewear-app.service=pair-eyewear-app
+      - traefik.http.routers.pair-eyewear-app.tls=true
+      - traefik.http.services.pair-eyewear-app.loadbalancer.server.port=3000
+    depends_on:
+      - pair-eyewear-traefik
+    networks:
+      - pair_eyewear_web
+
+  pair-eyewear-api:
+    build:
+      context: ../api/${API}
+      dockerfile: docker/Dockerfile
+      target: local
+      args:
+        user_id: ${USER_ID}
+        group_id: ${GROUP_ID}
+    container_name: pair-eyewear-api
+    env_file: ../api/${API}/.env
+    volumes:
+      - ../api/${API}:/app
+      - ../api/${API}/uploads:/app/uploads
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.pair-eyewear-api.rule=Host(`api.eyewear.local.com`)
+      - traefik.http.routers.pair-eyewear-api.entrypoints=websecure
+      - traefik.http.routers.pair-eyewear-api.tls=true
+      - traefik.http.services.pair-eyewear-api.loadbalancer.server.port=3001
+    depends_on:
+      - pair-eyewear-traefik
+      - pair-eyewear-db
+    networks:
+      - pair_eyewear_web
+      - internal
+
+  pair-eyewear-db:
+    image: mongo
+    container_name: pair-eyewear-db
+    environment:
+      - MONGO_INITDB_DATABASE=pair-eyewear
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    volumes:
+      - mongodb:/data/db
+    # command: mysqld --sql_mode=""
+    restart: always
+    # ports:
+    #   - 3306:3306
+    #
+    labels:
+      - traefik.enable=false
+    networks:
+      - internal
+  
+  db-temp:
+    image: mongo
+    container_name: db-temp
+    command: mongo -u admin -p admin --host pair-eyewear-db --eval  "db.getSiblingDB('pair-eyewear').createUser({user:'local', pwd:'local', roles:[{role:'readWrite',db:'pair-eyewear'}]});"
+    depends_on:
+      - pair-eyewear-db
+    networks:
+      - internal
+
+volumes:
+  mongodb:
+
+networks:
+  internal:
+    driver: bridge
+    external: false
+  pair_eyewear_web:
+    external: true

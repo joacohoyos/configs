@@ -1,0 +1,28 @@
+#!/bin/bash
+
+originaldir="$PWD"
+reldir=$(dirname "$0")
+cd "$reldir"
+
+DOCKER_FOLDER="$PWD"/..
+cd "$originaldir"
+
+set -e
+
+while getopts s:o:f: option
+do
+case "${option}"
+in
+s) API=${OPTARG};;
+f) APP=${OPTARG};;
+o) OPTIONS=${OPTARG};;
+esac
+done
+
+
+# echo 
+if [ -z "${OPTIONS}" ]; then
+  API="${API}" APP="${APP}" USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f "$DOCKER_FOLDER"/docker-compose.yaml -p pair-eyewear up
+else
+  API="${API}" APP="${APP}" USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f "$DOCKER_FOLDER"/docker-compose.yaml -p pair-eyewear up "${OPTIONS}"
+fi
