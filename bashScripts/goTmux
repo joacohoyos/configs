@@ -66,12 +66,12 @@ while [ "$#" -gt 0 ]; do
         createWindow peer-www run-cms $PEER_COLLECTIVE/cms/master "npm start"
         ;;
     "-eyewear")
-        createSession eyewear nvim-api  $EYEWEAR/api
-        createWindow eyewear nvim-app  $EYEWEAR/app
-        createWindow eyewear run $EYEWEAR/docker "./scripts/start.bash"
+        createSession eyewear nvim-api  $EYEWEAR/api/master
+        createWindow eyewear nvim-app  $EYEWEAR/app/master
+        createWindow eyewear run $EYEWEAR/docker "./scripts/start.bash.clark -s master -f master"
         ;;
     "-personal")
-        createSession personal console 
+        createSession personal console $PERSONAL 
         ;;
     *) echo "Unavailable command... $curr"
     esac

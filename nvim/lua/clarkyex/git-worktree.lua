@@ -20,6 +20,14 @@ local function is_pc_cms()
     return not not (string.find(vim.loop.cwd(), vim.env.PC_PATH .. "/cms",1, true))
 end
 
+local function is_pe_api()
+    return not not (string.find(vim.loop.cwd(), vim.env.PE_PATH .. "/api",1, true))
+end
+
+local function is_pe_app()
+    return not not (string.find(vim.loop.cwd(), vim.env.PE_PATH .. "/app",1, true))
+end
+
 local function kill_window(session_name)
     os.execute(string.format("tmux kill-window -t %s", session_name))
 end
@@ -38,6 +46,23 @@ local function get_dir(path, project)
      return path
   end
   return vim.env.PC_PATH .. "/" .. project .. "/" .. path
+end
+
+local function get_branch(path)
+  if is_absolute_path(path) then
+    str = path .. "/"
+    for a in str:gmatch("(.-)/")  do
+      branch = a
+    end
+    return branch
+  end 
+  return path
+end
+local function get_dir_pe(path, project)
+  if is_absolute_path(path) then
+     return path
+  end
+  return "/home/joaquin/Documents/Proyectos/PairEyewear/" .. project .. "/" .. path
 end
 
 Worktree.on_tree_change(function(op, path, upstream)
@@ -71,6 +96,18 @@ Worktree.on_tree_change(function(op, path, upstream)
       add_window("peer-api-node", "run", tree_dir, "docker-compose -f docker/docker-compose.yaml up --build")
     end
 
+    if op == Worktree.Operations.Switch and is_pe_api() then
+      kill_window("eyewear:run")
+      vim.g.pe_api_branch = get_branch(dir) 
+      add_window("eyewear", "run", vim.env.PE_PATH .. "/docker", string.format("./scripts/start.bash.clark -s %s -f %s", vim.g.pe_api_branch, vim.g.pe_app_branch))
+    end
+
+    if op == Worktree.Operations.Switch and is_pe_app() then
+      kill_window("eyewear:run")
+      vim.g.pe_app_branch = get_branch(dir) 
+      add_window("eyewear", "run", vim.env.PE_PATH .. "/docker", string.format("./scripts/start.bash.clark -s %s -f %s", vim.g.pe_api_branch, vim.g.pe_app_branch))
+    end
+
     if op == Worktree.Operations.Create and is_pc_www() then
         os.execute(string.format("cp -r $PC_PATH/www/master/node_modules $PC_PATH/www/%s", dir))
         os.execute(string.format("cp -r $PC_PATH/www/master/.env.development $PC_PATH/www/%s", dir))
@@ -89,6 +126,18 @@ Worktree.on_tree_change(function(op, path, upstream)
     if op == Worktree.Operations.Create and is_pc_api_rails() then
         os.execute(string.format("cp -r $PC_PATH/api-rails/master/.env $PC_PATH/api-rails/%s", dir))
         os.execute(string.format("cp -r  $PC_PATH/api-rails/%s/config/database.sample.yml $PC_PATH/api-rails/%s/config/database.yml", dir, dir))
+    end
+
+    if op == Worktree.Operations.Create and is_pe_api() then
+        os.execute(string.format("cp -r $PE_PATH/api/master/docker/local $PE_PATH/api/%s/docker", dir))
+        os.execute(string.format("cp -r $PE_PATH/api/master/node_modules $PE_PATH/api/%s", dir))
+        os.execute(string.format("cp -r $PE_PATH/api/master/.env $PE_PATH/api/%s", dir))
+    end
+
+    if op == Worktree.Operations.Create and is_pe_app() then
+        os.execute(string.format("cp -r $PE_PATH/app/master/docker/local $PE_PATH/app/%s/docker", dir))
+        os.execute(string.format("cp -r $PE_PATH/app/master/node_modules $PE_PATH/app/%s", dir))
+        os.execute(string.format("cp -r $PE_PATH/app/master/.env $PE_PATH/app/%s", dir))
     end
 
 end)

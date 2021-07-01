@@ -49,6 +49,9 @@ highlight SignColumn guibg=NONE ctermbg=NONE
 
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true, }, }
 
+let g:pe_api_branch = 'master'
+let g:pe_app_branch = 'master'
+
 let g:rainbow_active = 1
 let g:lightline = {
       \ 'colorscheme': 'wombat',
