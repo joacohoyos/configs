@@ -211,10 +211,11 @@ exec --no-startup-id export PATH=$PATH:/home/joaquin/.config/dmenu
 exec_always --no-startup-id amixer set "Headphone" playback 100% unmute
 
 #Monitor setup
+exec --no-startup-id xrandr --output HDMI-1 --auto
 exec --no-startup-id xrandr --output DP-1 --left-of HDMI-1
 
 # Layouts
-exec --no-startup-id chromium
+exec --no-startup-id google-chrome --enable-features=WebUIDarkMode --force-dark-mode 
 exec --no-startup-id spotify
 exec --no-startup-id slack
 exec --no-startup-id alacritty
@@ -224,7 +225,7 @@ exec --no-startup-id alacritty
 exec_always --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1
 
 # Asign workspaces
-assign [class="Chromium"] 2
+assign [class="Google-chrome"] 2
 assign [class="Code"] 1
 assign [class="Alacritty"] 1
 assign [class="Slack"] 5
@@ -239,7 +240,7 @@ for_window [class="Spotify"] move to workspace $ws4
 bindsym $mod+Shift+t exec --no-startup-id alacritty
 
 # Run Chromium
-bindsym $mod+Shift+b exec --no-startup-id chromium
+bindsym $mod+Shift+b exec --no-startup-id google-chrome --enable-features=WebUIDarkMode --force-dark-mode 
 
 # Run Discord
 bindsym $mod+Shift+d exec --no-startup-id discord
