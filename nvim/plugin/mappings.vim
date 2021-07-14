@@ -8,6 +8,8 @@ nnoremap <Leader>gn :lua require('telescope').extensions.git_worktree.create_git
 nnoremap <Leader>ga :G add .<CR>
 " nnoremap <Leader>gc :G commit -m "vi
 nnoremap <leader>gc :lua require("helpers.commit").command()<CR>
+nnoremap <leader>rt :lua require("helpers.test").command(false)<CR>
+nnoremap <leader>rat :lua require("helpers.test").command(true)<CR>
 nnoremap <Leader>gp :G push origin HEAD
 nnoremap <Leader>gmt :G mergetool<CR>
 nnoremap <Leader>gds :Gdiffsplit!<CR>
