@@ -130,12 +130,14 @@ Worktree.on_tree_change(function(op, path, upstream)
 
     if op == Worktree.Operations.Create and is_pe_api() then
         os.execute(string.format("cp -r $PE_PATH/api/master/docker/local $PE_PATH/api/%s/docker", dir))
+        os.execute(string.format("cp -r $PE_PATH/api/master/.husky $PE_PATH/api/%s", dir))
         os.execute(string.format("cp -r $PE_PATH/api/master/node_modules $PE_PATH/api/%s", dir))
         os.execute(string.format("cp -r $PE_PATH/api/master/.env $PE_PATH/api/%s", dir))
     end
 
     if op == Worktree.Operations.Create and is_pe_app() then
         os.execute(string.format("cp -r $PE_PATH/app/master/docker/local $PE_PATH/app/%s/docker", dir))
+        os.execute(string.format("cp -r $PE_PATH/app/master/.husky $PE_PATH/app/%s", dir))
         os.execute(string.format("cp -r $PE_PATH/app/master/node_modules $PE_PATH/app/%s", dir))
         os.execute(string.format("cp -r $PE_PATH/app/master/.env $PE_PATH/app/%s", dir))
     end
