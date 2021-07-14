@@ -1,5 +1,5 @@
 set mouse=a
-set colorcolumn=81
+set colorcolumn=101
 set numberwidth=1
 set clipboard+=unnamedplus
 set hidden
