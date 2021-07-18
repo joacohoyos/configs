@@ -7,7 +7,5 @@ nnoremap <C-s> :lua require("harpoon.ui").nav_file(4)<CR>
 nnoremap <C-g> :lua require("harpoon.mark").rm_file()<CR>
 nnoremap <leader>tu :lua require("harpoon.term").gotoTerminal(1)<CR>
 nnoremap <leader>te :lua require("harpoon.term").gotoTerminal(2)<CR>
-nnoremap <leader>cu :lua require("harpoon.term").sendCommand(1, 1)<CR>
-nnoremap <leader>rt :lua require("harpoon.term").sendCommand(2, "npm run test -- -u --coverage " .. expand("%:p:h"))<CR>
 nnoremap <leader><C-r> :lua require("harpoon.mark").shorten_list()<CR>
 nnoremap <leader><C-d> :lua require("harpoon.mark").clear_all()<CR>

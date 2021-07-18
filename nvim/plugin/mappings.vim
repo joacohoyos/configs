@@ -32,7 +32,6 @@ nnoremap <Leader>o o<ESC>
 nnoremap <Leader>O O<ESC>
 inoremap ,, <ESC>A,<ESC>
 inoremap ;; <ESC>A;<ESC>
-nnoremap <CR> i<CR><ESC> 
 vnoremap <Leader>dd "_d
 nnoremap <Leader>dd "_dd
 vnoremap <Leader>pp "_dP
@@ -66,27 +65,3 @@ inoremap <C-h> <Left>
 tnoremap <Esc> <C-\><C-n>
 nnoremap Q <nop>
 
-" LSP mapings (need to figure out why lsp.vim is not working)
-nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
-nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
-nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
-nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
-nnoremap <leader>vrn :lua vim.lsp.buf.rename()<CR>
-nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
-nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
-nnoremap <leader>vsd :lua vim.lsp.util.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>
-nnoremap <leader>vn :lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <leader>vll :lua vim.lsp.diagnostic.set_loclist()<CR>
-
-" Harpoon! mapings (need to figure out why harpoon.vim is not working)
-nnoremap <C-m> :lua require("harpoon.mark").add_file()<CR>
-nnoremap <C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
-nnoremap <C-h> :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <C-t> :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <C-n> :lua require("harpoon.ui").nav_file(3)<CR>
-nnoremap <C-s> :lua require("harpoon.ui").nav_file(4)<CR>
-nnoremap <C-g> :lua require("harpoon.mark").rm_file()<CR>
-nnoremap <leader>tu :lua require("harpoon.term").gotoTerminal(1)<CR>
-nnoremap <leader>te :lua require("harpoon.term").gotoTerminal(2)<CR>
-nnoremap <leader><C-r> :lua require("harpoon.mark").shorten_list()<CR>
-nnoremap <leader><C-d> :lua require("harpoon.mark").clear_all()<CR>
