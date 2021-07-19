@@ -239,7 +239,7 @@ for_window [class="Spotify"] move to workspace $ws4
 # Start a terminal
 bindsym $mod+Shift+t exec --no-startup-id alacritty
 
-# Run Chromium
+# Run Chrome
 bindsym $mod+Shift+b exec --no-startup-id google-chrome --enable-features=WebUIDarkMode --force-dark-mode 
 
 # Run Discord

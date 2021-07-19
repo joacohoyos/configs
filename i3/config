@@ -213,13 +213,13 @@ exec_always --no-startup-id amixer set "Headphone" playback 100% unmute
 exec --no-startup-id xrandr --output DP-1 --left-of HDMI-1
 
 # Layouts
-exec --no-startup-id chromium
+exec --no-startup-id google-chrome --enable-features=WebUIDarkMode --force-dark-mode 
 exec --no-startup-id spotify
 exec --no-startup-id slack
 exec --no-startup-id alacritty
 
 # Asign workspaces
-assign [class="Chromium"] 2
+assign [class="Google-chrome"] 2
 assign [class="Code"] 1
 assign [class="Alacritty"] 1
 assign [class="Slack"] 5
@@ -234,7 +234,7 @@ for_window [class="Spotify"] move to workspace $ws4
 bindsym $mod+Shift+t exec --no-startup-id alacritty
 
 # Run Chromium
-bindsym $mod+Shift+n exec --no-startup-id chromium
+bindsym $mod+Shift+b exec --no-startup-id google-chrome --enable-features=WebUIDarkMode --force-dark-mode 
 
 # Run Flameshot
 bindsym $mod+Shift+f exec --no-startup-id flameshot gui

@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged') 
   Plug 'morhetz/gruvbox'
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-fugitive'
@@ -27,59 +27,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'TovarishFin/vim-solidity'
 call plug#end()
 
-syntax enable
-set nocompatible
-set t_Co=256
-" set termguicolors
-colorscheme gruvbox
-let g:gruvbox_contrast_dark = 'hard'
-
-" if exists('+termguicolors')
-"     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-" endif
-
-" let g:gruvbox_invert_selection='0'
-highlight nonText guibg=NONE ctermbg=NONE
-highlight Normal guibg=NONE ctermbg=NONE
-highlight EndOfBuffer guibg=NONE ctermbg=NONE
-highlight CursorLineNr term=bold ctermfg=Yellow ctermbg=NONE guibg=NONE
-highlight LineNr guibg=NONE ctermbg=NONE ctermfg=Yellow
-highlight SignColumn guibg=NONE ctermbg=NONE
-
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true, }, }
-
 let g:pe_api_branch = 'develop'
 let g:pe_app_branch = 'develop'
 
-let g:rainbow_active = 1
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-      \   'right': [['lineinfo']]
-      \ },
-      \ 'component': {
-      \   'lineinfo': '%3l:%-2v%<',
-      \   'filename': "%{expand('%:p:h:t')}/%t",
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead',
-      \ },
-      \ 'mode_map': {
-      \   'n' : 'N',
-      \   'i' : 'I',
-      \   'R' : 'R',
-      \   'v' : 'V',
-      \   'V' : 'VL',
-      \   "\<C-v>": 'VB',
-      \   'c' : 'C',
-      \   's' : 'S',
-      \   'S' : 'SL',
-      \   "\<C-s>": 'SB',
-      \   't': 'T',
-      \ },
-      \ }
 autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
 lua require("clarkyex")
