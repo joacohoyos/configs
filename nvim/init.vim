@@ -6,13 +6,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'edkolev/tmuxline.vim'
   Plug 'alvan/vim-closetag'
-  Plug 'tpope/vim-rails'
-  Plug 'ThePrimeagen/vim-be-good'
   Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/nvim-compe'
-  Plug 'hrsh7th/vim-vsnip'
-  Plug 'hrsh7th/vim-vsnip-integ'
-  Plug 'vim-ruby/vim-ruby'
   Plug 'mhartington/formatter.nvim'
   Plug 'frazrepo/vim-rainbow'
   Plug 'szw/vim-maximizer'
@@ -24,7 +19,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'itchyny/lightline.vim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'ThePrimeagen/git-worktree.nvim'
-  Plug 'TovarishFin/vim-solidity'
+  Plug 'puremourning/vimspector'
+  " Plug 'tpope/vim-rails'
+  " Plug 'vim-ruby/vim-ruby'
 call plug#end()
 
 let g:pe_api_branch = 'develop'
