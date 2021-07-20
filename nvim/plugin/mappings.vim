@@ -65,6 +65,7 @@ inoremap <C-c> <ESC>
 tnoremap <Esc> <C-\><C-n>
 " for when wanting to move one char after autopairing bracket
 inoremap <C-h> <Left>
+inoremap <C-t> <Right>
 " Remove Q mapping
 nnoremap Q <nop>
 

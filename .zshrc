@@ -117,6 +117,8 @@ alias gps="git push origin HEAD"
 alias gwa="git worktree add"
 alias gwr="git worktree remove"
 alias gwr="git worktree remove"
+alias e="nvim ."
+alias ep="nvim"
 
 export EDITOR='nvim'
 export NVM_DIR="$HOME/.nvm"
