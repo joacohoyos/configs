@@ -19,6 +19,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'itchyny/lightline.vim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'ThePrimeagen/git-worktree.nvim'
+  Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'kyazdani42/nvim-web-devicons'
   " Plug 'tpope/vim-rails'
   " Plug 'vim-ruby/vim-ruby'
 call plug#end()
@@ -27,4 +29,10 @@ let g:pe_api_branch = 'develop'
 let g:pe_app_branch = 'develop'
 
 autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
+
+let g:nvim_tree_auto_close = 1 
+let g:nvim_tree_update_cwd = 1
+let g:nvim_tree_lsp_diagnostics = 1
+
+highlight NvimTreeFolderIcon guibg=blue
 lua require("clarkyex")

@@ -1,7 +1,7 @@
 lua require("clarkyex")
 
 let mapleader = " "
-nnoremap <C-f> :NERDTreeToggle<CR>
+nnoremap <C-f> :NvimTreeToggle<CR>
 " Worktree
 nnoremap <Leader>gg :lua require('telescope').extensions.git_worktree.git_worktrees()<CR>
 nnoremap <Leader>gn :lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>

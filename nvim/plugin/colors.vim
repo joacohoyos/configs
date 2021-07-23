@@ -1,5 +1,6 @@
 syntax enable
 colorscheme gruvbox
+set termguicolors
 let g:gruvbox_contrast_dark = 'hard'
 
 highlight nonText guibg=NONE ctermbg=NONE
