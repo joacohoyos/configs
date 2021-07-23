@@ -9,6 +9,7 @@ highlight EndOfBuffer guibg=NONE ctermbg=NONE
 highlight CursorLineNr term=bold ctermfg=Yellow ctermbg=NONE guibg=NONE
 highlight LineNr guibg=NONE ctermbg=NONE ctermfg=Yellow
 highlight SignColumn guibg=NONE ctermbg=NONE
+set background=dark
 
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true, }, }
 
