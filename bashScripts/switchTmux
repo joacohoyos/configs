@@ -46,7 +46,7 @@ currentSession=$(tmux display-message -p '#S')
         tmux neww -t peer-api-node: -n db -d && tmux send-keys -t peer-api-node:db "docker exec -it psql_peer_collective psql -U postgres -d \"peer-collective-db\"" C-m
           ;;
         "eyewear"*)
-          tmux neww -t eyewear: -n db -d && tmux send-keys -t eyewear:db "docker exec -it pair-eyewear-db mongo -u admin -p" C-m
+          tmux neww -t eyewear: -n db -d && tmux send-keys -t eyewear:db "docker exec -it pair-eyewear-db mongo -u admin -p admin" C-m
           ;;
         *) echo "Nothing fonud"
       esac
