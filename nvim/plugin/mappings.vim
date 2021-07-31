@@ -23,15 +23,9 @@ nnoremap <leader>pc :lua require("telescope.builtin").find_files({prompt_title =
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
 nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
-" Indenting
-nnoremap <Leader>, <<
-nnoremap <Leader>. >>
 "New Line
 nnoremap <Leader>o o<ESC>
 nnoremap <Leader>O O<ESC>
-" Trailing colon
-inoremap ,, <ESC>A,<ESC>
-inoremap ;; <ESC>A;<ESC>
 " Deletting and pasting without overwriting clipboard
 vnoremap <Leader>dd "_d
 nnoremap <Leader>dd "_dd
@@ -68,4 +62,27 @@ inoremap <C-h> <Left>
 inoremap <C-t> <Right>
 " Remove Q mapping
 nnoremap Q <nop>
-
+" Yank to end of line
+nnoremap Y y$
+" Keeping it centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+" Undo breakpoints
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap ? ?<C-g>u
+inoremap ; ;<C-g>u
+inoremap { {<C-g>u
+inoremap [ [<C-g>u
+inoremap } }<C-g>u
+inoremap ] ]<C-g>u
+inoremap : :<C-g>u
+inoremap = =<C-g>u
+" Moving lines up and down
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-j> <ESC>:m .+1<CR>==i
+inoremap <C-k> <ESC>:m .-2<CR>==i
+nnoremap <leader>k :m .-2<CR>==
+nnoremap <leader>j :m .+1<CR>==
