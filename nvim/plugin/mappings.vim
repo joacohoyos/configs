@@ -5,9 +5,6 @@ nnoremap <C-f> :NvimTreeToggle<CR>
 " Worktree
 nnoremap <Leader>gg :lua require('telescope').extensions.git_worktree.git_worktrees()<CR>
 nnoremap <Leader>gn :lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>
-" Testing
-nnoremap <leader>rt :lua require("helpers.test").command(false)<CR>
-nnoremap <leader>rat :lua require("helpers.test").command(true)<CR>
 " Git
 nnoremap <leader>gc :lua require("helpers.commit").command()<CR>
 nnoremap <Leader>ga :G add .<CR>
