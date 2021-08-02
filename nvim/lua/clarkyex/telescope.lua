@@ -30,7 +30,7 @@ require("telescope").load_extension("git_worktree")
 
 local M = {}
 M.search_tests = function() 
-    require("telescope.builtin").find_files({ find_command = {"rg", "-l", '(.*)(spec|test)'} })
+    require("telescope.builtin").find_files({ find_command = {'ag', '-g', "(.*)\\/__tests__\\/(.*)(test|spec)(.*)(tsx|jsx|ts|js)$"} })
 end
 return M
 
