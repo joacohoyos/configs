@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged') 
-  Plug 'morhetz/gruvbox'
+  " Plug 'morhetz/gruvbox'
+  Plug 'gruvbox-community/gruvbox'
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'

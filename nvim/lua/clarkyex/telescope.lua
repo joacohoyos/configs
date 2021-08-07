@@ -32,5 +32,10 @@ local M = {}
 M.search_tests = function() 
     require("telescope.builtin").find_files({ find_command = {'ag', '-g', "(.*)\\/__tests__\\/(.*)(test|spec)(.*)(tsx|jsx|ts|js)$"} })
 end
+
+M.live_grep = function() 
+    require("telescope.builtin").live_grep({ search= vim.fn.input("Grep For > ") })
+end
+
 return M
 

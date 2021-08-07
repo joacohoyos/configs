@@ -15,7 +15,8 @@ nnoremap <Leader>gds :Gdiffsplit!<CR>
 nnoremap <Leader>dgo :diffget //2<CR>
 nnoremap <Leader>dgu :diffget //3<CR>
 " Telescope
-nnoremap <leader>ps :lua require('telescope.builtin').live_grep({ search = vim.fn.input("Grep For > ")})<CR>
+" nnoremap <leader>ps :lua require('telescope.builtin').live_grep({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <leader>ps :lua require("clarkyex.telescope").live_grep()<CR>
 nnoremap <leader>pc :lua require("telescope.builtin").find_files({prompt_title = "< VimRC >",cwd = "$HOME/configs"})<CR>
 nnoremap <leader>pt :lua require("clarkyex.telescope").search_tests()<CR>
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
