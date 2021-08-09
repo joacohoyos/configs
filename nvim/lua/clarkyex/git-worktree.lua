@@ -67,6 +67,9 @@ end
 
 Worktree.on_tree_change(function(op, path, upstream)
     dir = path["path"]
+    if op == Worktree.Operations.Switch then
+      require("harpoon.term").clear_all()
+    end
     if op == Worktree.Operations.Switch and is_pc_api_rails() then
       kill_window("peer-api-rails:run")
       tree_dir = get_dir(dir, "api-rails")
