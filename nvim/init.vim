@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'joacohoyos/vim-test'
+  Plug 'samoshkin/vim-mergetool'
   " Plug 'tpope/vim-rails'
   " Plug 'vim-ruby/vim-ruby'
 call plug#end()
@@ -36,5 +37,9 @@ let g:nvim_tree_auto_close = 1
 let g:nvim_tree_update_cwd = 1
 let g:nvim_tree_lsp_diagnostics = 1
 
+let g:mergetool_layout = 'mr'
+let g:mergetool_prefer_revision = 'local'
+
 highlight NvimTreeFolderIcon guibg=blue
 lua require("clarkyex")
+
