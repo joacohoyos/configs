@@ -11,9 +11,9 @@ nnoremap <Leader>ga :G add .<CR>
 nnoremap <Leader>gp :G push origin HEAD
 " Git merge
 nnoremap <Leader>gm :G mergetool<CR>
-nnoremap <Leader>mt :MergetoolToggle<CR>
-nnoremap <Leader>dg :diffget<CR>
-nnoremap <Leader>dp :diffput<CR>
+nnoremap <Leader>mt :Gdiffsplit!<CR>
+nnoremap <Leader>dg :diffget //2<CR>
+nnoremap <Leader>dp :diffget //3<CR>
 " Telescope
 " nnoremap <leader>ps :lua require('telescope.builtin').live_grep({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <leader>ps :lua require("clarkyex.telescope").live_grep()<CR>
