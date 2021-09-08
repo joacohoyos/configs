@@ -227,6 +227,7 @@ assign [class="discord"] 5
 assign [class="Spotify"] 4
 assign [class="^Spotify*"] 4
 for_window [class="Spotify"] move to workspace $ws4
+for_window [class="Google-chrome" window_role="pop-up"] floating enable
 
 # Shortcuts
 

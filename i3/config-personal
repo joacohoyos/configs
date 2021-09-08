@@ -233,6 +233,7 @@ assign [class="discord"] 5
 assign [class="Spotify"] 4
 assign [class="^Spotify*"] 4
 for_window [class="Spotify"] move to workspace $ws4
+for_window [class="Google-chrome" window_role="pop-up"] floating enable
 
 # Shortcuts
 
@@ -280,3 +281,4 @@ bindsym $mod+p move workspace to output right
 
 bindcode Mod1+23 workspace next
 bindcode Mod1+Shift+23 workspace prev
+
