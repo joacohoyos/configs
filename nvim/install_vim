@@ -3,6 +3,7 @@ mkdir -p ~/.config/nvim/plugin
 mkdir -p ~/.config/nvim/after/plugin
 mkdir -p ~/.config/nvim/lua
 mkdir -p ~/.config/nvim/lua/clarkyex
+mkdir -p ~/.config/nvim/lua/helpers
 
 # link wholesale
 for f in `find . -regex ".*\.vim$\|.*\.lua$"`; do

@@ -74,7 +74,9 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #You don't have /home/joaquin/.gem/ruby/3.0.0/bin
-export PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:/home/joaquin/.gem/ruby/3.0.0/bin:/home/joaquin/configs/bashScripts:$PATH
+export GOPATH=$HOME/go/src
+export GOROOT=$HOME/go
+export PATH=$HOME/bin:$GOROOT/bin:/usr/local/bin:/sbin:/usr/sbin:/home/joaquin/.gem/ruby/3.0.0/bin:/home/joaquin/configs/bashScripts:$PATH
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
@@ -124,7 +126,7 @@ alias gpo="git pull origin"
 alias gpod="git pull origin develop"
 
 export EDITOR='nvim'
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 

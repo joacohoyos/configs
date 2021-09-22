@@ -142,8 +142,6 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -226,10 +224,8 @@ exec_always --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "libinput
 
 # Asign workspaces
 assign [class="Google-chrome"] 2
-assign [class="Code"] 1
 assign [class="Alacritty"] 1
 assign [class="Slack"] 5
-assign [class="discord"] 5
 assign [class="Spotify"] 4
 assign [class="^Spotify*"] 4
 for_window [class="Spotify"] move to workspace $ws4
@@ -240,23 +236,21 @@ for_window [class="Google-chrome" window_role="pop-up"] floating enable
 # Start a terminal
 bindsym $mod+Shift+t exec --no-startup-id alacritty
 
-# Run Chrome
+# Run Chromium
 bindsym $mod+Shift+b exec --no-startup-id google-chrome --enable-features=WebUIDarkMode --force-dark-mode 
 
-# Run Discord
-bindsym $mod+Shift+d exec --no-startup-id discord
+# Run Slack
+bindsym $mod+Shift+n exec --no-startup-id slack
 
-# Run VSCode
+# Run Flameshot
 bindsym $mod+Shift+f exec --no-startup-id flameshot gui
 
-# Run spotify
-bindsym $mod+Shift+s exec --no-startup-id spotify
+#Shutdown
+bindsym $mod+Shift+s exec /home/joaquin/configs/bashScripts/prompt "Are you sure you want to shutdown?" "shutdown"
+bindsym $mod+Shift+e exec /home/joaquin/configs/bashScripts/prompt "Do you really want to exit i3? This will end your X session." "i3-msg exit"
 
 # Run Slack
-bindsym $mod+Shift+g exec --no-startup-id slack
-
-# Run Slack
-bindsym $mod+Shift+u exec --no-startup-id st -e ranger
+bindsym $mod+Shift+u exec --no-startup-id alacritty -e ranger
 
 # Volume Up
 bindsym $mod+F12 exec amixer set Master -q 5%+
