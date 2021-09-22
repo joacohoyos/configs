@@ -75,8 +75,8 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 #You don't have /home/joaquin/.gem/ruby/3.0.0/bin
 export GOPATH=$HOME/go
-unset GOROOT
-export PATH=$HOME/bin:$GOPATH/bin:/usr/local/bin:/sbin:/usr/sbin:/home/joaquin/.gem/ruby/3.0.0/bin:/home/joaquin/configs/bashScripts:$PATH
+export GOROOT=/usr/local/go
+export PATH=$HOME/bin:$GOROOT/bin:$GOPATH/bin:/usr/local/bin:/sbin:/usr/sbin:/home/joaquin/.gem/ruby/3.0.0/bin:/home/joaquin/configs/bashScripts:$PATH
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
