@@ -91,3 +91,27 @@ lsp.jsonls.setup {
     }
   }
 }
+
+lsp.gopls.setup { 
+  on_attach = custom_on_attach,
+  capabilities = capabilities, 
+  init_options = {
+      gofumpt = true,
+      usePlaceholders = true,
+      semanticTokens = true,
+      staticcheck = true,
+      experimentalPostfixCompletions = true,
+      hoverKind = 'Structured',
+      analyses = {
+        nilness = true,
+        shadow = true,
+        unusedparams = true,
+        unusedwrite = true,
+        fieldalignment = true
+      },
+      codelenses = {
+        gc_details = true,
+        tidy = true
+      }
+    }
+}
