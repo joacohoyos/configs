@@ -249,9 +249,6 @@ bindsym $mod+Shift+f exec --no-startup-id flameshot gui
 bindsym $mod+Shift+s exec /home/joaquin/configs/bashScripts/prompt "Are you sure you want to shutdown?" "shutdown"
 bindsym $mod+Shift+e exec /home/joaquin/configs/bashScripts/prompt "Do you really want to exit i3? This will end your X session." "i3-msg exit"
 
-# Run Slack
-bindsym $mod+Shift+u exec --no-startup-id alacritty -e ranger
-
 # Volume Up
 bindsym $mod+F12 exec amixer set Master -q 5%+
 
