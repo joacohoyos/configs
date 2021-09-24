@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged') 
-  " Plug 'morhetz/gruvbox'
-  Plug 'gruvbox-community/gruvbox'
+  Plug 'morhetz/gruvbox'
+  " Plug 'gruvbox-community/gruvbox'
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
@@ -17,8 +17,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
-  Plug 'itchyny/lightline.vim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'itchyny/lightline.vim'
   Plug 'ThePrimeagen/git-worktree.nvim'
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'kyazdani42/nvim-web-devicons'
@@ -40,5 +40,6 @@ let g:mergetool_layout = 'mr'
 let g:mergetool_prefer_revision = 'local'
 
 highlight NvimTreeFolderIcon guibg=blue
+
 lua require("clarkyex")
 
