@@ -124,6 +124,8 @@ alias e="nvim ."
 alias ep="nvim"
 alias gpo="git pull origin"
 alias gpod="git pull origin develop"
+alias gpof="git push --force-with-lease"
+alias grom="git rebase origin/master"
 
 export EDITOR='nvim'
 export NVM_DIR="$HOME/.config/nvm"
