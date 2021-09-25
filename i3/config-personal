@@ -215,7 +215,6 @@ exec --no-startup-id xrandr --output DP-1 --left-of HDMI-1
 # Layouts
 exec --no-startup-id google-chrome --enable-features=WebUIDarkMode --force-dark-mode 
 exec --no-startup-id spotify
-exec --no-startup-id slack
 exec --no-startup-id alacritty
 
 #Trackpad

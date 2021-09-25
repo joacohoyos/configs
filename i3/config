@@ -185,6 +185,9 @@ gaps inner 5
 gaps outer 5
 #smart_gaps on
 
+#Touchpad
+exec_always --no-startup-id xinput set-prop "ELAN1200:00 04F3:3087 Touchpad" "libinput Tapping Enabled" 1
+
 # Background
 exec_always --no-startup-id feh --bg-fill /home/joaquin/Documents/Wallpapers/mountain.jpg
 
@@ -220,7 +223,6 @@ exec --no-startup-id alacritty
 
 # Asign workspaces
 assign [class="Google-chrome"] 2
-assign [class="Code"] 1
 assign [class="Alacritty"] 1
 assign [class="Slack"] 5
 assign [class="discord"] 5
@@ -246,9 +248,6 @@ bindsym $mod+Shift+f exec --no-startup-id flameshot gui
 #Shutdown
 bindsym $mod+Shift+s exec /home/joaquin/configs/bashScripts/prompt "Are you sure you want to shutdown?" "shutdown"
 bindsym $mod+Shift+e exec /home/joaquin/configs/bashScripts/prompt "Do you really want to exit i3? This will end your X session." "i3-msg exit"
-
-# Run Slack
-bindsym $mod+Shift+u exec --no-startup-id alacritty -e ranger
 
 # Volume Up
 bindsym $mod+F12 exec amixer set Master -q 5%+
