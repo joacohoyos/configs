@@ -3,6 +3,8 @@
 
 PERSONAL="~"
 EYEWEAR="~/eyewear"
+KIDDOM="~/kiddom"
+KIDDOM_API="~/go/src/github.com/kiddom/api"
 PEER_COLLECTIVE="~/peercollective"
 
 createWindow() {
@@ -47,23 +49,12 @@ while [ "$#" -gt 0 ]; do
     shift
 
     case "$curr" in
-    "-peer-app")
-        createSession peer-app nvim $PEER_COLLECTIVE/app/master  
-        createWindow peer-app run $PEER_COLLECTIVE/app/master "npm start"
-        ;;
-    "-peer-api-node")
-        createSession peer-api-node nvim  $PEER_COLLECTIVE/api-node/master
-        createWindow peer-api-node run $PEER_COLLECTIVE/api-node/master "docker-compose -f docker/docker-compose.yaml up"
-        ;;
-    "-peer-api-rails")
-        createSession peer-api-rails nvim  $PEER_COLLECTIVE/api-rails/develop 
-        createWindow peer-api-rails run $PEER_COLLECTIVE/api-rails/develop "docker-compose -f docker/docker-compose.yml up --build"
-        ;;
-    "-peer-www")
-        createSession peer-www nvim-www $PEER_COLLECTIVE/www/master 
-        createWindow peer-www run-www $PEER_COLLECTIVE/www/master "npm start"
-        createWindow peer-www nvim-cms $PEER_COLLECTIVE/cms/master
-        createWindow peer-www run-cms $PEER_COLLECTIVE/cms/master "npm start"
+    "-kiddom")
+        createSession kiddom nvim-api  $KIDDOM_API/master
+        createWindow kiddom nvim-app  $KIDDOM/web/master
+        createWindow kiddom run-docker $KIDDOM/docker/master/v2 "docker-compose up"
+        createWindow kiddom run-app $KIDDOM/web/master "npm start"
+        createWindow kiddom run-api $KIDDOM_API/master "ENVIRONMENT=local AUTH_URL=localhost:5001 STREAM_API_KEY=8ks455je2kpk STREAM_API_SECRET=eun8zusbssmrhfg23n55xjwjkyzrwuscc6jphtbhuysg25e4uvf57ufsyyxv9eku go run main.go"
         ;;
     "-eyewear")
         createSession eyewear nvim-api  $EYEWEAR/api/develop
