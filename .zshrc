@@ -3,8 +3,8 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/joaquin/.oh-my-zsh"
-export PC_PATH="/home/joaquin/Documents/Proyectos/PeerCollective"
 export PE_PATH="/home/joaquin/Documents/Proyectos/PairEyewear"
+export KIDDOM_PATH="/home/joaquin/Documents/Proyectos/Kiddom"
 export TERM=alacritty
 
 # Set name of the theme to load --- if set to "random", it will
