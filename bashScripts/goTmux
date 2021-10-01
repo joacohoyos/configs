@@ -62,8 +62,8 @@ while [ "$#" -gt 0 ]; do
         createWindow eyewear run $EYEWEAR/docker "./scripts/start.bash.clark -s develop -f develop"
         ;;
     "-adapix")
-        createSession adapix console $PERSONAL/adapix 
-        createWindow adapix run-app $PERSONAL/adapix "npm start" 
+        createSession adapix nvim $PERSONAL/adapix/frontend 
+        createWindow adapix run-app $PERSONAL/adapix/frontend "npm start" 
         ;;
     "-personal")
         createSession personal console $PERSONAL 
