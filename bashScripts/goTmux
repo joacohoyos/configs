@@ -1,7 +1,7 @@
 
 #!/usr/bin/env bash
 
-PERSONAL="~"
+PERSONAL="~/Documents/Proyectos"
 EYEWEAR="~/eyewear"
 KIDDOM="~/kiddom"
 KIDDOM_API="~/go/src/github.com/kiddom/api"
@@ -60,6 +60,10 @@ while [ "$#" -gt 0 ]; do
         createSession eyewear nvim-api  $EYEWEAR/api/develop
         createWindow eyewear nvim-app  $EYEWEAR/app/develop
         createWindow eyewear run $EYEWEAR/docker "./scripts/start.bash.clark -s develop -f develop"
+        ;;
+    "-adapix")
+        createSession adapix console $PERSONAL/adapix 
+        createSession adapix run-app $PERSONAL/adapix "npm start" 
         ;;
     "-personal")
         createSession personal console $PERSONAL 
