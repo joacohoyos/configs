@@ -34,7 +34,7 @@ M.search_tests = function()
 end
 
 M.live_grep = function() 
-    require("telescope.builtin").live_grep({ default_text= vim.fn.input("Grep For > ") })
+    require("telescope.builtin").grep_string({ search = vim.fn.input("Grep For > ") })
 end
 
 return M
