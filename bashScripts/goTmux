@@ -63,7 +63,7 @@ while [ "$#" -gt 0 ]; do
         ;;
     "-adapix")
         createSession adapix nvim $PERSONAL/adapix/frontend 
-        createWindow adapix run-app $PERSONAL/adapix/frontend "npm start" 
+        createWindow adapix run-app $PERSONAL/adapix/frontend "yarn dev" 
         ;;
     "-personal")
         createSession personal console $PERSONAL 
