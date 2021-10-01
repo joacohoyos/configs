@@ -63,7 +63,7 @@ while [ "$#" -gt 0 ]; do
         ;;
     "-adapix")
         createSession adapix console $PERSONAL/adapix 
-        createSession adapix run-app $PERSONAL/adapix "npm start" 
+        createWindow adapix run-app $PERSONAL/adapix "npm start" 
         ;;
     "-personal")
         createSession personal console $PERSONAL 
