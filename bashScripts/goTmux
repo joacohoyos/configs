@@ -51,9 +51,9 @@ while [ "$#" -gt 0 ]; do
     case "$curr" in
     "-kiddom")
         createSession kiddom nvim-api  $KIDDOM_API/master
-        createWindow kiddom nvim-app  $KIDDOM/web/master
+        createWindow kiddom nvim-web  $KIDDOM/web/master
         createWindow kiddom run-docker $KIDDOM/docker/master/v2 "docker-compose up"
-        createWindow kiddom run-app $KIDDOM/web/master "npm start"
+        createWindow kiddom run-web $KIDDOM/web/master "npm start"
         createWindow kiddom run-api $KIDDOM_API/master "ENVIRONMENT=local AUTH_URL=localhost:5001 STREAM_API_KEY=8ks455je2kpk STREAM_API_SECRET=eun8zusbssmrhfg23n55xjwjkyzrwuscc6jphtbhuysg25e4uvf57ufsyyxv9eku go run main.go"
         ;;
     "-eyewear")

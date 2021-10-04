@@ -9,7 +9,7 @@ local function is_pe_app()
 end
 
 local function is_kiddom_app()
-    return not not (string.find(vim.loop.cwd(), vim.env.KIDDOM_PATH .. "/app",1, true))
+    return not not (string.find(vim.loop.cwd(), vim.env.KIDDOM_PATH .. "/web",1, true))
 end
 
 local function is_kiddom_api()
@@ -110,13 +110,14 @@ Worktree.on_tree_change(function(op, path, upstream)
       kill_window("kiddom:run-web")
       add_window("kiddom", "run-web", tree_dir, "npm start")
     end
+
     if op == Worktree.Operations.Create and is_kiddom_api() then
         os.execute(string.format("cp -r $KIDDOM_GO_PATH/master/application/config/app.json %s", dir .. "/application/config/app.json"))
         os.execute(string.format("cp -r $KIDDOM_GO_PATH/master/application/config/test.json %s", dir .. "/application/config/test.json"))
     end
 
     if op == Worktree.Operations.Create and is_kiddom_app() then
-        os.execute(string.format("cp -r $KIDDOM_PATH/web/master/node_modules $KIDDOM_PATH/app/%s", dir))
+        os.execute(string.format("cp -r $KIDDOM_PATH/web/master/node_modules $KIDDOM_PATH/web/%s", dir))
         os.execute(string.format("cp -r $KIDDOM_PATH/web/master/config/local.config.js $KIDDOM_PATH/web/%s/config/local.config.js", dir))
     end
 

@@ -1,3 +1,4 @@
+lua require'nvim-tree'.setup()
 let g:nvim_tree_quit_on_open = 1 
 let g:nvim_tree_update_cwd = 1
 let g:nvim_tree_lsp_diagnostics = 1
