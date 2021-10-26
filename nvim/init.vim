@@ -39,7 +39,9 @@ let g:nvim_tree_lsp_diagnostics = 1
 let g:mergetool_layout = 'mr'
 let g:mergetool_prefer_revision = 'local'
 
-highlight NvimTreeFolderIcon guibg=blue
+highlight NvimTreeFolderIcon guifg=blue
+highlight NvimTreeFolderIcon guibg=NONE
+highlight NvimTreeFolderName guifg=#458588
 
 lua require("clarkyex")
 
