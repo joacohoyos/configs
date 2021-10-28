@@ -32,10 +32,6 @@ let g:pe_app_branch = 'develop'
 
 autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
 
-let g:nvim_tree_auto_close = 1 
-let g:nvim_tree_update_cwd = 1
-let g:nvim_tree_lsp_diagnostics = 1
-
 let g:mergetool_layout = 'mr'
 let g:mergetool_prefer_revision = 'local'
 

@@ -1,3 +1,4 @@
+vim.g.nvim_tree_git_hl = 1
 require'nvim-tree'.setup {
   disable_netrw       = true,
   hijack_netrw        = true,
@@ -40,7 +41,6 @@ require'nvim-tree'.setup {
     }
   }
 }
-vim.g.nvim_tree_git_hl = 1
 
 
 
