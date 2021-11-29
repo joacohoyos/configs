@@ -87,3 +87,4 @@ inoremap <C-j> <ESC>:m .+1<CR>==i
 inoremap <C-k> <ESC>:m .-2<CR>==i
 nnoremap <leader>k :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>

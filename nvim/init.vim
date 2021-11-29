@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'joacohoyos/vim-test'
+  Plug 'zivyangll/git-blame.vim'
   " Plug 'tpope/vim-rails'
   " Plug 'vim-ruby/vim-ruby'
 call plug#end()
