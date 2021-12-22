@@ -61,9 +61,11 @@ while [ "$#" -gt 0 ]; do
         createWindow eyewear nvim-app  $EYEWEAR/app/develop
         createWindow eyewear run $EYEWEAR/docker "./scripts/start.bash.clark -s develop -f develop"
         ;;
-    "-adapix")
-        createSession adapix nvim $PERSONAL/adapix/frontend 
-        createWindow adapix run-app $PERSONAL/adapix/frontend "yarn dev" 
+    "-chat")
+        createSession chat nvim-server $PERSONAL/asterium/chat/server
+        createWindow chat nvim-frontend $PERSONAL/asterium/chat/frontend  
+        createWindow chat run-server $PERSONAL/asterium/chat/server "docker-compose -f docker/docker-compose.yml up"
+        createWindow chat run-frontend $PERSONAL/asterium/chat/frontend "npm start" 
         ;;
     "-personal")
         createSession personal console $PERSONAL 
