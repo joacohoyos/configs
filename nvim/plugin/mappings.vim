@@ -88,3 +88,10 @@ inoremap <C-k> <ESC>:m .-2<CR>==i
 nnoremap <leader>k :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+
+" Refactoring
+vnoremap <Leader>re <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>
+vnoremap <Leader>rf <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>
+vnoremap <Leader>rr <Esc><Cmd>lua M.refactor()<CR>
+nnoremap <Leader>da :lua require('refactoring').debug.printf({below = false})<CR>
+nnoremap <Leader>db :lua require('refactoring').debug.printf({below = true})<CR>

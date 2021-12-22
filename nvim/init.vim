@@ -26,6 +26,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'zivyangll/git-blame.vim'
   " Plug 'tpope/vim-rails'
   " Plug 'vim-ruby/vim-ruby'
+  Plug 'ThePrimeagen/refactoring.nvim'
 call plug#end()
 
 let g:pe_api_branch = 'develop'

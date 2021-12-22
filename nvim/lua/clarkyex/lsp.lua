@@ -1,4 +1,5 @@
 local lsp = require'lspconfig'
+local configs = require 'lspconfig/configs'
 
 -- For snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -83,5 +84,21 @@ lsp.gopls.setup {
         gc_details = true,
         tidy = true
       }
+}
     }
+
+if not lsp.golangcilsp then
+ 	configs.golangcilsp = {
+		default_config = {
+			cmd = {'golangci-lint-langserver'},
+			root_dir = lsp.util.root_pattern('.git', 'go.mod'),
+			init_options = {
+					command = { "golangci-lint", "run", "--enable-all", "--disable", "lll", "--out-format", "json" };
+			}
+		};
+	}
+end
+
+lsp.golangcilsp.setup {
+	filetypes = {'go'}
 }
