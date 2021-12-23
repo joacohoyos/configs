@@ -212,9 +212,6 @@ exec --no-startup-id export PATH=$PATH:/home/joaquin/.config/dmenu
 # Unmute headphones
 exec_always --no-startup-id amixer set "Headphone" playback 100% unmute
 
-#Monitor setup
-exec --no-startup-id xrandr --output DP-1 --left-of HDMI-1
-
 # Layouts
 exec --no-startup-id google-chrome --enable-features=WebUIDarkMode --force-dark-mode 
 exec --no-startup-id spotify
