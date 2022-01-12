@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -12,13 +5,15 @@ fi
 export ZSH="/home/joaquin/.oh-my-zsh"
 export PE_PATH="/home/joaquin/Documents/Proyectos/PairEyewear"
 export KIDDOM_PATH="/home/joaquin/Documents/Proyectos/Kiddom"
+export KIDDOM_GO_PATH="/home/joaquin/go/src/github.com/kiddom/api"
+export KIDDOM_RUN_GO="ENVIRONMENT=local AUTH_URL=localhost:5001 STREAM_API_KEY=8ks455je2kpk STREAM_API_SECRET=eun8zusbssmrhfg23n55xjwjkyzrwuscc6jphtbhuysg25e4uvf57ufsyyxv9eku go run main.go"
 export TERM=alacritty
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -88,7 +83,7 @@ if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 plugins=(git ssh-agent docker docker-compose zsh-autosuggestions zsh-syntax-highlighting fzf)
-zstyle :omz:plugins:ssh-agent identities id_rsa_bitbcuket_pc id_rsa id_rsa_joaquin
+zstyle :omz:plugins:ssh-agent identities id_rsa_github_personal id_rsa_github_psh id_rsa_gitlab_psh
 # zstyle :omz:plugins:ssh-agent identities id_rsa_bitbucket id_rsa_joacohoyos id_rsa_psh_gitlab
 source $ZSH/oh-my-zsh.sh
 
@@ -128,12 +123,14 @@ alias gps="git push origin HEAD"
 alias gwa="git worktree add"
 alias gwr="git worktree remove"
 alias gwr="git worktree remove"
+alias gsh="git stash"
+alias gshp="git stash pop"
 alias e="nvim ."
 alias ep="nvim"
 alias gpo="git pull origin"
 alias gpod="git pull origin develop"
 alias gpom="git pull origin master"
-alias gpof="git push --force-with-lease"
+alias gpof="git push origin HEAD --force-with-lease"
 alias grom="git rebase origin/master"
 
 export EDITOR='nvim'
@@ -144,6 +141,3 @@ export NVM_DIR="$HOME/.config/nvm"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
