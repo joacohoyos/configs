@@ -1,3 +1,2 @@
 #!/bin/sh
-# 
- [ "Yes" = $(echo "No\nYes" | dmenu -i -p "$1") ] && eval $2
+[ "Yes" = $(echo -e "No \n Yes" | dmenu -i -p "$1") ] && eval $2

@@ -82,7 +82,7 @@ export PATH=$HOME/bin:$GOROOT/bin:$GOPATH/bin:/usr/local/bin:/sbin:/usr/sbin:/ho
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
-plugins=(git ssh-agent docker docker-compose zsh-autosuggestions zsh-syntax-highlighting fzf)
+plugins=(git ssh-agent docker docker-compose zsh-autosuggestions zsh-syntax-highlighting)
 zstyle :omz:plugins:ssh-agent identities id_rsa_github_personal id_rsa_github_psh id_rsa_gitlab_psh
 # zstyle :omz:plugins:ssh-agent identities id_rsa_bitbucket id_rsa_joacohoyos id_rsa_psh_gitlab
 source $ZSH/oh-my-zsh.sh

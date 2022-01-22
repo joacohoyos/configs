@@ -52,10 +52,10 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+s focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -64,10 +64,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+s move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -76,7 +76,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+semicolon split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -85,7 +85,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+bindsym $mod+l layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -142,7 +142,6 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -185,20 +184,17 @@ gaps inner 5
 gaps outer 5
 #smart_gaps on
 
-#Touchpad
-exec_always --no-startup-id xinput set-prop "ELAN1200:00 04F3:3087 Touchpad" "libinput Tapping Enabled" 1
-
 # Background
-exec_always --no-startup-id feh --bg-fill /home/joaquin/Documents/Wallpapers/mountain.jpg
+exec_always --no-startup-id feh --bg-fill /home/joaquin/configs/Wallpapers/mountain.jpg
 
 # Keyboard Layout
-exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant dvp 
+exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant dvp
 
 # Polybar
 exec_always --no-startup-id /home/joaquin/.config/polybar/launch.sh
 
 # Compton
-exec_always --no-startup-id "compton -b"
+exec --no-startup-id "compton -b"
 
 # Dunst
 exec --no-startup-id dunst
@@ -212,17 +208,21 @@ exec --no-startup-id export PATH=$PATH:/home/joaquin/.config/dmenu
 # Unmute headphones
 exec_always --no-startup-id amixer set "Headphone" playback 100% unmute
 
+#Monitor setup
+exec --no-startup-id xrandr --output HDMI-1 --auto
+exec --no-startup-id xrandr --output HDMI-2 --auto
+exec --no-startup-id xrandr --output HDMI-1 --right-of HDMI-2
+
 # Layouts
-exec --no-startup-id google-chrome --enable-features=WebUIDarkMode --force-dark-mode 
+exec --no-startup-id google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode 
 exec --no-startup-id spotify
-exec --no-startup-id slack
 exec --no-startup-id alacritty
+
 
 # Asign workspaces
 assign [class="Google-chrome"] 2
 assign [class="Alacritty"] 1
 assign [class="Slack"] 5
-assign [class="discord"] 5
 assign [class="Spotify"] 4
 assign [class="^Spotify*"] 4
 for_window [class="Spotify"] move to workspace $ws4
@@ -234,7 +234,7 @@ for_window [class="Google-chrome" window_role="pop-up"] floating enable
 bindsym $mod+Shift+t exec --no-startup-id alacritty
 
 # Run Chromium
-bindsym $mod+Shift+b exec --no-startup-id google-chrome --enable-features=WebUIDarkMode --force-dark-mode 
+bindsym $mod+Shift+b exec --no-startup-id google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode 
 
 # Run Slack
 bindsym $mod+Shift+n exec --no-startup-id slack
@@ -243,7 +243,7 @@ bindsym $mod+Shift+n exec --no-startup-id slack
 bindsym $mod+Shift+f exec --no-startup-id flameshot gui
 
 #Shutdown
-bindsym $mod+Shift+s exec /home/joaquin/configs/bashScripts/prompt "Are you sure you want to shutdown?" "shutdown"
+bindsym $mod+Shift+p exec /home/joaquin/configs/bashScripts/prompt "Are you sure you want to shutdown?" "shutdown"
 bindsym $mod+Shift+e exec /home/joaquin/configs/bashScripts/prompt "Do you really want to exit i3? This will end your X session." "i3-msg exit"
 
 # Volume Up
@@ -269,3 +269,4 @@ bindsym $mod+p move workspace to output right
 
 bindcode Mod1+23 workspace next
 bindcode Mod1+Shift+23 workspace prev
+

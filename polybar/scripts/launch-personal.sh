@@ -1,0 +1,1 @@
+/home/joaquin/configs/polybar/launch-personal.sh
