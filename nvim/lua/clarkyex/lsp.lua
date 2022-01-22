@@ -63,42 +63,45 @@ lsp.jsonls.setup {
   }
 }
 
-lsp.gopls.setup { 
-  on_attach = custom_on_attach,
-  capabilities = capabilities, 
-  init_options = {
-      gofumpt = true,
-      usePlaceholders = true,
-      semanticTokens = true,
-      staticcheck = true,
-      experimentalPostfixCompletions = true,
-      hoverKind = 'Structured',
-      analyses = {
-        nilness = true,
-        shadow = true,
-        unusedparams = true,
-        unusedwrite = true,
-        fieldalignment = true
-      },
-      codelenses = {
-        gc_details = true,
-        tidy = true
-      }
-}
-    }
+-- lsp.gopls.setup { 
+--   on_attach = custom_on_attach,
+--   capabilities = capabilities, 
+--   init_options = {
+--       gofumpt = true,
+--       usePlaceholders = true,
+--       semanticTokens = true,
+--       staticcheck = true,
+--       experimentalPostfixCompletions = true,
+--       hoverKind = 'Structured',
+--       analyses = {
+--         nilness = true,
+--         shadow = true,
+--         unusedparams = true,
+--         unusedwrite = true,
+--         fieldalignment = true
+--       },
+--       codelenses = {
+--         gc_details = true,
+--         tidy = true
+--       }
+-- }
+--     }
 
-if not lsp.golangcilsp then
- 	configs.golangcilsp = {
-		default_config = {
-			cmd = {'golangci-lint-langserver'},
-			root_dir = lsp.util.root_pattern('.git', 'go.mod'),
-			init_options = {
-					command = { "golangci-lint", "run", "--enable-all", "--disable", "lll", "--out-format", "json" };
-			}
-		};
-	}
-end
+-- if not lsp.golangcilsp then
+--  	configs.golangcilsp = {
+-- 		default_config = {
+-- 			cmd = {'golangci-lint-langserver'},
+-- 			root_dir = lsp.util.root_pattern('.git', 'go.mod'),
+-- 			init_options = {
+-- 					command = { "golangci-lint", "run", "--enable-all", "--disable", "lll", "--out-format", "json" };
+-- 			}
+-- 		};
+-- 	}
+-- end
 
-lsp.golangcilsp.setup {
-	filetypes = {'go'}
-}
+-- lsp.golangcilsp.setup {
+-- 	filetypes = {'go'}
+-- }
+
+lsp.solc.setup{}
+ 

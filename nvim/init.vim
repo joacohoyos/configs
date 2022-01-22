@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'joacohoyos/vim-test'
   Plug 'zivyangll/git-blame.vim'
+  Plug 'tomlion/vim-solidity'
   " Plug 'tpope/vim-rails'
   " Plug 'vim-ruby/vim-ruby'
   Plug 'ThePrimeagen/refactoring.nvim'
