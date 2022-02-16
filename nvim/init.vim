@@ -24,7 +24,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'joacohoyos/vim-test'
   Plug 'zivyangll/git-blame.vim'
-  Plug 'tomlion/vim-solidity'
+  Plug 'TovarishFin/vim-solidity'
   " Plug 'tpope/vim-rails'
   " Plug 'vim-ruby/vim-ruby'
   Plug 'ThePrimeagen/refactoring.nvim'
@@ -33,7 +33,9 @@ call plug#end()
 let g:pe_api_branch = 'develop'
 let g:pe_app_branch = 'develop'
 
+autocmd BufRead,BufNewFile *.sol set filetype=solidity
 autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
+autocmd FileType solidity setlocal shiftwidth=4 tabstop=4
 
 let g:mergetool_layout = 'mr'
 let g:mergetool_prefer_revision = 'local'

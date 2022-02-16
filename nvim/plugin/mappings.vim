@@ -95,3 +95,6 @@ vnoremap <Leader>rf <Esc><Cmd>lua require('refactoring').refactor('Extract Funct
 vnoremap <Leader>rr <Esc><Cmd>lua M.refactor()<CR>
 nnoremap <Leader>da :lua require('refactoring').debug.printf({below = false})<CR>
 nnoremap <Leader>db :lua require('refactoring').debug.printf({below = true})<CR>
+
+" Solidity
+nnoremap <leader>rtc :lua require("helpers.truffle").compile()<CR>

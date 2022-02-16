@@ -103,5 +103,7 @@ lsp.jsonls.setup {
 -- 	filetypes = {'go'}
 -- }
 
-lsp.solc.setup{}
+-- lsp.solc.setup{
+--   cmd = {"solc", "--lsp"}
+-- }
  

@@ -20,6 +20,10 @@ require'nvim-tree'.setup {
       warning = "",
       error = "",
     }
+  }, 
+  filters = {
+    dotfiles = false,
+    custom = {}
   },
   update_focused_file = {
     enable      = false,
@@ -29,6 +33,11 @@ require'nvim-tree'.setup {
   system_open = {
     cmd  = nil,
     args = {}
+  },
+  git = {
+    enable = true,
+    ignore = false,
+    timeout = 500,
   },
   view = {
     width = '20%',
