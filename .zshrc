@@ -3,10 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/joaquin/.oh-my-zsh"
-export PE_PATH="/home/joaquin/Documents/Proyectos/PairEyewear"
-export KIDDOM_PATH="/home/joaquin/Documents/Proyectos/Kiddom"
-export KIDDOM_GO_PATH="/home/joaquin/go/src/github.com/kiddom/api"
-export KIDDOM_RUN_GO="ENVIRONMENT=local AUTH_URL=localhost:5001 STREAM_API_KEY=8ks455je2kpk STREAM_API_SECRET=eun8zusbssmrhfg23n55xjwjkyzrwuscc6jphtbhuysg25e4uvf57ufsyyxv9eku go run main.go"
+export PODCHAIN_PATH="/home/joaquin/Documents/Proyectos/podchain"
 export TERM=alacritty
 
 # Set name of the theme to load --- if set to "random", it will
@@ -76,9 +73,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #You don't have /home/joaquin/.gem/ruby/3.0.0/bin
-export GOPATH=$HOME/go
-export GOROOT=/usr/local/go
-export PATH=$HOME/bin:$GOROOT/bin:$GOPATH/bin:/usr/local/bin:/sbin:/usr/sbin:/home/joaquin/.gem/ruby/3.0.0/bin:/home/joaquin/configs/bashScripts:$PATH
+export PATH=/usr/local/bin:/sbin:/usr/sbin:/home/joaquin/.gem/ruby/3.0.0/bin:/home/joaquin/configs/bashScripts:$PATH
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi

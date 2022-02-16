@@ -4,6 +4,7 @@
 PERSONAL="~/Documents/Proyectos"
 KIDDOM="~/kiddom"
 KIDDOM_API="~/go/src/github.com/kiddom/api"
+PODCHAIN="~/podchain"
 
 createWindow() {
     session=$1
@@ -54,9 +55,12 @@ while [ "$#" -gt 0 ]; do
         createWindow kiddom run-web $KIDDOM/web/main "npm start"
         # createWindow kiddom run-api $KIDDOM_API/master "ENVIRONMENT=local AUTH_URL=localhost:5001 STREAM_API_KEY=8ks455je2kpk STREAM_API_SECRET=eun8zusbssmrhfg23n55xjwjkyzrwuscc6jphtbhuysg25e4uvf57ufsyyxv9eku go run main.go"
         ;;
-    "-jpg")
-        createSession jpg nvim-server $PERSONAL/wagmi
-        createWindow jpg nvim-frontend $PERSONAL/wagmi "npm run dev"  
+    "-podchain")
+        createSession podchain nvim-app $PODCHAIN/mma-treasures/app
+        createWindow podchain run-app $PODCHAIN/mma-treasures/app "npm start"
+        createWindow podchain nvim-api $PODCHAIN/mma-treasures/api/develop
+        createWindow podchain run-api $PODCHAIN/mma-treasures/api/develop "./start.sh up"
+        createWindow podchain nvim-contract $PODCHAIN/mma-treasures/contracts
         ;;
     "-personal")
         createSession personal console $PERSONAL 
