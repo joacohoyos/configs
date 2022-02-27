@@ -45,4 +45,4 @@ highlight NvimTreeFolderIcon guibg=NONE
 highlight NvimTreeFolderName guifg=#458588
 
 lua require("clarkyex")
-
+source ~/.config/nvim/after/plugin/colors.vim

@@ -2,6 +2,7 @@ syntax enable
 colorscheme gruvbox
 set termguicolors
 let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_invert_selection='0'
 
 set background=dark
 highlight nonText guibg=NONE ctermbg=NONE
@@ -9,7 +10,7 @@ highlight EndOfBuffer guibg=NONE ctermbg=NONE
 highlight CursorLineNr guibg=NONE ctermbg=NONE guifg=#5eacd3
 highlight LineNr guifg=#5eacd3
 highlight SignColumn guibg=NONE ctermbg=NONE
-highlight CursorLine cterm=NONE
+" highlight CursorLine cterm=NONE
 
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true, }, }
 

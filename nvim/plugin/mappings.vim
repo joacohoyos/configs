@@ -93,8 +93,10 @@ nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
 vnoremap <Leader>re <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>
 vnoremap <Leader>rf <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>
 vnoremap <Leader>rr <Esc><Cmd>lua M.refactor()<CR>
-nnoremap <Leader>da :lua require('refactoring').debug.printf({below = false})<CR>
-nnoremap <Leader>db :lua require('refactoring').debug.printf({below = true})<CR>
+nnoremap <Leader>ra :lua require('refactoring').debug.printf({below = false})<CR>
+nnoremap <Leader>rb :lua require('refactoring').debug.printf({below = true})<CR>
+vnoremap <Leader>rv :lua require('refactoring').debug.print_var({})<CR>
+nnoremap <Leader>rc :lua require('refactoring').debug.cleanup({})<CR>
 
 " Solidity
 nnoremap <leader>rtc :lua require("helpers.truffle").compile()<CR>
