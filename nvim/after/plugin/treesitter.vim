@@ -1,1 +1,8 @@
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true, }, }
+lua << EOF
+require'nvim-treesitter.configs'.setup { 
+  highlight = { enable = true },
+  context_commentstring = {
+    enable = true
+  }
+}
+EOF

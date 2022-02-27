@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-commentary'
+  " Plug 'tpope/vim-commentary'
   Plug 'edkolev/tmuxline.vim'
   Plug 'alvan/vim-closetag'
   Plug 'neovim/nvim-lspconfig'
@@ -25,9 +25,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'joacohoyos/vim-test'
   Plug 'zivyangll/git-blame.vim'
   Plug 'TovarishFin/vim-solidity'
-  " Plug 'tpope/vim-rails'
-  " Plug 'vim-ruby/vim-ruby'
+  Plug 'numToStr/Comment.nvim'
   Plug 'ThePrimeagen/refactoring.nvim'
+  Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 call plug#end()
 
 let g:pe_api_branch = 'develop'

@@ -6,11 +6,11 @@ nnoremap <C-f> :NvimTreeToggle<CR>
 nnoremap <Leader>gg :lua require('telescope').extensions.git_worktree.git_worktrees()<CR>
 nnoremap <Leader>gn :lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>
 " Git
-nnoremap <leader>gc :lua require("helpers.commit").command()<CR>
-nnoremap <Leader>ga :G add .<CR>
-nnoremap <Leader>gpoh :G push origin HEAD
-nnoremap <Leader>gpfl :G push --force-with-lease
-nnoremap <leader>grom :Git rebase origin/master<CR>
+nnoremap <leader>cc :lua require("helpers.commit").command()<CR>
+nnoremap <Leader>ca :G add .<CR>
+nnoremap <Leader>cpoh :G push origin HEAD
+nnoremap <Leader>cpfl :G push --force-with-lease
+nnoremap <leader>crom :Git rebase origin/master<CR>
 " Git merge
 nnoremap <Leader>gm :G mergetool<CR>
 nnoremap <Leader>mt :Gdiffsplit!<CR>
