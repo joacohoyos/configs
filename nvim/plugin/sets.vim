@@ -1,5 +1,5 @@
 set mouse=a
-set colorcolumn=101
+set colorcolumn=101,120
 set numberwidth=2
 set clipboard+=unnamedplus
 set hidden
@@ -20,7 +20,7 @@ set tabstop=2
 set number
 set relativenumber
 set cursorline
-set cursorlineopt=number
+" set cursorlineopt=number
 set laststatus=2
 set wrap 
 set noshowmode
