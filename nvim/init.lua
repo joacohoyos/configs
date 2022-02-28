@@ -34,10 +34,7 @@ require('paq') {
 require('common')
 require('clarkyex')
 
-vim.api.nvim_create_autocmd("BufRead,BufNewFile", { pattern = "*.sol",  command = "set filetype=solidity" })
--- vim.api.nvim_create_autocmd("FileType ruby", { command = "setlocal shiftwidth=4 tabstop=4" })
--- vim.api.nvim_create_autocmd("FileType solidity", { command = "setlocal shiftwidth=4 tabstop=4" })
-
-vim.api.nvim_set_var('mergetool_layout', 'mr')
-vim.api.nvim_set_var('mergetool_prefer_revision', 'local')
+vim.cmd("autocmd BufRead,BufNewFile *.sol set filetype=solidity")
+vim.cmd("autocmd FileType ruby setlocal shiftwidth=4 tabstop=4")
+vim.cmd("autocmd FileType solidity setlocal shiftwidth=4 tabstop=4")
 

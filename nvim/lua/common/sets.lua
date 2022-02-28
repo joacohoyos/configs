@@ -28,3 +28,5 @@ vim.opt.diffopt = vim.opt.diffopt + 'vertical'
 vim.opt.updatetime = 50
 vim.opt.shortmess = vim.opt.shortmess + 'c'
 vim.opt.nu = true 
+vim.api.nvim_set_var('mergetool_layout', 'mr')
+vim.api.nvim_set_var('mergetool_prefer_revision', 'local')
