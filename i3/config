@@ -185,8 +185,9 @@ gaps outer 5
 #smart_gaps on
 
 # Background
-exec_always --no-startup-id feh --bg-fill /home/joaquin/configs/Wallpapers/mountain.jpg
-
+# exec_always --no-startup-id feh --bg-fill --randomize /home/joaquin/configs/Wallpapers/witcher.jpg
+exec --no-startup-id ~/configs/bashScripts/background
+#
 # Keyboard Layout
 exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant dvp
 
