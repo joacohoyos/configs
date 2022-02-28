@@ -1,3 +1,19 @@
+vim.opt.completeopt="menuone,noinsert,noselect"
+vim.api.nvim_set_var("completion_matching_strategy_list", {'exact', 'substring', 'fuzzy'})
+
+vim.api.nvim_set_keymap('n', '<leader>vd', ':lua vim.lsp.buf.definition()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>vi', ':lua vim.lsp.buf.implementation()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>vsh', ':lua vim.lsp.buf.signature_help()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>vrr', ':lua vim.lsp.buf.references()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>vrn', ':lua vim.lsp.buf.rename()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>vh', ':lua vim.lsp.buf.hover()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>vca', ':lua vim.lsp.buf.code_action()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>vsd', ':lua vim.diagnostic.open_float()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>vn', ':lua vim.diagnostic.goto_next()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>vll', ':lua vim.diagnostic.set_loclist()<CR>', { noremap = true })
+
+
+
 local lsp = require'lspconfig'
 local configs = require 'lspconfig/configs'
 

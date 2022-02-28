@@ -1,4 +1,3 @@
-lua << EOF
 require('Comment').setup(
 {
     pre_hook = function(ctx)
@@ -25,4 +24,3 @@ require('Comment').setup(
     end,
 }
 )
-EOF

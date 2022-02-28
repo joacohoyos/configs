@@ -23,3 +23,6 @@ require'compe'.setup {
 }
 
 
+vim.api.nvim_set_keymap('i', '<C-Space>', 'compe#complete()', { noremap = true, expr = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-a>', "compe#confirm('<C-a>')", { noremap = true, expr = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-e>', "compe#close('<C-e>')", { noremap = true, expr = true, silent = true })

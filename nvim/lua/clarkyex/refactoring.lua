@@ -31,3 +31,12 @@ M.refactors = function()
     }):find()
 end
 
+-- Mappings
+vim.api.nvim_set_keymap('v', '<Leader>re', '<Esc><Cmd>lua require("refactoring").refactor("Extract Function")<CR>', { noremap = true })
+vim.api.nvim_set_keymap('v', '<Leader>rf', '<Esc><Cmd>lua require("refactoring").refactor("Extract Function To File")<CR>', { noremap = true })
+vim.api.nvim_set_keymap('v', '<Leader>rr', '<Esc><Cmd>lua M.refactor()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>ra', ':lua require("refactoring").debug.printf({below = false})<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>rb', ':lua require("refactoring").debug.printf({below = true})<CR>', { noremap = true })
+vim.api.nvim_set_keymap('v', '<Leader>rv', ':lua require("refactoring").debug.print_var({})<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>rc', ':lua require("refactoring").debug.cleanup({})<CR>', { noremap = true })
+
