@@ -1,57 +1,104 @@
 vim.opt.mouse = 'a'
 vim.opt.colorcolumn = '101,120'
-
-ntuhontuhoentuh
-ntuhenotheu
-nthountoh
-nethuonetuh
-nthountoeh
-ontehuonhk
-unth
-ntuhontuhoentuh
-ntuhenotheu
-nthountoh
-nethuonetuh
-nthountoeh
-ontehuonhk
-unth
-ntuhontuhoentuh
-ntuhenotheu
-nthountoh
-nethuonetuh
-nthountoeh
-ontehuonhk
-unth
-ntuhontuhoentuh
-ntuhenotheu
-nthountoh
-nethuonetuh
-nthountoeh
-ontehuonhk
-unth
-ntuhontuhoentuh
-ntuhenotheu
-nthountoh
-nethuonetuh
-nthountoeh
-ontehuonhk
-unth
-ntuhontuhoentuh
-ntuhenotheu
-nthountoh
-nethuonetuh
-nthountoeh
-ontehuonhk
-unth
-ntuhontuhoentuh
-ntuhenotheu
-nthountoh
-nethuonetuh
-nthountoeh
-ontehuonhk
-unth
+-- ntuhontuhoentuh
+-- ntuhenotheu
+-- nthountoh
+-- nethuonetuh
+-- nthountoeh
+-- ontehuonhk
+-- unth
+-- ntuhontuhoentuh
+-- ntuhontuhoentuh
+-- ntuhontuhoentuh
+-- ntuhontuhoentuh
+-- ntuhontuhoentuh
+-- ntuhontuhoentuh
+-- ntuhontuhoentuh
+-- ntuhontuhoentuh
+-- ntuhontuhoentuh
+-- ntuhontuhoentuh
+-- ntuhontuhoentuh
+-- ntuhontuhoentuh
+-- ntuhontuhoentuh
+-- ntuhenotheu
+-- nthountoh
+-- nethuonetuh
+-- nthountoeh
+-- ontehuonhk
+-- unth
+-- ntuhenotheu
+-- nthountoh
+-- nethuonetuh
+-- nthountoeh
+-- ontehuonhk
+-- unth
+-- ntuhenotheu
+-- nthountoh
+-- nethuonetuh
+-- nthountoeh
+-- ontehuonhk
+-- unth
+-- ntuhenotheu
+-- nthountoh
+-- nethuonetuh
+-- nthountoeh
+-- ontehuonhk
+-- unth
+-- ntuhenotheu
+-- nthountoh
+-- nethuonetuh
+-- nthountoeh
+-- ontehuonhk
+-- unth
+-- ntuhenotheu
+-- nthountoh
+-- nethuonetuh
+-- nthountoeh
+-- ontehuonhk
+-- unth
+-- ntuhenotheu
+-- nthountoh
+-- nethuonetuh
+-- nthountoeh
+-- ontehuonhk
+-- unth
+-- ntuhenotheu
+-- nthountoh
+-- nethuonetuh
+-- nthountoeh
+-- ontehuonhk
+-- unth
+-- ntuhenotheu
+-- nthountoh
+-- nethuonetuh
+-- nthountoeh
+-- ontehuonhk
+-- unth
+-- ntuhenotheu
+-- nthountoh
+-- nethuonetuh
+-- nthountoeh
+-- ontehuonhk
+-- unth
+-- ntuhenotheu
+-- nthountoh
+-- nethuonetuh
+-- nthountoeh
+-- ontehuonhk
+-- unth
+-- ntuhenotheu
+-- nthountoh
+-- nethuonetuh
+-- nthountoeh
+-- ontehuonhk
+-- unth
+-- ntuhenotheu
+-- nthountoh
+-- nethuonetuh
+-- nthountoeh
+-- ontehuonhk
+-- unth
 vim.opt.numberwidth=5
-notehu
 vim.opt.clipboard = vim.opt.clipboard + 'unnamedplus'
 vim.opt.hidden = true
 vim.api.nvim_command('set nohlsearch')
