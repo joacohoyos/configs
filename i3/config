@@ -210,9 +210,9 @@ exec --no-startup-id export PATH=$PATH:/home/joaquin/.config/dmenu
 exec_always --no-startup-id amixer set "Headphone" playback 100% unmute
 
 #Monitor setup
-exec --no-startup-id xrandr --output HDMI-1 --auto
-exec --no-startup-id xrandr --output HDMI-2 --auto
-exec --no-startup-id xrandr --output HDMI-1 --right-of HDMI-2
+exec_always --no-startup-id xrandr --output HDMI-1 --auto
+exec_always --no-startup-id xrandr --output HDMI-2 --auto
+exec_always --no-startup-id xrandr --output HDMI-1 --right-of HDMI-2
 
 # Layouts
 exec --no-startup-id google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode 

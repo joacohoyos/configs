@@ -17,6 +17,7 @@ vim.api.nvim_set_keymap('n', '<Leader>gm', ':G mergetool<CR>', { noremap = true 
 vim.api.nvim_set_keymap('n', '<Leader>mt', ':Gdiffsplit!<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>dg', ':diffget //2<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>dp', ':diffget //3<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>du', ':diffupdate<CR>', { noremap = true })
 
 -- New Line
 vim.api.nvim_set_keymap('n', '<Leader>o', 'o<ESC>', { noremap = true})
