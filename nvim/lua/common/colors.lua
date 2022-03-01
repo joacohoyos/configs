@@ -7,7 +7,7 @@ vim.api.nvim_set_var("gruvbox_invert_selection", "0")
 vim.opt.background = "dark"
 vim.api.nvim_set_hl(0, 'nonText', {bg="NONE", ctermbg="NONE"})
 vim.api.nvim_set_hl(0, "ndOfBuffer", { bg="NONE", ctermbg="NONE"})
-vim.api.nvim_set_hl(0, "CursorLineNr", { bg="NONE", ctermbg="NONE", fg="#5eacd3"})
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg="#EED202"})
 vim.api.nvim_set_hl(0, "LineNr", { fg="#5eacd3"})
 vim.api.nvim_set_hl(0, "SignColumn", { bg="NONE", ctermbg="NONE"})
 vim.api.nvim_set_hl(0, "Normal", { bg="NONE", ctermbg="NONE"})

@@ -16,14 +16,14 @@ end
 
 function MMA.on_tree_change(op, path, upstream, dir) 
     if op == Worktree.Operations.Switch and is_mma_api() then
-      Common.kill_window("podchain:run-api")
-      Common.add_window("podchain", "run-api", get_dir("api/" .. Common.get_branch(dir)), "./stop.sh && ./start.sh up")
+      Common.kill_window("mma-api:run")
+      Common.add_window("mma-api", "run", get_dir("api/" .. Common.get_branch(dir)), "./stop.sh && ./start.sh up")
     end
 
     if op == Worktree.Operations.Switch and is_mma_app() then
       print(dir)
-      Common.kill_window("podchain:run-app")
-      Common.add_window("podchain", "run-app", get_dir("app/" .. Common.get_branch(dir)), "npm run dev")
+      Common.kill_window("mma-app:run")
+      Common.add_window("mma-app", "run", get_dir("app/" .. Common.get_branch(dir)), "npm run dev")
     end
 
     if op == Worktree.Operations.Create and is_mma_api() then

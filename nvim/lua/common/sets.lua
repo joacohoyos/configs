@@ -1,6 +1,6 @@
 vim.opt.mouse = 'a'
 vim.opt.colorcolumn = '101,120'
-vim.opt.numberwidth = 2
+vim.opt.numberwidth=5
 vim.opt.clipboard = vim.opt.clipboard + 'unnamedplus'
 vim.opt.hidden = true
 vim.api.nvim_command('set nohlsearch')
@@ -30,3 +30,88 @@ vim.opt.shortmess = vim.opt.shortmess + 'c'
 vim.opt.nu = true 
 vim.api.nvim_set_var('mergetool_layout', 'mr')
 vim.api.nvim_set_var('mergetool_prefer_revision', 'local')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
