@@ -224,9 +224,13 @@ exec --no-startup-id slack
 # Asign workspaces
 assign [class="Google-chrome"] 2
 assign [class="Alacritty"] 1
-assign [class="Slack"] 5
+assign [class="Mysql-workbench-bin"] 3
+assign [class="Postman"] 3
 assign [class="Spotify"] 4
 assign [class="^Spotify*"] 4
+assign [class="Slack"] 5
+assign [class="Discord"] 6
+
 for_window [class="Spotify"] move to workspace $ws4
 for_window [class="Google-chrome" window_role="pop-up"] floating enable
 
