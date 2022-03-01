@@ -55,18 +55,18 @@ while [ "$#" -gt 0 ]; do
         createWindow kiddom run-web $KIDDOM/web/main "npm start"
         # createWindow kiddom run-api $KIDDOM_API/master "ENVIRONMENT=local AUTH_URL=localhost:5001 STREAM_API_KEY=8ks455je2kpk STREAM_API_SECRET=eun8zusbssmrhfg23n55xjwjkyzrwuscc6jphtbhuysg25e4uvf57ufsyyxv9eku go run main.go"
         ;;
-    "-podchain")
-        createSession podchain nvim-app $PODCHAIN/mma-treasures/app/develop
-        createWindow podchain run-app $PODCHAIN/mma-treasures/app/develop "npm run dev"
-        createWindow podchain nvim-api $PODCHAIN/mma-treasures/api/develop
-        createWindow podchain run-api $PODCHAIN/mma-treasures/api/develop "./start.sh up"
-        createWindow podchain nvim-contract $PODCHAIN/mma-treasures/contracts
+    "-mma")
+        createSession mma-app nvim $PODCHAIN/mma-treasures/app/develop
+        createWindow mma-app run $PODCHAIN/mma-treasures/app/develop "npm run dev"
+        createSession mma-api nvim $PODCHAIN/mma-treasures/api/develop
+        createWindow mma-api run $PODCHAIN/mma-treasures/api/develop "./start.sh up"
+        createSession mma-contracts nvim $PODCHAIN/mma-treasures/contracts
         ;;
     "-base")
-        createSession base nvim-app ~/base/app
-        createWindow base run-app ~/base/app "npm start"
-        createWindow base nvim-api ~/base/api
-        createWindow base run-api ~/base/app "docker-compose -f docker/docker-compose.yaml up"
+        createSession base-app nvim ~/base/app
+        createWindow base-app run ~/base/app "npm start"
+        createSession base-api nvim ~/base/api
+        createWindow base-api run ~/base/app "docker-compose -f docker/docker-compose.yaml up"
         ;;
     "-personal")
         createSession personal console $PERSONAL 
