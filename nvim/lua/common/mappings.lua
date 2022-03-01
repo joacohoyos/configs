@@ -10,8 +10,7 @@ vim.api.nvim_set_keymap('n', '<Leader>gn', ':lua require("telescope").extensions
 vim.api.nvim_set_keymap('n', '<leader>cc', ':lua require("helpers.commit").command()<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>ca', ':G add .<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>cpoh', ':G push origin HEAD', { noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>cpfl', ':G push --force-with-lease', { noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>crom', ':Git rebase origin/master<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>cpfl', ':G push origin HEAD --force-with-lease', { noremap = true})
 
 -- Git merge
 vim.api.nvim_set_keymap('n', '<Leader>gm', ':G mergetool<CR>', { noremap = true })
