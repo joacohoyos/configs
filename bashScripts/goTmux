@@ -55,12 +55,18 @@ while [ "$#" -gt 0 ]; do
         createWindow kiddom run-web $KIDDOM/web/main "npm start"
         # createWindow kiddom run-api $KIDDOM_API/master "ENVIRONMENT=local AUTH_URL=localhost:5001 STREAM_API_KEY=8ks455je2kpk STREAM_API_SECRET=eun8zusbssmrhfg23n55xjwjkyzrwuscc6jphtbhuysg25e4uvf57ufsyyxv9eku go run main.go"
         ;;
+    # "-mma")
+    #     createSession mma-app nvim $PODCHAIN/mma-treasures/app/develop
+    #     createWindow mma-app run $PODCHAIN/mma-treasures/app/develop "npm run dev"
+    #     createSession mma-api nvim $PODCHAIN/mma-treasures/api/develop
+    #     createWindow mma-api run $PODCHAIN/mma-treasures/api/develop "./start.sh up"
+    #     createSession mma-contracts nvim $PODCHAIN/mma-treasures/contracts
+    #     ;;
     "-mma")
-        createSession mma-app nvim $PODCHAIN/mma-treasures/app/develop
-        createWindow mma-app run $PODCHAIN/mma-treasures/app/develop "npm run dev"
-        createSession mma-api nvim $PODCHAIN/mma-treasures/api/develop
-        createWindow mma-api run $PODCHAIN/mma-treasures/api/develop "./start.sh up"
-        createSession mma-contracts nvim $PODCHAIN/mma-treasures/contracts
+        createSession mma nvim $PODCHAIN/mma-treasures/app/develop
+        createWindow mma run $PODCHAIN/mma-treasures/api/develop "./start.sh up"
+        createWindow mma run-2 $PODCHAIN/mma-treasures/app/develop "npm run dev"
+        tmux join-pane -h -s mma:run-2 -t mma:run
         ;;
     "-base")
         createSession base-app nvim ~/base/app

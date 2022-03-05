@@ -15,7 +15,7 @@ require('telescope').setup {
                 ["<C-q>"] = actions.send_to_qflist,
             },
         },
-        -- file_ignore_patterns = {"node_modules", "dist", "build", ".next"},
+        file_ignore_patterns = {"node_modules", "dist", "build", ".next"},
     },
     extensions = {
         fzy_native = {
@@ -29,7 +29,7 @@ require('telescope').load_extension('fzy_native')
 require("telescope").load_extension("git_worktree")
 
 -- Mappings
-vim.api.nvim_set_keymap('n', '<leader>ps', ':lua require("telescope.builtin").live_grep({ search = vim.fn.input("Grep For > ")})<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep For > ")})<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>pc', ':lua require("telescope.builtin").find_files({prompt_title = "< VimRC >",cwd = "$HOME/configs"})<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>pt', ':lua require("clarkyex.telescope").search_tests()<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-p>', ':lua require("telescope.builtin").find_files({no_ignore = true, hidden = true})<CR>', { noremap = true })
