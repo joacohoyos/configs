@@ -1,17 +1,42 @@
 vim.api.nvim_set_var('mapleader', ' ')
 -- NvimTree
-vim.api.nvim_set_keymap('n', '<C-f>', ':NvimTreeToggle<CR>' , { noremap = true})
+vim.api.nvim_set_keymap('n', '<C-f>', ':NvimTreeToggle<CR>', { noremap = true })
 
 -- Worktree
-vim.api.nvim_set_keymap('n', '<Leader>gg', ':lua require("telescope").extensions.git_worktree.git_worktrees()<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<Leader>gn', ':lua require("telescope").extensions.git_worktree.create_git_worktree()<CR>', { noremap = true })
+vim.api.nvim_set_keymap(
+    'n',
+    '<Leader>gg',
+    ':lua require("telescope").extensions.git_worktree.git_worktrees()<CR>',
+    { noremap = true }
+)
+vim.api.nvim_set_keymap(
+    'n',
+    '<Leader>gn',
+    ':lua require("telescope").extensions.git_worktree.create_git_worktree()<CR>',
+    { noremap = true }
+)
 
 -- Git
-vim.api.nvim_set_keymap('n', '<leader>cc', ':lua require("helpers.commit").commit()<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>cm', ':lua require("helpers.commit").ammend()<CR>', { noremap = true })
+vim.api.nvim_set_keymap(
+    'n',
+    '<leader>cc',
+    ':lua require("helpers.commit").commit()<CR>',
+    { noremap = true }
+)
+vim.api.nvim_set_keymap(
+    'n',
+    '<leader>cm',
+    ':lua require("helpers.commit").ammend()<CR>',
+    { noremap = true }
+)
 vim.api.nvim_set_keymap('n', '<Leader>ca', ':G add .<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<Leader>cps', ':G push origin HEAD <CR>', { noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>cpof', ':G push origin HEAD --force-with-lease <CR>', { noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>cps', ':G push origin HEAD <CR>', { noremap = true })
+vim.api.nvim_set_keymap(
+    'n',
+    '<Leader>cpof',
+    ':G push origin HEAD --force-with-lease <CR>',
+    { noremap = true }
+)
 
 -- Git merge
 vim.api.nvim_set_keymap('n', '<Leader>gm', ':G mergetool<CR>', { noremap = true })
@@ -21,36 +46,36 @@ vim.api.nvim_set_keymap('n', '<Leader>dp', ':diffget //3<CR>', { noremap = true 
 vim.api.nvim_set_keymap('n', '<Leader>du', ':diffupdate<CR>', { noremap = true })
 
 -- New Line
-vim.api.nvim_set_keymap('n', '<Leader>o', 'o<ESC>', { noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>O', 'O<ESC>', { noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>o', 'o<ESC>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>O', 'O<ESC>', { noremap = true })
 
 -- Deletting and pasting without overwriting clipboard
-vim.api.nvim_set_keymap('v', '<Leader>dd', '"_d', { noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>dd', '"_dd', { noremap = true})
-vim.api.nvim_set_keymap('v', '<Leader>pp', '"_dP', { noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>pp', '"_ddP', { noremap = true})
-vim.api.nvim_set_keymap('v', '<Leader>d"', '"_di"', { noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>d"', '"_di"', { noremap = true})
-vim.api.nvim_set_keymap('v', '<Leader>p"', '"_di"P', { noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>p"', '"_di"P', { noremap = true})
-vim.api.nvim_set_keymap('v', "<Leader>d'", '"_di\'', { noremap = true})
-vim.api.nvim_set_keymap('n', "<Leader>d'", '"_di\'', { noremap = true})
-vim.api.nvim_set_keymap('v', "<Leader>p'", '"_di\'P', { noremap = true})
-vim.api.nvim_set_keymap('n', "<Leader>p'", '"_di\'P', { noremap = true})
-vim.api.nvim_set_keymap('v', '<Leader>d{', '"_di{,', { noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>d{', '"_di{', { noremap = true})
-vim.api.nvim_set_keymap('v', '<Leader>p{', '"_di{P', { noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>p{', '"_di{P', { noremap = true})
-vim.api.nvim_set_keymap('v', '<Leader>d(', '"_di(', { noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>d(', '"_di(', { noremap = true})
-vim.api.nvim_set_keymap('v', '<Leader>p(', '"_di(P', { noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>p(', '"_di(P', { noremap = true})
+vim.api.nvim_set_keymap('v', '<Leader>dd', '"_d', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>dd', '"_dd', { noremap = true })
+vim.api.nvim_set_keymap('v', '<Leader>pp', '"_dP', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>pp', '"_ddP', { noremap = true })
+vim.api.nvim_set_keymap('v', '<Leader>d"', '"_di"', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>d"', '"_di"', { noremap = true })
+vim.api.nvim_set_keymap('v', '<Leader>p"', '"_di"P', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>p"', '"_di"P', { noremap = true })
+vim.api.nvim_set_keymap('v', "<Leader>d'", '"_di\'', { noremap = true })
+vim.api.nvim_set_keymap('n', "<Leader>d'", '"_di\'', { noremap = true })
+vim.api.nvim_set_keymap('v', "<Leader>p'", '"_di\'P', { noremap = true })
+vim.api.nvim_set_keymap('n', "<Leader>p'", '"_di\'P', { noremap = true })
+vim.api.nvim_set_keymap('v', '<Leader>d{', '"_di{,', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>d{', '"_di{', { noremap = true })
+vim.api.nvim_set_keymap('v', '<Leader>p{', '"_di{P', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>p{', '"_di{P', { noremap = true })
+vim.api.nvim_set_keymap('v', '<Leader>d(', '"_di(', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>d(', '"_di(', { noremap = true })
+vim.api.nvim_set_keymap('v', '<Leader>p(', '"_di(P', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>p(', '"_di(P', { noremap = true })
 
 -- To Lowercase or To Uppercase
-vim.api.nvim_set_keymap('i', '<C-g>u', '<ESC>guawea', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('i', '<C-g>U', '<ESC>gUawea', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('i', '<C-g>w', '<ESC>0gu$', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('i', '<C-g>W', '<ESC>0gU$', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('i', '<C-g>u', '<ESC>guawea', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-g>U', '<ESC>gUawea', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-g>w', '<ESC>0gu$', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-g>W', '<ESC>0gU$', { noremap = true, silent = true })
 
 -- Maximize
 vim.api.nvim_set_keymap('n', '<Leader>m', ':MaximizerToggle<CR>', { noremap = true })
@@ -96,10 +121,35 @@ vim.api.nvim_set_keymap('n', '<leader>j', ':m .+1<CR>==', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>s', ':<C-u>call gitblame#echo()<CR>', { noremap = true })
 
 -- Solidity
-vim.api.nvim_set_keymap('n', '<leader>rtc', ':lua require("helpers.truffle").compile()<CR>', { noremap = true })
+vim.api.nvim_set_keymap(
+    'n',
+    '<leader>rtc',
+    ':lua require("helpers.truffle").compile()<CR>',
+    { noremap = true }
+)
 
 -- Working Dir
-vim.api.nvim_set_keymap('n', '<leader>na', ':lua require("clarkyex.working_dir").load_directory(1)<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>no', ':lua require("clarkyex.working_dir").load_directory(2)<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>ne', ':lua require("clarkyex.working_dir").load_directory(3)<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>nu', ':lua require("clarkyex.working_dir").load_directory(4)<CR>', { noremap = true })
+vim.api.nvim_set_keymap(
+    'n',
+    '<leader>na',
+    ':lua require("clarkyex.working_dir").load_directory(1)<CR>',
+    { noremap = true }
+)
+vim.api.nvim_set_keymap(
+    'n',
+    '<leader>no',
+    ':lua require("clarkyex.working_dir").load_directory(2)<CR>',
+    { noremap = true }
+)
+vim.api.nvim_set_keymap(
+    'n',
+    '<leader>ne',
+    ':lua require("clarkyex.working_dir").load_directory(3)<CR>',
+    { noremap = true }
+)
+vim.api.nvim_set_keymap(
+    'n',
+    '<leader>nu',
+    ':lua require("clarkyex.working_dir").load_directory(4)<CR>',
+    { noremap = true }
+)

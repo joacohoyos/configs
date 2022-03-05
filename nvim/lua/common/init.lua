@@ -1,3 +1,3 @@
-require("common.sets")
-require("common.colors")
-require("common.mappings")
+require('common.sets')
+require('common.colors')
+require('common.mappings')
