@@ -127,29 +127,3 @@ vim.api.nvim_set_keymap(
     ':lua require("helpers.truffle").compile()<CR>',
     { noremap = true }
 )
-
--- Working Dir
-vim.api.nvim_set_keymap(
-    'n',
-    '<leader>na',
-    ':lua require("clarkyex.working_dir").load_directory(1)<CR>',
-    { noremap = true }
-)
-vim.api.nvim_set_keymap(
-    'n',
-    '<leader>no',
-    ':lua require("clarkyex.working_dir").load_directory(2)<CR>',
-    { noremap = true }
-)
-vim.api.nvim_set_keymap(
-    'n',
-    '<leader>ne',
-    ':lua require("clarkyex.working_dir").load_directory(3)<CR>',
-    { noremap = true }
-)
-vim.api.nvim_set_keymap(
-    'n',
-    '<leader>nu',
-    ':lua require("clarkyex.working_dir").load_directory(4)<CR>',
-    { noremap = true }
-)

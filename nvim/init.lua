@@ -29,6 +29,7 @@ require('paq')({
     'numToStr/Comment.nvim',
     'ThePrimeagen/refactoring.nvim',
     'JoosepAlviste/nvim-ts-context-commentstring',
+    'joacohoyos/directory.nvim',
 })
 
 require('common')

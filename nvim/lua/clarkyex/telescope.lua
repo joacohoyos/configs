@@ -27,8 +27,16 @@ require('telescope').setup({
 
 require('telescope').load_extension('fzy_native')
 require('telescope').load_extension('git_worktree')
+require('telescope').load_extension('directory')
 
 -- Mappings
+--
+vim.api.nvim_set_keymap(
+    'n',
+    '<leader>pd',
+    ':lua require("telescope").extensions.directory.directory()<CR>',
+    { noremap = true }
+)
 vim.api.nvim_set_keymap(
     'n',
     '<leader>ps',
