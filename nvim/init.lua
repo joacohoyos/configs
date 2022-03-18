@@ -30,6 +30,9 @@ require('paq')({
     'ThePrimeagen/refactoring.nvim',
     'JoosepAlviste/nvim-ts-context-commentstring',
     'joacohoyos/directory.nvim',
+    'hrsh7th/vim-vsnip',
+    'hrsh7th/vim-vsnip-integ',
+    { 'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end };
 })
 
 require('common')
@@ -37,4 +40,5 @@ require('clarkyex')
 
 vim.cmd('autocmd BufRead,BufNewFile *.sol set filetype=solidity')
 vim.cmd('autocmd FileType ruby setlocal shiftwidth=4 tabstop=4')
+vim.cmd('autocmd FileType solidity setlocal shiftwidth=4 tabstop=4')
 vim.cmd('autocmd FileType lua setlocal shiftwidth=4 tabstop=4')

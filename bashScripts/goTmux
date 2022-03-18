@@ -66,7 +66,9 @@ while [ "$#" -gt 0 ]; do
         createSession mma nvim $PODCHAIN/mma-treasures/app/develop
         createWindow mma run $PODCHAIN/mma-treasures/api/develop "./start.sh up"
         createWindow mma run-2 $PODCHAIN/mma-treasures/app/develop "npm run dev"
+        createWindow mma run-3 $PODCHAIN/mma-treasures/admin "npm run dev"
         tmux join-pane -h -s mma:run-2 -t mma:run
+        tmux join-pane -h -s mma:run-3 -t mma:run
         ;;
     "-base")
         createSession base-app nvim ~/base/app

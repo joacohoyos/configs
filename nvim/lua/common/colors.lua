@@ -16,6 +16,7 @@ vim.api.nvim_set_hl(0, 'NvimTreeFolderIcon', { fg = 'blue' })
 vim.api.nvim_set_hl(0, 'NvimTreeFolderIcon', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NvimTreeNormal', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NvimTreeFolderName', { fg = '#458588' })
+vim.api.nvim_set_hl(0, 'WinSeparator', { bg = 'NONE' })
 
 require('nvim-treesitter.configs').setup({ highlight = { enable = true } })
 

@@ -14,6 +14,10 @@ local function is_mma_app()
     return not not (string.find(vim.loop.cwd(), get_dir('app'), 1, true))
 end
 
+local function is_mma_app()
+    return not not (string.find(vim.loop.cwd(), get_dir('admin'), 1, true))
+end
+
 function MMA.on_tree_change(op, path, upstream, dir)
     if op == Worktree.Operations.Switch and is_mma_api() then
         Common.kill_pane('mma:run.0')
@@ -27,6 +31,7 @@ function MMA.on_tree_change(op, path, upstream, dir)
         os.execute(string.format('tmux swap-pane -s mma:run.0 -t mma:run.1'))
         os.execute(string.format('tmux select-window -t mma:nvim'))
     end
+
 
     if op == Worktree.Operations.Switch and is_mma_app() then
         print('hola')

@@ -1,4 +1,4 @@
-vim.opt.completeopt = 'menuone,noinsert,noselect'
+vim.opt.completeopt = 'menuone,noselect'
 vim.api.nvim_set_var('completion_matching_strategy_list', { 'exact', 'substring', 'fuzzy' })
 
 vim.api.nvim_set_keymap('n', '<leader>vd', ':lua vim.lsp.buf.definition()<CR>', { noremap = true })

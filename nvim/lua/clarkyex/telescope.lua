@@ -5,6 +5,10 @@ require('telescope').setup({
         prompt_prefix = ' >',
         color_devicons = true,
 
+        preview = {
+            treesitter = false
+        },
+
         file_previewer = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
         qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
@@ -15,7 +19,7 @@ require('telescope').setup({
                 ['<C-q>'] = actions.send_to_qflist,
             },
         },
-        file_ignore_patterns = { 'node_modules', 'dist', 'build', '.next' },
+        file_ignore_patterns = { 'node_modules', 'dist', 'build', '.next', '.git/', '.eslintcache' },
     },
     extensions = {
         fzy_native = {
