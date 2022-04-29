@@ -34,9 +34,9 @@ require("directory").setup({
         },
         ["podchain/petaverse"] = {
             { path = '~/podchain/petaverse/app/develop', match = "app" },
-            -- { path = '~/podchain/petaverse/api/develop', match = "api" },
-            -- { path = '~/podchain/petaverse/admin', match = "admin" },
-            -- { path = '~/podchain/petaverse/contracts', match = "contracts" }
+            { path = '~/podchain/petaverse/api/develop', match = "api" },
+            { path = '~/podchain/petaverse/contracts', match = "contracts" },
+            { path = '~/podchain/petaverse/admin/develop', match = "admin" },
         }
     },
     directories = {
@@ -45,6 +45,9 @@ require("directory").setup({
         '~/podchain/mma-treasures/admin',
         '~/podchain/mma-treasures/contracts',
         '~/podchain/petaverse/app/develop',
+        '~/podchain/petaverse/api/develop',
+        '~/podchain/petaverse/contracts',
+        '~/podchain/petaverse/admin/develop',
         '~/base/api',
         '~/base/app',
 

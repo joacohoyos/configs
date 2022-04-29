@@ -19,7 +19,7 @@ require('telescope').setup({
                 ['<C-q>'] = actions.send_to_qflist,
             },
         },
-        file_ignore_patterns = { 'node_modules', 'dist', 'build', '.next', '.git/', '.eslintcache' },
+        file_ignore_patterns = { 'node_modules', 'dist', 'build', '.next', '.git/', '.eslintcache','coverage/'},
     },
     extensions = {
         fzy_native = {
@@ -78,7 +78,7 @@ M.search_tests = function()
         find_command = {
             'ag',
             '-g',
-            '(.*)\\/__tests__\\/(.*)(test|spec)(.*)(tsx|jsx|ts|js)$',
+            '(.*)\\/__tests__\\/(.*)(test|spec)(.*).(tsx|jsx|ts|js)$',
         },
     })
 end

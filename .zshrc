@@ -107,6 +107,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+# GIT
 alias gpl="git pull"
 alias grh="git reset --hard HEAD"
 alias grs="git reset --soft HEAD"
@@ -119,12 +121,17 @@ alias gwa="git worktree add"
 alias gwr="git worktree remove"
 alias gsh="git stash"
 alias gshp="git stash pop"
-alias e="nvim ."
-alias ep="nvim"
 alias gpo="git pull origin"
 alias gpod="git pull origin develop"
 alias gpom="git pull origin master"
 alias gpof="git push origin HEAD --force-with-lease"
+alias gpof="git push origin HEAD --force-with-lease"
+# NVIM
+alias e="nvim ."
+alias ep="nvim"
+
+# Hardhat
+alias hh="npx hardhat"
 
 export EDITOR='nvim'
 export NVM_DIR="$HOME/.config/nvm"

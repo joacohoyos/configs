@@ -2,7 +2,7 @@ require('harpoon').setup({})
 
 vim.api.nvim_set_keymap(
     'n',
-    '<C-m>',
+    '<C-b>',
     ':lua require("harpoon.mark").add_file()<CR>',
     { noremap = true }
 )
