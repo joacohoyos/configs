@@ -2,9 +2,6 @@
 #!/usr/bin/env bash
 
 PERSONAL="~/Documents/Proyectos"
-KIDDOM="~/kiddom"
-KIDDOM_API="~/go/src/github.com/kiddom/api"
-PODCHAIN="~/podchain"
 
 createWindow() {
     session=$1
@@ -48,35 +45,6 @@ while [ "$#" -gt 0 ]; do
     shift
 
     case "$curr" in
-    "-mma")
-        createSession mma nvim $PODCHAIN/mma-treasures/app/develop
-        createWindow mma run $PODCHAIN/mma-treasures/api/develop "./start.sh up"
-        createWindow mma run-2 $PODCHAIN/mma-treasures/app/develop "npm run dev"
-        createWindow mma run-3 $PODCHAIN/mma-treasures/admin "npm run dev"
-        tmux join-pane -h -s mma:run-2 -t mma:run
-        tmux join-pane -h -s mma:run-3 -t mma:run
-        ;;
-    "-unflipped")
-        createSession unflipped nvim $PODCHAIN/unflipped/app/develop
-        createWindow unflipped run $PODCHAIN/unflipped/api/develop "docker-compose -f docker/docker-compose.yaml up"
-        createWindow unflipped run-2 $PODCHAIN/unflipped/app/develop "npm start"
-        createWindow unflipped run-3 $PODCHAIN/unflipped/admin/develop "npm start"
-        tmux join-pane -h -s unflipped:run-2 -t peta:run
-        tmux join-pane -h -s unflipped:run-3 -t peta:run
-        ;;
-    "-peta")
-        createSession peta nvim $PODCHAIN/petaverse/app/develop
-        createWindow peta run $PODCHAIN/petaverse/api/develop "./start.sh up"
-        createWindow peta run-2 $PODCHAIN/petaverse/app/develop "npm run dev"
-        createWindow peta run-3 $PODCHAIN/petaverse/admin/develop "npm run dev"
-        tmux join-pane -h -s peta:run-2 -t peta:run
-        tmux join-pane -h -s peta:run-3 -t peta:run
-        ;;
-    "-base")
-        createSession base-app nvim ~/base/app
-        createWindow base-app run ~/base/app "npm start"
-        createSession base-api nvim ~/base/api
-        createWindow base-api run ~/base/app "docker-compose -f docker/docker-compose.yaml up"
         ;;
     "-personal")
         createSession personal console $PERSONAL 
