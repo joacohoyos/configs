@@ -45,7 +45,6 @@ while [ "$#" -gt 0 ]; do
     shift
 
     case "$curr" in
-        ;;
     "-personal")
         createSession personal console $PERSONAL 
         ;;
