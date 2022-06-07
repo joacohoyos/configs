@@ -1,5 +1,8 @@
-vim.g.nvim_tree_git_hl = 1
+-- vim.g.neim_tree_git_hl = 1
 require('nvim-tree').setup({
+    renderer = {
+        highlight_git = true,
+    },
     disable_netrw = true,
     hijack_netrw = true,
     open_on_setup = false,
