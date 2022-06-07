@@ -185,13 +185,14 @@ gaps outer 5
 #smart_gaps on
 
 # Background
-exec_always --no-startup-id feh --bg-fill /home/joaquin/Documents/Wallpapers/mountain.jpg
-
+# exec_always --no-startup-id feh --bg-fill --randomize /home/joaquin/configs/Wallpapers/witcher.jpg
+exec --no-startup-id ~/configs/bashScripts/background
+#
 # Keyboard Layout
 exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant dvp
 
 # Polybar
-exec_always --no-startup-id /home/joaquin/.config/polybar/launch.sh
+exec_always --no-startup-id ~/configs/polybar/launch-notebook.sh --forest
 
 # Compton
 exec --no-startup-id "compton -b"
@@ -209,24 +210,28 @@ exec --no-startup-id export PATH=$PATH:/home/joaquin/.config/dmenu
 exec_always --no-startup-id amixer set "Headphone" playback 100% unmute
 
 #Monitor setup
-exec --no-startup-id xrandr --output HDMI-1 --auto
-exec --no-startup-id xrandr --output DP-1 --left-of HDMI-1
+exec_always --no-startup-id xrandr --output HDMI-1 --auto
+exec_always --no-startup-id xrandr --output HDMI-2 --auto
+exec_always --no-startup-id xrandr --output HDMI-1 --right-of HDMI-2
 
 # Layouts
-exec --no-startup-id google-chrome --enable-features=WebUIDarkMode --force-dark-mode 
+exec --no-startup-id google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode 
 exec --no-startup-id spotify
 exec --no-startup-id alacritty
+exec --no-startup-id slack
+exec --no-startup-id discord
 
-#Trackpad
-# exec_always --no-startup-id xinput set-prop 11 318 1
-exec_always --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1
 
 # Asign workspaces
 assign [class="Google-chrome"] 2
 assign [class="Alacritty"] 1
-assign [class="Slack"] 5
+assign [class="Mysql-workbench-bin"] 3
+assign [class="Postman"] 3
 assign [class="Spotify"] 4
 assign [class="^Spotify*"] 4
+assign [class="Slack"] 5
+assign [class="discord"] 6
+
 for_window [class="Spotify"] move to workspace $ws4
 for_window [class="Google-chrome" window_role="pop-up"] floating enable
 
@@ -236,7 +241,7 @@ for_window [class="Google-chrome" window_role="pop-up"] floating enable
 bindsym $mod+Shift+t exec --no-startup-id alacritty
 
 # Run Chromium
-bindsym $mod+Shift+b exec --no-startup-id google-chrome --enable-features=WebUIDarkMode --force-dark-mode 
+bindsym $mod+Shift+b exec --no-startup-id google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode 
 
 # Run Slack
 bindsym $mod+Shift+n exec --no-startup-id slack
@@ -245,7 +250,10 @@ bindsym $mod+Shift+n exec --no-startup-id slack
 bindsym $mod+Shift+f exec --no-startup-id flameshot gui
 
 #Shutdown
-bindsym $mod+Shift+p exec /home/joaquin/configs/bashScripts/prompt "Are you sure you want to shutdown?" "shutdown"
+bindsym $mod+Shift+p exec ~/configs/polybar/forest/scripts/powermenu.sh
+
+bindsym $mod+Shift+d exec ~/configs/polybar/forest/scripts/launcher.sh
+
 bindsym $mod+Shift+e exec /home/joaquin/configs/bashScripts/prompt "Do you really want to exit i3? This will end your X session." "i3-msg exit"
 
 # Volume Up

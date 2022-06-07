@@ -78,7 +78,7 @@ if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 plugins=(git ssh-agent docker docker-compose zsh-autosuggestions zsh-syntax-highlighting)
-zstyle :omz:plugins:ssh-agent identities id_rsa_github_personal id_rsa_github_psh id_rsa_gitlab_psh
+zstyle :omz:plugins:ssh-agent identities id_rsa_github_personal
 # zstyle :omz:plugins:ssh-agent identities id_rsa_bitbucket id_rsa_joacohoyos id_rsa_psh_gitlab
 source $ZSH/oh-my-zsh.sh
 
@@ -137,6 +137,7 @@ export EDITOR='nvim'
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source ~/.nvm/nvm.sh
 
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
