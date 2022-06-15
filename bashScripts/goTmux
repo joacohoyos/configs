@@ -45,6 +45,9 @@ while [ "$#" -gt 0 ]; do
     shift
 
     case "$curr" in
+    "-armanino")
+        createSession armanino console $PERSONAL/altoros/armanino 
+        ;;
     "-personal")
         createSession personal console $PERSONAL 
         ;;

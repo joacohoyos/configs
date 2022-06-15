@@ -230,6 +230,7 @@ assign [class="Postman"] 3
 assign [class="Spotify"] 4
 assign [class="^Spotify*"] 4
 assign [class="Slack"] 5
+assign [class="Telegram"] 7
 assign [class="discord"] 6
 
 for_window [class="Spotify"] move to workspace $ws4
