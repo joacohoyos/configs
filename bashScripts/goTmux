@@ -45,14 +45,13 @@ while [ "$#" -gt 0 ]; do
     shift
 
     case "$curr" in
-    "-armanino")
-        createSession armanino console $PERSONAL/altoros/armanino 
-        ;;
     "-personal")
         createSession personal console $PERSONAL 
         ;;
     "-armanino")
-        createSession armanino console $PERSONAL/armanino
+        createSession armanino ll-nvim ~/armanino/ledger-lens
+        createWindow armanino ll-api ~/armanino/ledger-lens/api "yarn serverless offline"
+        createWindow armanino ll-web ~/armanino/ledger-lens/web "yarn run dev"
         ;;
     *) echo "Unavailable command... $curr"
     esac
