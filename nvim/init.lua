@@ -32,6 +32,10 @@ require('paq')({
     'joacohoyos/directory.nvim',
     'hrsh7th/vim-vsnip',
     'hrsh7th/vim-vsnip-integ',
+    'mfussenegger/nvim-dap',
+    'rcarriga/nvim-dap-ui',
+    'theHamsta/nvim-dap-virtual-text',
+    'nvim-telescope/telescope-dap.nvim',
     { 'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end };
 })
 
