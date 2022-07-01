@@ -219,6 +219,7 @@ exec --no-startup-id google-chrome-stable --enable-features=WebUIDarkMode --forc
 exec --no-startup-id spotify
 exec --no-startup-id alacritty
 exec --no-startup-id slack
+exec --no-startup-id telegram-desktop
 exec --no-startup-id discord
 
 
@@ -230,6 +231,7 @@ assign [class="Postman"] 3
 assign [class="Spotify"] 4
 assign [class="^Spotify*"] 4
 assign [class="Slack"] 5
+assign [class="Telegram"] 7
 assign [class="discord"] 6
 
 for_window [class="Spotify"] move to workspace $ws4
