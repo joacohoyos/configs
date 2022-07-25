@@ -110,6 +110,14 @@ lsp.jsonls.setup({
     },
 })
 
+lsp.pylsp.setup({
+    on_attach = custom_on_attach,
+    capabilities = capabilities,
+    init_options = {
+        documentFormatting = false,
+    },
+})
+
 -- lsp.gopls.setup {
 --   on_attach = custom_on_attach,
 --   capabilities = capabilities,

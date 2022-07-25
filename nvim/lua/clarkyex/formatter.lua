@@ -23,13 +23,26 @@ local eslint = function()
     }
 end
 
+local black = function()
+    return {
+        exe = 'black',
+        args = { '--line-length 80', '-q', '-' },
+        stdin = true,
+    }
+end
+
 require('formatter').setup({
-    logging = false,
+    logging = true,
     filetype = {
         javascript = { prettier, eslint },
         javascriptreact = { prettier, eslint },
         typescript = { prettier, eslint },
         typescriptreact = { prettier, eslint },
+        python = {
+            black,
+            require('formatter.filetypes.python').isort,
+        },
+        lua = { require('formatter.filetypes.lua').stylua },
     },
 })
 
@@ -37,7 +50,7 @@ vim.api.nvim_exec(
     [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx FormatWrite
+  autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.py,*.lua FormatWrite
 augroup END
 ]],
     true

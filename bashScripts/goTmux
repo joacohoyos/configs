@@ -1,7 +1,7 @@
 
 #!/usr/bin/env bash
 
-PERSONAL="~/Documents/Proyectos"
+PROYECTOS="~/Documents/Proyectos"
 
 createWindow() {
     session=$1
@@ -46,10 +46,13 @@ while [ "$#" -gt 0 ]; do
 
     case "$curr" in
     "-armanino")
-        createSession armanino console $PERSONAL/altoros/armanino 
+        createSession armanino console $PROYECTOS/altoros/armanino 
+        ;;
+    "-droopy")
+        createSession droopy console $PROYECTOS/personal/droopy
         ;;
     "-personal")
-        createSession personal console $PERSONAL 
+        createSession personal console $PROYECTOS/personal
         ;;
     *) echo "Unavailable command... $curr"
     esac

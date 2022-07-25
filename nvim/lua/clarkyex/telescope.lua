@@ -19,7 +19,7 @@ require('telescope').setup({
                 ['<C-q>'] = actions.send_to_qflist,
             },
         },
-        file_ignore_patterns = { 'node_modules', 'dist', 'build', '.next', '.git/', '.eslintcache','coverage/'},
+        file_ignore_patterns = { 'node_modules', 'dist', 'build', '.next', '.git/', '.eslintcache','coverage/' ,'.step-functions-local','.serverless/'},
     },
     extensions = {
         fzy_native = {
