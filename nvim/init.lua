@@ -32,7 +32,12 @@ require('paq')({
     'joacohoyos/directory.nvim',
     'hrsh7th/vim-vsnip',
     'hrsh7th/vim-vsnip-integ',
-    { 'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end };
+    {
+        'iamcco/markdown-preview.nvim',
+        run = function()
+            vim.fn['mkdp#util#install']()
+        end,
+    },
 })
 
 require('common')
