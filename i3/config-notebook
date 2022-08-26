@@ -218,7 +218,6 @@ exec_always --no-startup-id xrandr --output HDMI-1 --right-of HDMI-2
 exec --no-startup-id google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode 
 exec --no-startup-id spotify
 exec --no-startup-id alacritty
-exec --no-startup-id slack
 exec --no-startup-id discord
 
 
