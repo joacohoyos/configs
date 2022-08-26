@@ -51,11 +51,6 @@ while [ "$#" -gt 0 ]; do
     "-personal")
         createSession personal console $PROYECTOS/personal
         ;;
-    "-armanino")
-        createSession armanino ll-nvim ~/armanino/ledger-lens
-        createWindow armanino ll-api ~/armanino/ledger-lens/api "yarn serverless offline start"
-        createWindow armanino ll-web ~/armanino/ledger-lens/web "yarn run dev"
-        ;;
     *) echo "Unavailable command... $curr"
     esac
 done
