@@ -48,6 +48,13 @@ while [ "$#" -gt 0 ]; do
     "-droopy")
         createSession droopy console $PROYECTOS/personal/droopy
         ;;
+    "-jpg")
+        createSession jpg nvim-server $PROYECTOS/jpg/server
+        createSession jpg nvim-frontend $PROYECTOS/jpg/frontend
+        createSession jpg run-server $PROYECTOS/jpg/server "yarn run dev"
+        createSession jpg run-frontend $PROYECTOS/jpg/frontend "yarn dev"
+        createSession jpg run-redis $PROYECTOS/jpg/server "redis-server"
+        ;;
     "-personal")
         createSession personal console $PROYECTOS/personal
         ;;
