@@ -50,10 +50,11 @@ while [ "$#" -gt 0 ]; do
         ;;
     "-jpg")
         createSession jpg nvim-server $PROYECTOS/jpg/server
-        createSession jpg nvim-frontend $PROYECTOS/jpg/frontend
-        createSession jpg run-server $PROYECTOS/jpg/server "yarn run dev"
-        createSession jpg run-frontend $PROYECTOS/jpg/frontend "yarn dev"
-        createSession jpg run-redis $PROYECTOS/jpg/server "redis-server"
+        createWindow jpg nvim-frontend $PROYECTOS/jpg/frontend
+        createWindow jpg run-server $PROYECTOS/jpg/server "yarn start:dev"
+        createWindow jpg run-frontend $PROYECTOS/jpg/frontend "yarn dev"
+        createWindow jpg run-redis $PROYECTOS/jpg/server "redis-server"
+        createWindow jpg gcloud $PROYECTOS/jpg/server "cloud_sql_proxy -instances=jpg-store-338419:us-central1:jpg-maindb=tcp:5432"
         ;;
     "-personal")
         createSession personal console $PROYECTOS/personal

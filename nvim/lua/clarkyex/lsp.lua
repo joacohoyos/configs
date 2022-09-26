@@ -52,27 +52,62 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local on_attach_no_warning = function(_, bufnr)
-    vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics,
-        {
+    vim.lsp.handlers['textDocument/publishDiagnostics'] =
+        vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
             underline = false,
             virtual_text = false,
             signs = true,
             update_in_insert = false,
-        }
-    )
+        })
 end
 -- configuring diagnostics
 local custom_on_attach = function(_, bufnr)
-    vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics,
-        {
+    vim.lsp.handlers['textDocument/publishDiagnostics'] =
+        vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
             underline = true,
             virtual_text = true,
             signs = true,
             update_in_insert = false,
-        }
-    )
+        })
+end
+
+local react_on_attach = function(_, bufnr)
+    custom_on_attach(_, bufnr)
+    vim.lsp.handlers['textDocument/definition'] = function(_, method, result)
+        if result == nil or vim.tbl_isempty(result) then
+            print('empty')
+            local _ = vim.lsp.log.info() and vim.lsp.log.info(method, 'No location found')
+            return nil
+        end
+
+        if vim.tbl_islist(result) then
+            print('es')
+            vim.lsp.util.jump_to_location(result[1], 'utf-16')
+            if #result > 1 then
+                local isReactDTs = false
+                for key, value in pairs(result) do
+                    if string.match(value.uri, 'react/index.d.ts') then
+                        isReactDTs = true
+                        break
+                    end
+                    if string.match(value.uri, 'next/types/global.d.ts') then
+                        isReactDTs = true
+                        break
+                    end
+                end
+                print('isReact', isReactDTs)
+                if not isReactDTs then
+                    vim.lsp.util.set_qflist(util.locations_to_items(result))
+                    vim.api.nvim_command('copen')
+                    vim.api.api.nvim_command('wincmd p')
+                end
+            end
+        else
+            print('no es 33')
+            r = vim.lsp.util.jump_to_location(result, 'utf-8', true)
+            print(r)
+        end
+    end
 end
 
 lsp.cssls.setup({
@@ -117,6 +152,16 @@ lsp.pylsp.setup({
         documentFormatting = false,
     },
 })
+
+lsp.rust_analyzer.setup{
+    on_attach = custom_on_attach,
+    capabilities = capabilities,
+}
+
+lsp.hls.setup{
+    on_attach = custom_on_attach,
+    capabilities = capabilities,
+}
 
 -- lsp.gopls.setup {
 --   on_attach = custom_on_attach,

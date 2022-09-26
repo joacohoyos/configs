@@ -6,7 +6,7 @@ require('telescope').setup({
         color_devicons = true,
 
         preview = {
-            treesitter = false
+            treesitter = false,
         },
 
         file_previewer = require('telescope.previewers').vim_buffer_cat.new,
@@ -19,7 +19,17 @@ require('telescope').setup({
                 ['<C-q>'] = actions.send_to_qflist,
             },
         },
-        file_ignore_patterns = { 'node_modules', 'dist', 'build', '.next', '.git/', '.eslintcache','coverage/' ,'.step-functions-local','.serverless/'},
+        file_ignore_patterns = {
+            'node_modules',
+            'dist/',
+            'build/',
+            '.next',
+            '.git/',
+            '.eslintcache',
+            'coverage/',
+            '.step-functions-local',
+            '.serverless/',
+        },
     },
     extensions = {
         fzy_native = {
