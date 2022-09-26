@@ -178,6 +178,7 @@ bindsym $mod+r mode "resize"
 
 # Windows border
 default_border pixel
+for_window [all] border pixel 1
 
 # Gaps
 gaps inner 5
@@ -224,11 +225,12 @@ exec --no-startup-id discord
 # Asign workspaces
 assign [class="Google-chrome"] 2
 assign [class="Alacritty"] 1
-assign [class="Mysql-workbench-bin"] 5
-assign [class="Postman"] 3
+assign [class="Postman"] 5
 assign [class="Spotify"] 4
 assign [class="^Spotify*"] 4
 assign [class="Slack"] 5
+assign [class="Mysql-workbench-bin"] 3
+assign [class="DBeaver"] 3
 assign [class="discord"] 6
 
 for_window [class="Spotify"] move to workspace $ws4
