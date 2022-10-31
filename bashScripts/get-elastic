@@ -1,0 +1,1 @@
+curl -s -H 'content-type: application/json' -XGET -H "Authorization: ApiKey $(gcloud secrets versions access latest --secret=ELASTICSEARCH_API_KEY)" https://b8232a3a23c741e7b80edaac37f434bf.us-east4.gcp.elastic-cloud.com:9243/tokens/_doc/$1 | jq .
