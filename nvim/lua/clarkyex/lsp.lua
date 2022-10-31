@@ -73,12 +73,17 @@ end
 
 local react_on_attach = function(_, bufnr)
     custom_on_attach(_, bufnr)
-    vim.lsp.handlers['textDocument/definition'] = function(_, method, result)
+    vim.lsp.handlers['textDocument/definition'] = function(a, method, result)
         if result == nil or vim.tbl_isempty(result) then
             print('empty')
             local _ = vim.lsp.log.info() and vim.lsp.log.info(method, 'No location found')
             return nil
         end
+        print(a)
+        -- for key, value in pairs(result) do
+        --     print(key)
+        --     print(value)
+        -- end
 
         if vim.tbl_islist(result) then
             print('es')
@@ -104,8 +109,7 @@ local react_on_attach = function(_, bufnr)
             end
         else
             print('no es 33')
-            r = vim.lsp.util.jump_to_location(result, 'utf-8', true)
-            print(r)
+            r = vim.lsp.util.jump_to_location(result.params.textDocument, 'utf-8', true)
         end
     end
 end
@@ -153,15 +157,15 @@ lsp.pylsp.setup({
     },
 })
 
-lsp.rust_analyzer.setup{
+lsp.rust_analyzer.setup({
     on_attach = custom_on_attach,
     capabilities = capabilities,
-}
+})
 
-lsp.hls.setup{
+lsp.hls.setup({
     on_attach = custom_on_attach,
     capabilities = capabilities,
-}
+})
 
 -- lsp.gopls.setup {
 --   on_attach = custom_on_attach,

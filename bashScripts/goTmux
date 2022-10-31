@@ -29,6 +29,7 @@ createSession() {
     window=$2
     workingDirectory=$3
     command=$4
+
     shift
     shift
     cmd="tmux new -s $session -d -n $window -c $workingDirectory > /dev/null 2>&1"
@@ -45,16 +46,12 @@ while [ "$#" -gt 0 ]; do
     shift
 
     case "$curr" in
-    "-droopy")
-        createSession droopy console $PROYECTOS/personal/droopy
-        ;;
     "-jpg")
-        createSession jpg nvim-server $PROYECTOS/jpg/server
+        createSession jpg nvim-server $PROYECTOS/jpg/server/staging
         createWindow jpg nvim-frontend $PROYECTOS/jpg/frontend
-        createWindow jpg run-server $PROYECTOS/jpg/server "yarn start:dev"
+        createWindow jpg run-server $PROYECTOS/jpg/server/staging "yarn start:dev"
         createWindow jpg run-frontend $PROYECTOS/jpg/frontend "yarn dev"
-        createWindow jpg run-redis $PROYECTOS/jpg/server "redis-server"
-        createWindow jpg gcloud $PROYECTOS/jpg/server "cloud_sql_proxy -instances=jpg-store-338419:us-central1:jpg-maindb=tcp:5432"
+        createWindow jpg gcloud $PROYECTOS/jpg/server/staging "cloud_sql_proxy -instances=jpg-store-338419:us-central1:jpg-maindb=tcp:5432 --token=\$(gcloud auth print-access-token --impersonate-service-account='maindbreader@jpg-store-338419.iam.gserviceaccount.com')"
         ;;
     "-personal")
         createSession personal console $PROYECTOS/personal
