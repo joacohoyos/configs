@@ -63,6 +63,14 @@ vim.api.nvim_set_keymap(
     ':lua require("telescope.builtin").find_files({prompt_title = "< VimRC >",cwd = "$HOME/configs"})<CR>',
     { noremap = true }
 )
+
+vim.api.nvim_set_keymap(
+    'n',
+    '<leader>ph',
+    ':lua require("telescope.builtin").find_files({prompt_title = "< VimRC >",cwd = "$HOME/http"})<CR>',
+    { noremap = true }
+)
+
 vim.api.nvim_set_keymap(
     'n',
     '<leader>pt',
