@@ -2,8 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/joaquin/.oh-my-zsh"
-export PODCHAIN_PATH="/home/joaquin/Documents/Proyectos/podchain"
+export ZSH="~/.oh-my-zsh"
+export PODCHAIN_PATH="~/Documents/Proyectos/podchain"
 export TERM=alacritty
 
 # Set name of the theme to load --- if set to "random", it will
@@ -72,8 +72,8 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-#You don't have /home/joaquin/.gem/ruby/3.0.0/bin
-export PATH=/usr/local/bin:/sbin:/usr/sbin:/home/joaquin/.gem/ruby/3.0.0/bin:/home/joaquin/configs/bashScripts:$PATH
+#You don't have ~/.gem/ruby/3.0.0/bin
+export PATH=/usr/local/bin:/sbin:/usr/sbin:~/.gem/ruby/3.0.0/bin:~/configs/bashScripts:$PATH
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
