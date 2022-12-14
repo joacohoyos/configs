@@ -8,7 +8,7 @@ mkdir -p ~/.config/nvim/lua/helpers
 mkdir -p ~/.config/nvim/lua/common
 
 # link wholesale
-for f in `find . -regex ".*\.vim$\|.*\.lua$"`; do
+for f in `find . -name "*.lua" -o -name "*.vim"`; do
     rm -rf ~/.config/nvim/$f
     ln -s ~/configs/nvim/$f ~/.config/nvim/$f
 done
