@@ -51,7 +51,6 @@ while [ "$#" -gt 0 ]; do
         createWindow jpg nvim-frontend $PROYECTOS/jpg/frontend
         createWindow jpg run-server $PROYECTOS/jpg/server/staging "yarn start:dev"
         createWindow jpg run-frontend $PROYECTOS/jpg/frontend "yarn dev"
-        createWindow jpg gcloud $PROYECTOS/jpg/server/staging "cloud_sql_proxy -instances=jpg-store-338419:us-central1:jpg-maindb=tcp:5432 --token=\$(gcloud auth print-access-token --impersonate-service-account='maindbreader@jpg-store-338419.iam.gserviceaccount.com')"
         ;;
     "-personal")
         createSession personal console $PROYECTOS/personal

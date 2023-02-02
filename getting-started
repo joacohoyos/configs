@@ -1,0 +1,25 @@
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+npm i -g vscode-langservers-extracted eslint prettier typescript next @nestjs/cli yarn 
+brew install python3
+brew install ripgrep
+brew install redis
+
+curl -L https://raw.githubusercontent.com/sbugzu/gruvbox-zsh/master/gruvbox.zsh-theme > ~/.oh-my-zsh/custom/themes/gruvbox.zsh-theme
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+curl -o cloud_sql_proxy https://dl.google.com/cloudsql/cloud_sql_proxy.darwin.amd64
+
+sudo mkdir /usr/local/bin
+
+mv cloud_sql_proxy /usr/local/bin/cloud_sql_proxy
+
+https://github.com/sbugzu/gruvbox-zsh
+
+  brew install koekeishiya/formulae/skhd
+  brew services start skhd

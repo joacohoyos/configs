@@ -20,7 +20,7 @@ require('telescope').setup({
             },
         },
         file_ignore_patterns = {
-            'node_modules',
+            'node_modules/',
             'dist/',
             'build/',
             '.next',
@@ -32,14 +32,20 @@ require('telescope').setup({
         },
     },
     extensions = {
-        fzy_native = {
-            override_generic_sorter = false,
-            override_file_sorter = true,
-        },
+         fzf = {
+              fuzzy = true,                    -- false will only do exact matching
+              override_generic_sorter = true,  -- override the generic sorter
+              override_file_sorter = true,     -- override the file sorter
+              case_mode = "ignore_case",   
+         },
+        -- fzy_native = {
+        --     override_generic_sorter = false,
+        --     override_file_sorter = true,
+        -- },
     },
 })
 
-require('telescope').load_extension('fzy_native')
+require('telescope').load_extension('fzf')
 require('telescope').load_extension('git_worktree')
 require('telescope').load_extension('directory')
 
@@ -67,7 +73,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
     'n',
     '<leader>ph',
-    ':lua require("telescope.builtin").find_files({prompt_title = "< VimRC >",cwd = "$HOME/http"})<CR>',
+    ':lua require("telescope.builtin").find_files({no_ignore = true, hidden = true, prompt_title = "< VimRC >",cwd = "$HOME/http"})<CR>',
     { noremap = true }
 )
 
@@ -79,8 +85,14 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap(
     'n',
+    '<leader>pf',
+    ':lua require("telescope.builtin").find_files({hidden = true, no_ignore=true})<CR>',
+    { noremap = true }
+)
+vim.api.nvim_set_keymap(
+    'n',
     '<C-p>',
-    ':lua require("telescope.builtin").find_files({no_ignore = true, hidden = true})<CR>',
+    ':lua require("telescope.builtin").git_files()<CR>',
     { noremap = true }
 )
 vim.api.nvim_set_keymap(

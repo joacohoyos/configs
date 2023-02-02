@@ -1,0 +1,3 @@
+# /bin/bash
+killall cloud_sql_proxy
+/usr/local/bin/cloud_sql_proxy -instances=jpg-store-338419:us-central1:jpg-maindb=tcp:5432 --token=$(/Users/joaquin/Downloads/google-cloud-sdk/bin/gcloud auth print-access-token --impersonate-service-account='maindbreader@jpg-store-338419.iam.gserviceaccount.com')
