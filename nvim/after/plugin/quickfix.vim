@@ -1,4 +1,4 @@
-nnoremap <C-k> :cnext<CR>zzzv<C-w>o
+nnoremap <C-x> :cnext<CR>zzzv<C-w>o
 nnoremap <C-j> :cprev<CR>zzzv<C-w>o
 nnoremap <leader>c :lnext<CR>zzzv
 nnoremap <leader>t :lprev<CR>zzzv
