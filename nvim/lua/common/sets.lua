@@ -2,6 +2,7 @@ vim.opt.mouse = 'a'
 vim.opt.colorcolumn = '101,120'
 vim.opt.numberwidth = 5
 vim.opt.clipboard = vim.opt.clipboard + 'unnamedplus'
+
 vim.opt.hidden = true
 vim.api.nvim_command('set nohlsearch')
 vim.api.nvim_command('set noswapfile')

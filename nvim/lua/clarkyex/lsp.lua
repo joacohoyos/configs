@@ -1,3 +1,7 @@
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
+vim.g.copilot_tab_fallback = ""
+
 vim.opt.completeopt = "menuone,noselect"
 vim.api.nvim_set_var("completion_matching_strategy_list", { "exact", "substring", "fuzzy" })
 
@@ -16,6 +20,15 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 	["<C-y>"] = cmp.mapping.confirm({ select = true }),
 	["<C-Space>"] = cmp.mapping.complete(),
+	["<Tab>"] = function(fallback)
+		cmp.mapping.abort()
+		local copilot_keys = vim.fn["copilot#Accept"]()
+		if copilot_keys ~= "" then
+			vim.api.nvim_feedkeys(copilot_keys, "i", true)
+		else
+			fallback()
+		end
+	end,
 })
 
 lsp.setup_nvim_cmp({
@@ -63,6 +76,16 @@ lsp.on_attach(function(client, bufnr)
 		vim.lsp.buf.signature_help()
 	end, opts)
 end)
+
+lsp.configure("rust_analyzer", {
+	settings = {
+		["rust-analyzer"] = {
+			checkOnSave = {
+				command = "clippy",
+			},
+		},
+	},
+})
 
 lsp.setup()
 

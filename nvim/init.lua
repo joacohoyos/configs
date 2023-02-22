@@ -1,5 +1,6 @@
 require("paq")({
 	{ "savq/paq-nvim", opt = true },
+	"github/copilot.vim",
 	"morhetz/gruvbox",
 	"gruvbox-community/gruvbox",
 	"tpope/vim-fugitive",
