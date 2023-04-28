@@ -47,9 +47,9 @@ while [ "$#" -gt 0 ]; do
 
     case "$curr" in
     "-jpg")
-        createSession jpg nvim-server $PROYECTOS/jpg/server/staging
+        createSession jpg nvim-server $PROYECTOS/jpg/server
         createWindow jpg nvim-frontend $PROYECTOS/jpg/frontend
-        createWindow jpg run-server $PROYECTOS/jpg/server/staging "yarn start:dev"
+        createWindow jpg run-server $PROYECTOS/jpg/server "yarn start:dev"
         createWindow jpg run-frontend $PROYECTOS/jpg/frontend "yarn dev"
         ;;
     "-personal")
