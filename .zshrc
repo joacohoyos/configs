@@ -77,7 +77,7 @@ export PATH=/usr/local/bin:/sbin:/usr/sbin:~/.gem/ruby/3.0.0/bin:~/configs/bashS
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
-plugins=(git ssh-agent docker docker-compose zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git ssh-agent docker docker-compose zsh-autosuggestions zsh-syntax-highlighting zsh-nvm)
 zstyle :omz:plugins:ssh-agent identities id_rsa_github_personal
 # zstyle :omz:plugins:ssh-agent identities id_rsa_bitbucket id_rsa_joacohoyos id_rsa_psh_gitlab
 source $ZSH/oh-my-zsh.sh
