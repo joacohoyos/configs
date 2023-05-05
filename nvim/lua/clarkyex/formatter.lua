@@ -2,6 +2,7 @@ local prettier = function()
 	return {
 		exe = "prettier",
 		args = {
+			"--write",
 			"--stdin-filepath",
 			vim.api.nvim_buf_get_name(0),
 		},
@@ -48,7 +49,7 @@ require("formatter").setup({
 		typescript = { prettier, eslint },
 		typescriptreact = { prettier, eslint },
 		rust = {
-             rustfmt
+			rustfmt,
 		},
 		python = {
 			black,
