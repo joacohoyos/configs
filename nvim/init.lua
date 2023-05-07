@@ -7,7 +7,6 @@ require("paq")({
 	"tpope/vim-surround",
 	"edkolev/tmuxline.vim",
 	"alvan/vim-closetag",
-	"neovim/nvim-lspconfig",
 	"mhartington/formatter.nvim",
 	"frazrepo/vim-rainbow",
 	"szw/vim-maximizer",
