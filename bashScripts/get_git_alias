@@ -1,0 +1,1 @@
+grep $1 ~/.oh-my-zsh/plugins/git/git.plugin.zsh -A 5 -B 5
