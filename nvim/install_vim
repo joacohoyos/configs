@@ -3,7 +3,6 @@ mkdir -p ~/.config/nvim/plugin
 mkdir -p ~/.config/nvim/after/plugin
 mkdir -p ~/.config/nvim/lua
 mkdir -p ~/.config/nvim/lua/clarkyex
-mkdir -p ~/.config/nvim/lua/clarkyex/worktree
 mkdir -p ~/.config/nvim/lua/helpers
 mkdir -p ~/.config/nvim/lua/common
 
