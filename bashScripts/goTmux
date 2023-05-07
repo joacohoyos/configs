@@ -49,7 +49,7 @@ while [ "$#" -gt 0 ]; do
     "-jpg")
         createSession jpg nvim-server $PROYECTOS/jpg/server
         createWindow jpg nvim-frontend $PROYECTOS/jpg/frontend
-        createWindow jpg run-server $PROYECTOS/jpg/server "yarn start:dev"
+        createWindow jpg run-server $PROYECTOS/jpg/server "yarn dev"
         createWindow jpg run-frontend $PROYECTOS/jpg/frontend "yarn dev"
         ;;
     "-personal")
