@@ -90,6 +90,3 @@ vim.api.nvim_set_keymap("i", "<C-k>", "<ESC>:m .-2<CR>==i", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>k", ":m .-2<CR>==", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>j", ":m .+1<CR>==", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>s", ":<C-u>call gitblame#echo()<CR>", { noremap = true })
-
--- Solidity
-vim.api.nvim_set_keymap("n", "<leader>rtc", ':lua require("helpers.truffle").compile()<CR>', { noremap = true })
