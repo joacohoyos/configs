@@ -111,6 +111,7 @@ source $ZSH/oh-my-zsh.sh
 # NVIM
 alias e="nvim ."
 alias ep="nvim"
+alias ggl="git pull origin"
 
 # Hardhat
 alias hh="npx hardhat"

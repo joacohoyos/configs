@@ -32,6 +32,8 @@ require("paq")({
 	{ "neovim/nvim-lspconfig" },
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
+	-- Aiken
+	"aiken-lang/editor-integration-nvim",
 	-- Autocompletion
 	{ "hrsh7th/nvim-cmp" },
 	{ "hrsh7th/cmp-nvim-lsp" },
