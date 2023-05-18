@@ -51,6 +51,11 @@ require("formatter").setup({
 		rust = {
 			rustfmt,
 		},
+		go = {
+			-- require("formatter.filetypes.go").gofmt,
+			-- require("formatter.filetypes.go").goimports,
+			require("formatter.filetypes.go").golines,
+		},
 		python = {
 			black,
 			require("formatter.filetypes.python").isort,
@@ -63,7 +68,7 @@ vim.api.nvim_exec(
 	[[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.py,*.rs,*.lua FormatWrite
+  autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.py,*.rs,*.lua,*.go FormatWrite
 augroup END
 ]],
 	true
