@@ -59,6 +59,10 @@ while [ "$#" -gt 0 ]; do
     "-personal")
         createSession personal console $PROYECTOS/personal
         ;;
+    "-sbot")
+        createSession security-bot nvim $PROYECTOS/security-bot
+        createWindow security-bot run $PROYECTOS/security-bot ""
+        ;;
     *) echo "Unavailable command... $curr"
     esac
 done
