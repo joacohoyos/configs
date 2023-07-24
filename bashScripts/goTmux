@@ -60,8 +60,9 @@ while [ "$#" -gt 0 ]; do
         createSession personal console $PROYECTOS/personal
         ;;
     "-sbot")
-        createSession security-bot nvim $PROYECTOS/security-bot
-        createWindow security-bot run $PROYECTOS/security-bot ""
+        createSession sbot nvim $PROYECTOS/security-bot/SecurityBot
+        createWindow sbot run $PROYECTOS/security-bot/SecurityBot "./gradlew build && java -jar ./app/build/libs/SecurityBot.jar"
+        createWindow sbot redis $PROYECTOS/security-bot/SecurityBot "redis-server"
         ;;
     *) echo "Unavailable command... $curr"
     esac

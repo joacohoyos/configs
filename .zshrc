@@ -2,15 +2,15 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="~/.oh-my-zsh"
-export PODCHAIN_PATH="~/Documents/Proyectos/podchain"
-export TERM=alacritty
+export ZSH="/Users/Joaquin/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="gruvbox"
+SOLARIZED_THEME="dark"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -73,10 +73,15 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #You don't have ~/.gem/ruby/3.0.0/bin
-export PATH=/usr/local/bin:/sbin:/usr/sbin:~/.gem/ruby/3.0.0/bin:~/configs/bashScripts:$PATH
+export GOPATH=~/go
+export PATH=/usr/local/bin:/sbin:/usr/sbin:~/.gem/ruby/3.0.0/bin:~/configs/bashScripts:$PATH:$GOPATH/bin
+
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
+
+export NVM_AUTO_USE=true
+
 plugins=(git ssh-agent docker docker-compose zsh-autosuggestions zsh-syntax-highlighting zsh-nvm)
 zstyle :omz:plugins:ssh-agent identities id_rsa_github_personal
 # zstyle :omz:plugins:ssh-agent identities id_rsa_bitbucket id_rsa_joacohoyos id_rsa_psh_gitlab
@@ -113,20 +118,19 @@ alias e="nvim ."
 alias ep="nvim"
 alias ggl="git pull origin"
 
-# Hardhat
-alias hh="npx hardhat"
-
 export EDITOR='nvim'
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-source ~/.nvm/nvm.sh
 
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-if [ -n "$DESKTOP_SESSION" ];then
-    eval $(gnome-keyring-daemon --start)
-    export SSH_AUTH_SOCK
-fi
+export DENO_INSTALL="/Users/joaquin/.deno"
+  export PATH="$DENO_INSTALL/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/joaquin/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/joaquin/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/joaquin/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/joaquin/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 eval "$(direnv hook zsh)"
+
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
+export M2_HOME="$HOME/tmp/apache-maven-3.9.3"
+export PATH="/Users/joaquin/.aiken/bin:$JAVA_HOME/bin:$M2_HOME/bin:$PATH"

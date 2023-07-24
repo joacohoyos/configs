@@ -32,6 +32,7 @@ require("paq")({
 	{ "neovim/nvim-lspconfig" },
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
+	{ "mfussenegger/nvim-jdtls", ft = { "java" } },
 	-- Aiken
 	"aiken-lang/editor-integration-nvim",
 	-- Autocompletion
