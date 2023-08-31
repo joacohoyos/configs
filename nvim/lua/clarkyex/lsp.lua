@@ -21,6 +21,7 @@ lsp.ensure_installed({
 	"html",
 	"jsonls",
 	"tsserver",
+	"python",
 })
 
 local cmp = require("cmp")

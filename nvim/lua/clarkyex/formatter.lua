@@ -61,6 +61,7 @@ require("formatter").setup({
 			require("formatter.filetypes.python").isort,
 		},
 		lua = { require("formatter.filetypes.lua").stylua },
+		java = { require("formatter.filetypes.java").clangformat },
 	},
 })
 
@@ -68,7 +69,7 @@ vim.api.nvim_exec(
 	[[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.py,*.rs,*.lua,*.go FormatWrite
+  autocmd BufWritePost *.java,*.js,*.jsx,*.ts,*.tsx,*.py,*.rs,*.lua,*.go FormatWrite
 augroup END
 ]],
 	true
