@@ -134,3 +134,7 @@ eval "$(direnv hook zsh)"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
 export M2_HOME="$HOME/tmp/apache-maven-3.9.3"
 export PATH="/Users/joaquin/.aiken/bin:$JAVA_HOME/bin:$M2_HOME/bin:$PATH"
+
+# Autojump
+[[ -s /Users/joaquin/.autojump/etc/profile.d/autojump.sh ]] && source /Users/joaquin/.autojump/etc/profile.d/autojump.sh
+autoload -U compinit && compinit -u
