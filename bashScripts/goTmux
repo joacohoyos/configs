@@ -50,11 +50,13 @@ while [ "$#" -gt 0 ]; do
         createSession jpg nvim-server $PROYECTOS/jpg/server
         createWindow jpg nvim-frontend $PROYECTOS/jpg/frontend
         createWindow jpg run-server $PROYECTOS/jpg/server "docker compose up node-server"
-        createWindow jpg run-frontend $PROYECTOS/jpg/frontend "yarn dev"
+        createWindow jpg run-frontend $PROYECTOS/jpg/frontend "npm run dev"
         ;;
-    "-jpg-evm")
-        createSession jpg-evm nvim-server $PROYECTOS/jpg/evm-minting-server
-        createWindow jpg-evm run-server $PROYECTOS/jpg/evm-minting-server "docker compose up espv2 -d && docker compose logs"
+    "-jtx")
+        createSession jtx nvim $PROYECTOS/jpg/jpg-tx
+        ;;
+    "-gypsy")
+        createSession gypsy nvim $PROYECTOS/jpg/gypsy
         ;;
     "-personal")
         createSession personal console $PROYECTOS/personal
