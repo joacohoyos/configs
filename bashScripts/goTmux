@@ -48,9 +48,9 @@ while [ "$#" -gt 0 ]; do
     case "$curr" in
     "-jpg")
         createSession jpg nvim-server $PROYECTOS/jpg/server
-        createWindow jpg nvim-frontend $PROYECTOS/jpg/frontend
+        createWindow jpg nvim-frontend $PROYECTOS/jpg/wagmi
         createWindow jpg run-server $PROYECTOS/jpg/server "docker compose up node-server"
-        createWindow jpg run-frontend $PROYECTOS/jpg/frontend "npm run dev"
+        createWindow jpg run-frontend $PROYECTOS/jpg/wagmi "npm run dev"
         ;;
     "-jtx")
         createSession jtx nvim $PROYECTOS/jpg/jpg-tx
