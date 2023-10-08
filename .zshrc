@@ -135,6 +135,11 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
 export M2_HOME="$HOME/tmp/apache-maven-3.9.3"
 export PATH="/Users/joaquin/.aiken/bin:$JAVA_HOME/bin:$M2_HOME/bin:$PATH"
 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # Autojump
 [[ -s /Users/joaquin/.autojump/etc/profile.d/autojump.sh ]] && source /Users/joaquin/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
+eval "$(pyenv virtualenv-init -)"
