@@ -13,17 +13,22 @@ local lsp = require("lsp-zero")
 local lspconfig = require("lspconfig")
 local root_pattern = lspconfig.util.root_pattern
 
-lsp.preset("recommended")
-
-lsp.ensure_installed({
-	"rust_analyzer",
-	"bashls",
-	"gopls",
-	"jdtls",
-	"html",
-	"jsonls",
-	"tsserver",
-	"pylsp",
+require("mason").setup({})
+require("mason-lspconfig").setup({
+	ensure_installed = {
+		"rust_analyzer",
+		"bashls",
+		"jdtls",
+		"gopls",
+		"jdtls",
+		"html",
+		"jsonls",
+		"tsserver",
+		"pylsp",
+	},
+	handlers = {
+		lsp.default_setup,
+	},
 })
 
 local cmp = require("cmp")
@@ -44,18 +49,15 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	end,
 })
 
-lsp.setup_nvim_cmp({
+cmp.setup({
 	mapping = cmp_mappings,
 })
 
-lsp.set_preferences({
-	suggest_lsp_servers = false,
-	sign_icons = {
-		error = "E",
-		warn = "W",
-		hint = "H",
-		info = "I",
-	},
+lsp.set_sign_icons({
+	error = "E",
+	warn = "W",
+	hint = "H",
+	info = "I",
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -143,18 +145,114 @@ lsp.configure("tsserver", {
 	},
 })
 
+local HOME = os.getenv("HOME")
+local WORKSPACE_PATH = HOME .. "/workspace/java/"
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+local workspace_dir = WORKSPACE_PATH .. project_name
+local SYSTEM = "linux"
+if vim.fn.has("mac") == 1 then
+	SYSTEM = "mac"
+end
+local JDTLS_LOCATION = vim.fn.stdpath("data") .. "/lsp_servers/jdtls"
+
+lsp.configure("jdtls", {
+	cmd = {
+		"jdtls",
+		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
+		"-Dosgi.bundles.defaultStartLevel=4",
+		"-Declipse.product=org.eclipse.jdt.ls.core.product",
+		"-Dlog.protocol=true",
+		"-Dlog.level=ALL",
+		"-Xms1g",
+		"--add-modules=ALL-SYSTEM",
+		"--add-opens",
+		"java.base/java.util=ALL-UNNAMED",
+		"--add-opens",
+		"java.base/java.lang=ALL-UNNAMED",
+		"-jar",
+		vim.fn.glob(JDTLS_LOCATION .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
+		"-configuration",
+		JDTLS_LOCATION .. "/config_" .. SYSTEM,
+		"-data",
+		workspace_dir,
+	},
+
+	capabilities = lsp.capabilities,
+	settings = {
+		java = {
+			eclipse = {
+				downloadSources = true,
+			},
+			configuration = {
+				updateBuildConfiguration = "interactive",
+			},
+			maven = {
+				downloadSources = true,
+			},
+			implementationsCodeLens = {
+				enabled = true,
+			},
+			referencesCodeLens = {
+				enabled = true,
+			},
+			references = {
+				includeDecompiledSources = true,
+			},
+			format = {
+				enabled = true,
+				settings = {
+					url = vim.fn.stdpath("config") .. "/lang-servers/intellij-java-google-style.xml",
+					profile = "GoogleStyle",
+				},
+			},
+		},
+		signatureHelp = { enabled = true },
+		completion = {
+			favoriteStaticMembers = {
+				"org.hamcrest.MatcherAssert.assertThat",
+				"org.hamcrest.Matchers.*",
+				"org.hamcrest.CoreMatchers.*",
+				"org.junit.jupiter.api.Assertions.*",
+				"java.util.Objects.requireNonNull",
+				"java.util.Objects.requireNonNullElse",
+				"org.mockito.Mockito.*",
+			},
+		},
+		contentProvider = { preferred = "fernflower" },
+		extendedClientCapabilities = extendedClientCapabilities,
+		sources = {
+			organizeImports = {
+				starThreshold = 9999,
+				staticStarThreshold = 9999,
+			},
+		},
+		codeGeneration = {
+			toString = {
+				template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+			},
+			useBlocks = true,
+		},
+	},
+
+	flags = {
+		allow_incremental_sync = true,
+	},
+	-- Language server `initializationOptions`
+	-- You need to extend the `bundles` with paths to jar files
+	-- if you want to use additional eclipse.jdt.ls plugins.
+	--
+	-- See https://github.com/mfussenegger/nvim-jdtls#java-debug-installation
+	--
+	-- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
+	init_options = {
+		bundles = {},
+	},
+})
+
 lspconfig.aiken.setup({})
 
 lsp.setup()
 
 vim.diagnostic.config({
 	virtual_text = true,
-})
-
-require("mason").setup({})
-require("mason-lspconfig").setup({
-	ensure_installed = {},
-	handlers = {
-		lsp.default_setup,
-	},
 })
