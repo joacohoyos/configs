@@ -10,6 +10,8 @@ vim.keymap.set("i", "<leader>vsh", function()
 end, opts)
 
 local lsp = require("lsp-zero")
+local lspconfig = require("lspconfig")
+local root_pattern = lspconfig.util.root_pattern
 
 lsp.preset("recommended")
 
@@ -21,7 +23,7 @@ lsp.ensure_installed({
 	"html",
 	"jsonls",
 	"tsserver",
-	"python",
+	"pylsp",
 })
 
 local cmp = require("cmp")
@@ -98,8 +100,61 @@ lsp.configure("rust_analyzer", {
 	},
 })
 
+local function filter(arr, fn)
+	if type(arr) ~= "table" then
+		return arr
+	end
+
+	local filtered = {}
+	for k, v in pairs(arr) do
+		if fn(v, k, arr) then
+			table.insert(filtered, v)
+		end
+	end
+
+	return filtered
+end
+
+local function filterReactDTS(value)
+	local targetUri = value.uri or value.targetUri
+	return string.match(targetUri, "react/.*/index.d.ts") == nil
+end
+
+lsp.configure("denols", {
+	root_dir = root_pattern("deno.json", "deno.jsonc"),
+})
+
+lsp.configure("tsserver", {
+	-- other options
+	root_dir = function(fname)
+		return not root_pattern("deno.json", "deno.jsonc")(fname)
+			and (root_pattern("tsconfig.json")(fname) or root_pattern("package.json", "jsconfig.json", ".git")(fname))
+	end,
+	single_file_support = false,
+	handlers = {
+		["textDocument/definition"] = function(err, result, method, ...)
+			if vim.tbl_islist(result) and #result > 1 then
+				local filtered_result = filter(result, filterReactDTS)
+				return vim.lsp.handlers["textDocument/definition"](err, filtered_result, method, ...)
+			end
+
+			vim.lsp.handlers["textDocument/definition"](err, result, method, ...)
+		end,
+	},
+})
+
+lspconfig.aiken.setup({})
+
 lsp.setup()
 
 vim.diagnostic.config({
 	virtual_text = true,
+})
+
+require("mason").setup({})
+require("mason-lspconfig").setup({
+	ensure_installed = {},
+	handlers = {
+		lsp.default_setup,
+	},
 })
