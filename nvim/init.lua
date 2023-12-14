@@ -28,8 +28,8 @@ require("paq")({
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	"joacohoyos/directory.nvim",
 	-- LSP
-	{ "VonHeikemen/lsp-zero.nvim", branch = "v1.x" },
 	{ "neovim/nvim-lspconfig" },
+	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
 	{ "mfussenegger/nvim-jdtls", ft = { "java" } },
