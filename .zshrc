@@ -143,3 +143,10 @@ eval "$(pyenv init -)"
 [[ -s /Users/joaquin/.autojump/etc/profile.d/autojump.sh ]] && source /Users/joaquin/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 eval "$(pyenv virtualenv-init -)"
+
+# bun completions
+[ -s "/Users/joaquin/.bun/_bun" ] && source "/Users/joaquin/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
