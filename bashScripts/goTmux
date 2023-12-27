@@ -61,6 +61,10 @@ while [ "$#" -gt 0 ]; do
     "-personal")
         createSession personal console $PROYECTOS/personal
         ;;
+    "-trep")
+        createSession trep nvim $PROYECTOS/security-bot/trading-rep
+        createWindow trep run $PROYECTOS/security-bot/trading-rep "docker compose up server"
+        ;;
     "-sbot")
         createSession sbot nvim $PROYECTOS/security-bot/SecurityBot
         createWindow sbot run $PROYECTOS/security-bot/SecurityBot "./gradlew build && java -jar ./app/build/libs/SecurityBot.jar"
