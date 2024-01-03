@@ -80,9 +80,7 @@ if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-export NVM_AUTO_USE=true
-
-plugins=(git ssh-agent docker docker-compose zsh-autosuggestions zsh-syntax-highlighting zsh-nvm)
+plugins=(git ssh-agent docker docker-compose zsh-autosuggestions zsh-syntax-highlighting asdf)
 zstyle :omz:plugins:ssh-agent identities id_rsa_github_personal
 # zstyle :omz:plugins:ssh-agent identities id_rsa_bitbucket id_rsa_joacohoyos id_rsa_psh_gitlab
 source $ZSH/oh-my-zsh.sh
@@ -150,3 +148,4 @@ eval "$(pyenv virtualenv-init -)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export RUST_WITHOUT=rust-docs
