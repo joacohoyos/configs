@@ -1,5 +1,6 @@
 # opens iTerm2
 alt + shift - t : "${HOME}"/configs/skhd/scripts/open_iterm2.sh
+# opens Arc
 alt + shift - b : "${HOME}"/configs/skhd/scripts/open_chrome.sh
 
 # Show system statistics
@@ -23,14 +24,14 @@ shift + alt - s : yabai -m window --warp east
 
 # Move focus container to workspace
 shift + alt - m : yabai -m window --space last; yabai -m space --focus last
-shift + alt - p : yabai -m window --space prev; yabai -m space --focus prev
-shift + alt - n : yabai -m window --space next; yabai -m space --focus next
+shift + alt - p : "${HOME}"/configs/skhd/scripts/space_cycle_prev.sh
+shift + alt - n : "${HOME}"/configs/skhd/scripts/space_cycle_next.sh
 shift + alt - ( : yabai -m window --space 1; yabai -m space --focus 1
 shift + alt - ) : yabai -m window --space 2; yabai -m space --focus 2
 shift + alt - } : yabai -m window --space 3; yabai -m space --focus 3
 shift + alt - + : yabai -m window --space 4; yabai -m space --focus 4
 shift + alt - { : yabai -m window --space 4; yabai -m space --focus 5
-shift + alt - ] : yabai -m window --space 4; yabai -m space --focus 6
+shift + alt - ] : yabai -m window --space 4; yabai -m space --focus 7
 shift + alt - [ : yabai -m window --space 4; yabai -m space --focus 7
 shift + alt - ! : yabai -m window --space 4; yabai -m space --focus 8
 
