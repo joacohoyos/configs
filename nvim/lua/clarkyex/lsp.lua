@@ -1,4 +1,5 @@
 local H = require("clarkyex.lsp_helpers.handlers")
+local T = require("clarkyex.lsp_helpers.toggler")
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
 vim.g.copilot_tab_fallback = ""
@@ -103,4 +104,27 @@ lsp.set_sign_icons({
 
 vim.diagnostic.config({
 	virtual_text = true,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
+	callback = function(ev)
+		-- Get the current buffer number
+		local bufnr = vim.api.nvim_get_current_buf()
+
+		-- Get the full path of the current file
+		local filepath = vim.api.nvim_buf_get_name(bufnr)
+
+		-- Get the size of the current buffer/file in bytes
+		local file_size = vim.fn.getfsize(filepath)
+
+		limit = 2.5 * 1024 * 1024
+		tsserver_id = T.get_lsp_num("tsserver")
+		if file_size >= limit then
+			T.stop_server(tsserver_id)
+		else
+			-- T.start_server("tsserver")
+			T.start_server(tsserver_id)
+		end
+	end,
 })
