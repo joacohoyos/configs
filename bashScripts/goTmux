@@ -52,6 +52,10 @@ while [ "$#" -gt 0 ]; do
         createWindow jpg run-server $PROYECTOS/jpg/server "docker compose up node-server"
         createWindow jpg run-frontend $PROYECTOS/jpg/wagmi "npm run dev"
         ;;
+    "-jpg-minting")
+        createSession jpg-minting nvim-server $PROYECTOS/jpg/minting
+        createWindow jpg-minting run-server $PROYECTOS/jpg/minting "docker compose up server"
+        ;;
     "-jtx")
         createSession jtx nvim $PROYECTOS/jpg/jpg-tx
         ;;
@@ -60,6 +64,11 @@ while [ "$#" -gt 0 ]; do
         ;;
     "-personal")
         createSession personal console $PROYECTOS/personal
+        ;;
+    "-snekbot")
+        createSession snekbot nvim $PROYECTOS/personal/bot
+        createWindow snekbot run $PROYECTOS/personal/bot "docker compose up server"
+        createWindow snekbot ngrok $PROYECTOS/personal/bot "ngrok http 8090"
         ;;
     "-trep")
         createSession trep nvim $PROYECTOS/security-bot/trading-rep

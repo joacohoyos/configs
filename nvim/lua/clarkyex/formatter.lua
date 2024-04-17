@@ -36,7 +36,7 @@ end
 local black = function()
 	return {
 		exe = "black",
-		args = { "--line-length 80", "-q", "-" },
+		args = { "-q", "-" },
 		stdin = true,
 	}
 end
@@ -58,7 +58,7 @@ require("formatter").setup({
 		},
 		python = {
 			black,
-			require("formatter.filetypes.python").isort,
+			-- require("formatter.filetypes.python").isort,
 		},
 		lua = { require("formatter.filetypes.lua").stylua },
 		java = { require("formatter.filetypes.java").clangformat },

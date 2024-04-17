@@ -61,5 +61,4 @@ require("clarkyex")
 
 vim.cmd("autocmd BufRead,BufNewFile *.env.* set filetype=sh")
 vim.cmd("autocmd FileType lua setlocal shiftwidth=4 tabstop=4")
-vim.cmd("autocmd FileType lua setlocal shiftwidth=5 tabstop=4")
-vim.cmd("autocmd FileType lua setlocal shiftwidth=5 tabstop=4")
+vim.cmd("autocmd FileType python setlocal shiftwidth=4 tabstop=4")

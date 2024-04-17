@@ -56,7 +56,8 @@ require("mason-lspconfig").setup({
 		"html",
 		"jsonls",
 		"tsserver",
-		"pylsp",
+		-- "pylsp",
+		"pyright",
 	},
 	handlers = {
 		lsp.default_setup,
