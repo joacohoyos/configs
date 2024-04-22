@@ -53,7 +53,7 @@ while [ "$#" -gt 0 ]; do
         createWindow jpg run-frontend $PROYECTOS/jpg/wagmi "npm run dev"
         ;;
     "-jpg-minting")
-        createSession jpg-minting nvim-server $PROYECTOS/jpg/minting
+        createSession jpg-minting nvim-server $PROYECTOS/jpg/minting "source .venv/bin/activate"
         createWindow jpg-minting run-server $PROYECTOS/jpg/minting "docker compose up server"
         ;;
     "-jtx")

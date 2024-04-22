@@ -1,27 +1,29 @@
-local prettier = function()
-	return {
-		exe = "prettier",
-		args = {
-			"--write",
-			"--stdin-filepath",
-			vim.api.nvim_buf_get_name(0),
-		},
-		stdin = true,
-	}
-end
+-- local prettier = function()
+-- 	return {
+-- 		exe = "prettier",
+-- 		args = {
+-- 			"--write",
+-- 			"--stdin-filepath",
+-- 			vim.api.nvim_buf_get_name(0),
+-- 		},
+-- 		stdin = true,
+-- 	}
+-- end
 
-local eslint = function()
-	return {
-		exe = "eslint",
-		args = {
-			"--stdin-filename",
-			vim.api.nvim_buf_get_name(0),
-			"--fix",
-			"--cache",
-		},
-		stdin = false,
-	}
-end
+local prettier = require("formatter.filetypes.javascript").prettier
+
+-- local eslint = function()
+-- 	return {
+-- 		exe = "eslint",
+-- 		args = {
+-- 			"--stdin-filename",
+-- 			vim.api.nvim_buf_get_name(0),
+-- 			"--fix",
+-- 		},
+-- 		stdin = false,
+-- 	}
+-- end
+local eslint = require("formatter.filetypes.javascript").eslint
 
 local rustfmt = function()
 	return {
