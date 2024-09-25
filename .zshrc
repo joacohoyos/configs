@@ -146,3 +146,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export RUST_WITHOUT=rust-docs
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export LANG=en_US.UTF-8
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"

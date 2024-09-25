@@ -52,6 +52,12 @@ while [ "$#" -gt 0 ]; do
         createWindow jpg run-server $PROYECTOS/jpg/server "docker compose up node-server"
         createWindow jpg run-frontend $PROYECTOS/jpg/wagmi "npm run dev"
         ;;
+    "-rocket")
+        createSession rocket nvim-server $PROYECTOS/jpg/rocket/rocket-server
+        createWindow rocket nvim-frontend $PROYECTOS/jpg/rocket/rocket-frontend
+        createWindow rocket run-server $PROYECTOS/jpg/rocket/rocket-server "docker compose up rocket-server"
+        createWindow rocket run-frontend $PROYECTOS/jpg/rocket/rocket-frontend "npm run dev"
+        ;;
     "-jpg-minting")
         createSession jpg-minting nvim-server $PROYECTOS/jpg/minting 
         createWindow jpg-minting run-server $PROYECTOS/jpg/minting "docker compose up server"
