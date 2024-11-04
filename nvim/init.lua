@@ -3,6 +3,7 @@ require("paq")({
 	"github/copilot.vim",
 	"ellisonleao/gruvbox.nvim",
 	"tpope/vim-fugitive",
+	"rhysd/conflict-marker.vim",
 	"tpope/vim-surround",
 	"edkolev/tmuxline.vim",
 	"alvan/vim-closetag",
