@@ -76,16 +76,16 @@ while [ "$#" -gt 0 ]; do
         createWindow snekbot run $PROYECTOS/personal/bot "docker compose up server"
         createWindow snekbot ngrok $PROYECTOS/personal/bot "ngrok http 8090"
         ;;
-    "-trep")
-        createSession trep nvim $PROYECTOS/security-bot/trading-rep
-        createWindow trep run $PROYECTOS/security-bot/trading-rep "docker compose up server"
-        ;;
     "-sbot")
         createSession sbot nvim $PROYECTOS/security-bot/SecurityBot
         createWindow sbot run $PROYECTOS/security-bot/SecurityBot "./gradlew build && java -jar ./app/build/libs/SecurityBot.jar"
         createWindow sbot redis $PROYECTOS/security-bot/SecurityBot "redis-server"
         createWindow sbot cloudsql $PROYECTOS/security-bot/SecurityBot "cloud_sql_proxy -instances=marine-aria-384916:us-central1:main-db=tcp:5432"
         ;;
+    "-comet")
+        createSession comet nvim $PROYECTOS/jpg/comet
+        createWindow comet run $PROYECTOS/jpg/comet "npm run ios"
+      ;;
     *) echo "Unavailable command... $curr"
     esac
 done
