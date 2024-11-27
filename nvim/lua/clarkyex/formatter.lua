@@ -11,19 +11,23 @@
 -- end
 
 local prettier = require("formatter.filetypes.javascript").prettier
+local util = require("formatter.util")
 
--- local eslint = function()
--- 	return {
--- 		exe = "eslint",
--- 		args = {
--- 			"--stdin-filename",
--- 			vim.api.nvim_buf_get_name(0),
--- 			"--fix",
--- 		},
--- 		stdin = false,
--- 	}
--- end
-local eslint = require("formatter.filetypes.javascript").eslint
+local eslint = function()
+	return {
+		exe = "eslint_d",
+		args = {
+			"--stdin",
+			"--stdin-filename",
+			util.escape_path(util.get_current_buffer_file_path()),
+			"--fix-to-stdout",
+		},
+		stdin = true,
+		-- try_node_modules = true,
+	}
+end
+-- local eslint = require("formatter.filetypes.javascript").eslint
+-- print("hola", eslint().args)
 
 local rustfmt = function()
 	return {
