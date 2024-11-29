@@ -84,7 +84,7 @@ while [ "$#" -gt 0 ]; do
         ;;
     "-comet")
         createSession comet nvim $PROYECTOS/jpg/comet
-        createWindow comet run $PROYECTOS/jpg/comet "npm run ios"
+        createWindow comet run $PROYECTOS/jpg/comet "npm run dev"
       ;;
     *) echo "Unavailable command... $curr"
     esac
