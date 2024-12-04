@@ -54,6 +54,7 @@ require("formatter").setup({
 		javascriptreact = { prettier, eslint },
 		typescript = { prettier, eslint },
 		typescriptreact = { prettier, eslint },
+		json = { prettier },
 		rust = {
 			rustfmt,
 		},
