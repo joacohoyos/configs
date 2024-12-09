@@ -80,7 +80,7 @@ vim.api.nvim_set_keymap("n", "<leader>pt", ':lua require("clarkyex.telescope").s
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>pf",
-	':lua require("telescope.builtin").find_files({hidden = true, no_ignore=true})<CR>',
+	':lua require("telescope.builtin").find_files({hidden = true})<CR>',
 	{ noremap = true }
 )
 vim.api.nvim_set_keymap("n", "<C-p>", ':lua require("telescope.builtin").git_files()<CR>', { noremap = true })
