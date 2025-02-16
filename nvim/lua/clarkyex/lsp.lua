@@ -55,7 +55,7 @@ require("mason-lspconfig").setup({
 		"jdtls",
 		"html",
 		"jsonls",
-		"tsserver",
+		"ts_ls",
 		-- "pylsp",
 		"pyright",
 	},
@@ -64,7 +64,7 @@ require("mason-lspconfig").setup({
 		denols = H.denols,
 		rust_analyzer = H.rust_analyzer,
 		jdtls = H.jdtls,
-		tsserver = H.tsserver,
+		ts_ls = H.tsls,
 	},
 })
 
@@ -120,12 +120,12 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 		local file_size = vim.fn.getfsize(filepath)
 
 		limit = 2.5 * 1024 * 1024
-		tsserver_id = T.get_lsp_num("tsserver")
+		ts_ls_id = T.get_lsp_num("ts_ls")
 		if file_size >= limit then
-			T.stop_server(tsserver_id)
+			T.stop_server(ts_ls_id)
 		else
 			-- T.start_server("tsserver")
-			T.start_server(tsserver_id)
+			T.start_server(ts_ls_id)
 		end
 	end,
 })

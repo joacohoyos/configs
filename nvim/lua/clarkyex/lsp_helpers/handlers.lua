@@ -40,8 +40,8 @@ function H.denols()
 	})
 end
 
-function H.tsserver()
-	lspconfig.tsserver.setup({
+function H.ts_ls()
+	lspconfig.ts_ls.setup({
 		-- other options
 		root_dir = function(fname)
 			return not root_pattern("deno.json", "deno.jsonc")(fname)

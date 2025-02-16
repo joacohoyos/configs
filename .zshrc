@@ -129,7 +129,12 @@ if [ -f '/Users/joaquin/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 if [ -f '/Users/joaquin/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/joaquin/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 eval "$(direnv hook zsh)"
 
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+export ANDROID_HOME=$HOME/Library/Android/sdk 
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 export M2_HOME="$HOME/tmp/apache-maven-3.9.3"
 export PATH="/Users/joaquin/.aiken/bin:$JAVA_HOME/bin:$M2_HOME/bin:$PATH"
 
