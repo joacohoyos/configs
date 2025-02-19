@@ -1,6 +1,7 @@
 require("paq")({
 	{ "savq/paq-nvim", opt = true },
 	"github/copilot.vim",
+	{ "CopilotC-Nvim/CopilotChat.nvim", build = "make tiktoken" },
 	"ellisonleao/gruvbox.nvim",
 	"tpope/vim-fugitive",
 	"rhysd/conflict-marker.vim",

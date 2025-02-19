@@ -46,7 +46,7 @@ require("telescope").setup({
 })
 
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("directory")
+-- require("telescope").load_extension("directory")
 
 -- Mappings
 --
