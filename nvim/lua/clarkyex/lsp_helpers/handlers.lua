@@ -4,8 +4,19 @@ local root_pattern = lspconfig.util.root_pattern
 local H = {}
 function H.rust_analyzer()
 	lspconfig.rust_analyzer.setup({
+
 		settings = {
 			["rust-analyzer"] = {
+				diagontstics = {
+					enable = true,
+				},
+				inlayHints = {
+					enable = true,
+					showParameterNames = true,
+					parameterHintsPrefix = "<- ",
+					otherHintsPrefix = "=> ",
+				},
+
 				checkOnSave = {
 					command = "clippy",
 				},
@@ -50,6 +61,32 @@ function H.ts_ls()
 				)
 		end,
 		single_file_support = false,
+		settings = {
+			javascript = {
+				inlayHints = {
+					includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+					includeInlayFunctionParameterTypeHints = true,
+					includeInlayVariableTypeHints = true,
+					includeInlayParameterNameHints = "all",
+					includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+					includeInlayPropertyDeclarationTypeHints = true,
+					includeInlayFunctionLikeReturnTypeHints = true,
+					includeInlayEnumMemberValueHints = true,
+				},
+			},
+			typescript = {
+				inlayHints = {
+					includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+					includeInlayFunctionParameterTypeHints = true,
+					includeInlayVariableTypeHints = true,
+					includeInlayParameterNameHints = "all",
+					includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+					includeInlayPropertyDeclarationTypeHints = true,
+					includeInlayFunctionLikeReturnTypeHints = true,
+					includeInlayEnumMemberValueHints = true,
+				},
+			},
+		},
 		handlers = {
 			["textDocument/definition"] = function(err, result, method, ...)
 				if vim.tbl_islist(result) and #result > 1 then

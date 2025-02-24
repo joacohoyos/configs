@@ -43,6 +43,17 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("i", "<leader>vsh", function()
 		vim.lsp.buf.signature_help()
 	end, opts)
+	if vim.lsp.inlay_hint then
+		vim.keymap.set("n", "<leader>l", function()
+			if vim.lsp.inlay_hint.is_enabled() then
+				vim.lsp.inlay_hint.enable(false, opts)
+			else
+				vim.lsp.inlay_hint.enable(true, opts)
+			end
+		end, opts)
+	else
+		print("inlay hints not available")
+	end
 end)
 
 require("mason").setup({})
@@ -65,6 +76,9 @@ require("mason-lspconfig").setup({
 		rust_analyzer = H.rust_analyzer,
 		jdtls = H.jdtls,
 		ts_ls = H.tsls,
+	},
+	inlay_hints = {
+		enabled = true,
 	},
 })
 
