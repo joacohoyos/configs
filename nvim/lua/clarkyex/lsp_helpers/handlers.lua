@@ -46,6 +46,9 @@ local function filterReactDTS(value)
 end
 
 function H.denols()
+	vim.g.markdown_fenced_languages = {
+		"ts=typescript",
+	}
 	lspconfig.denols.setup({
 		root_dir = root_pattern("deno.json", "deno.jsonc"),
 	})

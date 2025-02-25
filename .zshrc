@@ -80,7 +80,7 @@ if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-plugins=(git ssh-agent docker docker-compose zsh-autosuggestions zsh-syntax-highlighting asdf)
+plugins=(git ssh-agent docker docker-compose zsh-autosuggestions zsh-syntax-highlighting)
 zstyle :omz:plugins:ssh-agent identities id_rsa_github_personal
 # zstyle :omz:plugins:ssh-agent identities id_rsa_bitbucket id_rsa_joacohoyos id_rsa_psh_gitlab
 source $ZSH/oh-my-zsh.sh
@@ -152,3 +152,11 @@ export RUST_WITHOUT=rust-docs
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export LANG=en_US.UTF-8
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
+export ASDF_DATA_DIR="$HOME/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
+# append completions to fpath
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+export GEMINI_API_KEY=$(pass show gemini-api-key)

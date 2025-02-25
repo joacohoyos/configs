@@ -75,7 +75,7 @@ require("mason-lspconfig").setup({
 		denols = H.denols,
 		rust_analyzer = H.rust_analyzer,
 		jdtls = H.jdtls,
-		ts_ls = H.tsls,
+		ts_ls = H.ts_ls,
 	},
 	inlay_hints = {
 		enabled = true,
