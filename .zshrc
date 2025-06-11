@@ -80,7 +80,7 @@ if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-plugins=(git ssh-agent docker docker-compose zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git ssh-agent docker docker-compose zsh-autosuggestions zsh-syntax-highlighting asdf)
 zstyle :omz:plugins:ssh-agent identities id_rsa_github_personal
 # zstyle :omz:plugins:ssh-agent identities id_rsa_bitbucket id_rsa_joacohoyos id_rsa_psh_gitlab
 source $ZSH/oh-my-zsh.sh
@@ -160,3 +160,6 @@ fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 export GEMINI_API_KEY=$(pass show gemini-api-key)
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
