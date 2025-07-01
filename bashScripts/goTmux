@@ -61,7 +61,8 @@ while [ "$#" -gt 0 ]; do
         ;;
     "-watchtool")
         createSession watchtool nvim $PROYECTOS/personal/watchtool
-        createWindow watchtool run-s $PROYECTOS/personal/watchtool "pnpm --filter '!processor' run dev"
+        createWindow watchtool run-s $PROYECTOS/personal/watchtool "pnpm dev:server"
+        createWindow watchtool run-f $PROYECTOS/personal/watchtool "pnpm dev:frontend"
         ;;
     "-gypsy")
         createSession gypsy nvim $PROYECTOS/jpg/gypsy
