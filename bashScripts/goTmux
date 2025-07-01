@@ -52,33 +52,13 @@ while [ "$#" -gt 0 ]; do
         createWindow jpg run-server $PROYECTOS/jpg/server "docker compose up node-server"
         createWindow jpg run-frontend $PROYECTOS/jpg/wagmi "npm run dev"
         ;;
-    "-jtx")
-        createSession jtx nvim $PROYECTOS/jpg/jpg-tx
-        ;;
-    "-indexer")
-        createSession indexer nvim $PROYECTOS/jpg/cardano-indexer
-        createWindow indexer run $PROYECTOS/jpg/cardano-indexer "docker compose up clickhouse -d"
-        ;;
     "-watchtool")
         createSession watchtool nvim $PROYECTOS/personal/watchtool
-        createWindow watchtool run-s $PROYECTOS/personal/watchtool "pnpm --filter '!processor' run dev"
-        ;;
-    "-gypsy")
-        createSession gypsy nvim $PROYECTOS/jpg/gypsy
+        createWindow watchtool run-s $PROYECTOS/personal/watchtool "docker compose up -d && pnpm dev:server"
+        createWindow watchtool run-f $PROYECTOS/personal/watchtool "pnpm dev:frontend"
         ;;
     "-personal")
         createSession personal console $PROYECTOS/personal
-        ;;
-    "-snekbot")
-        createSession snekbot nvim $PROYECTOS/personal/bot
-        createWindow snekbot run $PROYECTOS/personal/bot "docker compose up server"
-        createWindow snekbot ngrok $PROYECTOS/personal/bot "ngrok http 8090"
-        ;;
-    "-sbot")
-        createSession sbot nvim $PROYECTOS/security-bot/SecurityBot
-        createWindow sbot run $PROYECTOS/security-bot/SecurityBot "./gradlew build && java -jar ./app/build/libs/SecurityBot.jar"
-        createWindow sbot redis $PROYECTOS/security-bot/SecurityBot "redis-server"
-        createWindow sbot cloudsql $PROYECTOS/security-bot/SecurityBot "cloud_sql_proxy -instances=marine-aria-384916:us-central1:main-db=tcp:5432"
         ;;
     "-comet")
         createSession comet nvim $PROYECTOS/jpg/comet
