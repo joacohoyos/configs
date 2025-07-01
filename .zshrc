@@ -74,7 +74,7 @@ SOLARIZED_THEME="dark"
 # Add wisely, as too many plugins slow down shell startup.
 #You don't have ~/.gem/ruby/3.0.0/bin
 export GOPATH=~/go
-export PATH=/usr/local/bin:/sbin:/usr/sbin:~/.gem/ruby/3.0.0/bin:~/configs/bashScripts:$PATH:$GOPATH/bin
+export PATH=/usr/local/bin:/sbin:/usr/sbin:~/.gem/ruby/3.0.0/bin:~/configs/bashScripts:$PATH:$GOPATH/bin:$HOME/bin
 
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
