@@ -76,41 +76,11 @@ SOLARIZED_THEME="dark"
 export GOPATH=~/go
 export PATH=/usr/local/bin:/sbin:/usr/sbin:~/.gem/ruby/3.0.0/bin:~/configs/bashScripts:$PATH:$GOPATH/bin:$HOME/bin
 
-if which ruby >/dev/null && which gem >/dev/null; then
-    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
-
 plugins=(git ssh-agent docker docker-compose zsh-autosuggestions zsh-syntax-highlighting asdf)
 zstyle :omz:plugins:ssh-agent identities id_rsa_github_personal
 # zstyle :omz:plugins:ssh-agent identities id_rsa_bitbucket id_rsa_joacohoyos id_rsa_psh_gitlab
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
 # NVIM
 alias e="nvim ."
 alias ep="nvim"
@@ -140,7 +110,7 @@ export PATH="/Users/joaquin/.aiken/bin:$JAVA_HOME/bin:$M2_HOME/bin:$PATH"
 
 # Autojump
 [[ -s /Users/joaquin/.autojump/etc/profile.d/autojump.sh ]] && source /Users/joaquin/.autojump/etc/profile.d/autojump.sh
-autoload -U compinit && compinit -u
+
 
 # bun completions
 [ -s "/Users/joaquin/.bun/_bun" ] && source "/Users/joaquin/.bun/_bun"
@@ -157,9 +127,16 @@ export ASDF_DATA_DIR="$HOME/.asdf"
 export PATH="$ASDF_DATA_DIR/shims:$PATH"
 # append completions to fpath
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
-# initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
+
 export GEMINI_API_KEY=$(pass show gemini-api-key)
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/joaquin/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+bindkey -s ^f "tmux-fzf\n"

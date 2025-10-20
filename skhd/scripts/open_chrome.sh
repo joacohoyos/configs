@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-open -na "/Applications/Arc.app"
+open -na "/Applications/Zen.app"
