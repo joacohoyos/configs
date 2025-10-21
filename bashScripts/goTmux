@@ -63,7 +63,7 @@ while [ "$#" -gt 0 ]; do
     "-unsum")
         createSession unsum nvim $PROYECTOS/unsum/frontend
         createWindow unsum run $PROYECTOS/unsum/frontend "pnpm dev"
-        createWindow unsum opencode $PROYECTOS/unsum/backend "opencode"
+        createWindow unsum opencode $PROYECTOS/unsum/frontend "opencode"
         ;;
     "-comet")
         createSession comet nvim $PROYECTOS/jpg/comet
