@@ -69,6 +69,12 @@ while [ "$#" -gt 0 ]; do
         createSession comet nvim $PROYECTOS/jpg/comet
         createWindow comet run $PROYECTOS/jpg/comet/app "npm run dev"
       ;;
+    "-sbot")
+        createSession sbot nvim $PROYECTOS/personal/security-bot/SecurityBot
+        createWindow sbot run $PROYECTOS/personal/security-bot/SecurityBot "./gradlew build && java -jar ./app/build/libs/SecurityBot.jar"
+        createWindow sbot redis $PROYECTOS/personal/security-bot/SecurityBot "redis-server"
+        createWindow sbot cloudsql $PROYECTOS/personal/security-bot/SecurityBot "cloud_sql_proxy -instances=marine-aria-384916:us-central1:main-db=tcp:5432"
+        ;;
     *) echo "Unavailable command... $curr"
     esac
 done

@@ -80,6 +80,11 @@ When creating PLAN.md, use this structure:
 - [Specific requirement 2]
 - [Continue...]
 
+## Feature Checklist
+- [ ] Feature 1: [Description]
+- [ ] Feature 2: [Description]
+- [ ] Feature 3: [Description]
+
 ## Implementation Steps
 
 ### 1. [Step Title]
@@ -116,6 +121,7 @@ When creating PLAN.md, use this structure:
 - **Avoid emojis**: Do NOT use emojis in the plan
 - **Focus on clarity**: The plan should be glanceable, not a wall of text
 - **Avoid asking clarifying questions in the plan itself**: Ask them before writing to PLAN.md
+- **Include feature checklist**: Always add a Feature Checklist section with all major features that need to be implemented, using checkbox format for tracking
 
 ## Updating Plans
 

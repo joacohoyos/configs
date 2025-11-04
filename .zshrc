@@ -6,7 +6,7 @@ export DENO_INSTALL="/Users/joaquin/.deno"
   export PATH="$DENO_INSTALL/bin:$PATH"
 
 # Java
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-21.jdk/Contents/Home"
 export ANDROID_HOME=$HOME/Library/Android/sdk 
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -14,6 +14,10 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export M2_HOME="$HOME/tmp/apache-maven-3.9.3"
 export PATH="$JAVA_HOME/bin:$M2_HOME/bin:$PATH"
+
+#NI
+export NI_DEFAULT_AGENT="pnpm" 
+export NI_GLOBAL_AGENT="pnpm"
 
 # aiken
 export PATH="$HOME/.aiken/bin:$PATH"
@@ -87,6 +91,8 @@ setopt auto_cd
 
 # NVIM
 alias e="nvim ."
+alias oc="opencode"
+alias ocr="opencode run"
 alias ep="nvim"
 alias ggl="git pull origin"
 alias ..="cd .."
