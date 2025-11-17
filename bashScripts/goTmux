@@ -60,10 +60,10 @@ while [ "$#" -gt 0 ]; do
     "-personal")
         createSession personal console $PROYECTOS/personal
         ;;
-    "-unsum")
-        createSession unsum nvim $PROYECTOS/unsum/frontend
-        createWindow unsum run $PROYECTOS/unsum/frontend "pnpm dev"
-        createWindow unsum opencode $PROYECTOS/unsum/frontend "opencode"
+    "-ttw")
+        createSession unsum nvim $PROYECTOS/ttw/app
+        createWindow unsum run $PROYECTOS/ttw/app "pnpm dev"
+        createWindow unsum opencode $PROYECTOS/ttw/app "claude"
         ;;
     "-comet")
         createSession comet nvim $PROYECTOS/jpg/comet

@@ -46,7 +46,8 @@ Plan mode is active. The user indicated that they do not want you to execute yet
    - Read relevant files to understand current implementation
    - Search for similar patterns in the codebase
    - Check existing conventions and patterns
-   - Use webfetch to research best practices if needed
+   - Use webfetch to research best practices if needed 
+   - Use context7 to access documentation for frameworks/libraries if needed
 
 5. **Create or update the plan file**
    - Generate a descriptive filename based on the plan's purpose (e.g., `add-authentication.md`, `refactor-api-layer.md`, `fix-payment-bug.md`)
@@ -93,7 +94,6 @@ When creating PLAN.md, use this structure:
 - [Specific change 1]
 - [Specific change 2]
 
-**Validation:** [How to verify this step succeeded]
 
 ### 2. [Next Step Title]
 **File:** `path/to/file.ext`
@@ -101,17 +101,9 @@ When creating PLAN.md, use this structure:
 - [Specific change 1]
 - [Specific change 2]
 
-**Validation:** [How to verify this step succeeded]
 
 [Continue for all steps...]
 
-## Testing Strategy
-- [Test approach 1]
-- [Test approach 2]
-
-## Risks & Considerations
-- [Risk 1 and mitigation]
-- [Risk 2 and mitigation]
 ```
 
 ## Planning Guidelines
@@ -133,7 +125,7 @@ When the user asks to update an existing plan file:
 
 ## File Naming
 
-- Generate descriptive, kebab-case filenames: `add-user-auth.md`, `migrate-to-postgres.md`
+- Generate descriptive, kebab-case filenames: `plans/add-user-auth.md`, `plans/migrate-to-postgres.md`
 - Keep filenames concise (3-5 words max)
 - Each new plan gets its own file
 - This allows multiple plans to coexist and be version-controlled independently

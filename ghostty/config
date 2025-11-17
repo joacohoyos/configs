@@ -4,3 +4,4 @@ background-blur = true
 keybind = super+i=increase_font_size:1
 font-family = "JetBrains Mono NL"
 font-size = 20
+keybind = shift+enter=text:\x1b\r

@@ -77,6 +77,7 @@ ssh-add ~/.ssh/id_rsa_github_personal &>/dev/null
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/configs/zsh/git.zsh
+source ~/configs/zsh/history.zsh
 
 bindkey -v
 bindkey '^R' history-incremental-search-backward
@@ -119,3 +120,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+. "$HOME/.local/bin/env"
