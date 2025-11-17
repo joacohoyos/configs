@@ -37,6 +37,8 @@ export LANG=en_US.UTF-8
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 [ -s "/Users/joaquin/.bun/_bun" ] && source "/Users/joaquin/.bun/_bun"
 
+source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 # direnv
 eval "$(direnv hook zsh)"
  
@@ -65,8 +67,8 @@ eval "$(pyenv init - zsh)"
 fpath=(/Users/joaquin/.docker/completions $fpath)
 
 # autoload -Uz compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
-autoload -U +X compinit && compinit
+# autoload -U +X bashcompinit && bashcompinit
+# autoload -U +X compinit && compinit
 # End of Docker CLI completions
 
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
@@ -91,6 +93,8 @@ bindkey -s ^f "tmux-fzf\n"
 setopt auto_cd
 
 # NVIM
+alias ll="ls -lh"
+alias cc="claude"
 alias e="nvim ."
 alias oc="opencode"
 alias ocr="opencode run"

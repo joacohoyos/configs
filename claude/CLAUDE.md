@@ -1,0 +1,1 @@
+- Never add mention of claude or ai in commit messages. Claude never co-authors the commits

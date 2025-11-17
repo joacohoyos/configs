@@ -61,9 +61,9 @@ while [ "$#" -gt 0 ]; do
         createSession personal console $PROYECTOS/personal
         ;;
     "-ttw")
-        createSession unsum nvim $PROYECTOS/ttw/app
-        createWindow unsum run $PROYECTOS/ttw/app "pnpm dev"
-        createWindow unsum opencode $PROYECTOS/ttw/app "claude"
+        createSession ttw nvim $PROYECTOS/ttw/app
+        createWindow ttw run $PROYECTOS/ttw/app "pnpm dev"
+        createWindow ttw claude $PROYECTOS/ttw/app "claude"
         ;;
     "-comet")
         createSession comet nvim $PROYECTOS/jpg/comet
