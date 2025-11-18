@@ -11,7 +11,7 @@ vimcmd_symbol = '[V](bold green) '
 success_symbol = '[➜](bold green)'
 
 [git_branch]
-format =  '[$symbol$branch(:$remote_branch)]($style)'
+format = '[$symbol$branch(:$remote_branch)]($style) '
 
 
 [docker_context]
