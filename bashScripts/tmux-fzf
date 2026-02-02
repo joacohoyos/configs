@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find ~/Documents/Proyectos ~/Documents/Proyectos/personal ~/Documents/Proyectos/jpg ~/Documents/Proyectos/unsum -mindepth 1 -maxdepth 2 -type d | fzf)
+  selected=$(find ~/Documents/Proyectos ~/Documents/Proyectos/personal ~/Documents/Proyectos/kapa ~/Documents/Proyectos/ttw ~/Documents/Proyectos/jpg ~/Documents/Proyectos/unsum -mindepth 1 -maxdepth 2 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then

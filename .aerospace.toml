@@ -44,7 +44,8 @@ automatically-unhide-macos-hidden-apps = false
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
-preset = 'qwerty'
+preset = 'dvorak'
+# preset = 'qwerty'
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
@@ -115,19 +116,21 @@ alt-shift-l = 'move right'
 alt-left = 'resize smart -50'
 alt-right = 'resize smart +50'
 
+
 alt-a = 'workspace Code+Browser' # In your config, you can drop workspace bindings that you don't need
-alt-o = 'workspace Linear+Discord'
-alt-e = 'workspace DB+Obsidian'
+alt-o = 'workspace Linear+Slack'
+alt-e = 'workspace DB+Discord'
 alt-u = 'workspace Spotify+Whatsapp'
 alt-d = 'workspace D'
 alt-t = 'workspace T'
 alt-n = 'workspace N'
 alt-s = 'workspace S'
 
+alt-f="fullscreen"
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-a = 'move-node-to-workspace Code+Browser'
-alt-shift-o = 'move-node-to-workspace Linear+Discord'
-alt-shift-e = 'move-node-to-workspace DB+Obsidian'
+alt-shift-o = 'move-node-to-workspace Linear+Slack'
+alt-shift-e = 'move-node-to-workspace DB+Discord'
 alt-shift-u = 'move-node-to-workspace Spotify+Whatsapp'
 alt-shift-d = 'move-node-to-workspace D'
 alt-shift-t = 'move-node-to-workspace T'
@@ -175,19 +178,25 @@ shift-down = ['volume set 0', 'mode main']
     if.app-id = 'com.spotify.client'
     run = [ 'move-node-to-workspace Spotify+Whatsapp'] 
 [[on-window-detected]]
+    if.app-id = 'com.tinyspeck.slackmacgap'
+    run = [ 'move-node-to-workspace Linear+Slack'] 
+[[on-window-detected]]
     if.app-id = 'com.linear'
-    run = [ 'move-node-to-workspace Linear+Discord']
+    run = [ 'move-node-to-workspace Linear+Slack']
 [[on-window-detected]]
     if.app-id = 'com.hnc.Discord'
-    run = [ 'move-node-to-workspace Linear+Discord']
+    run = [ 'move-node-to-workspace DB+Discord']
 [[on-window-detected]]
     if.app-id = 'com.whatsapp.WhatsApp'
     run = [ 'move-node-to-workspace Spotify+Whatsapp']
 [[on-window-detected]]
+    if.app-id = 'net.whatsapp.WhatsApp'
+    run = [ 'move-node-to-workspace Spotify+Whatsapp']
+[[on-window-detected]]
     if.app-id = 'md.obsidian'
-    run = [ 'move-node-to-workspace DB+Obsidian']
+    run = [ 'move-node-to-workspace DB+Discord']
 [[on-window-detected]]
     if.app-id = 'org.jkiss.dbeaver.core.product'
-    run = [ 'move-node-to-workspace DB+Obsidian']
+    run = [ 'move-node-to-workspace DB+Discord']
 [[on-window-detected]]
     run = [ 'move-node-to-workspace T'] 

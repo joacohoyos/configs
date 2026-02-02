@@ -62,18 +62,23 @@ while [ "$#" -gt 0 ]; do
         ;;
     "-ttw")
         createSession ttw nvim $PROYECTOS/ttw/app
-        createWindow ttw run $PROYECTOS/ttw/app "pnpm dev"
-        createWindow ttw claude $PROYECTOS/ttw/app "claude"
+        createWindow ttw run $PROYECTOS/ttw/app/main "pnpm dev"
+        createWindow ttw claude $PROYECTOS/ttw/app ""
         ;;
     "-comet")
         createSession comet nvim $PROYECTOS/jpg/comet
         createWindow comet run $PROYECTOS/jpg/comet/app "npm run dev"
       ;;
+    "-kapa")
+        createSession kapa nvim $PROYECTOS/kapa/kapa-dev-workspace
+        createWindow kapa claude $PROYECTOS/kapa/kapa-dev-workspace
+        createWindow kapa run $PROYECTOS/kapa/kapa-dev-workspace  
+      ;;
     "-sbot")
         createSession sbot nvim $PROYECTOS/personal/security-bot/SecurityBot
         createWindow sbot run $PROYECTOS/personal/security-bot/SecurityBot "./gradlew build && java -jar ./app/build/libs/SecurityBot.jar"
         createWindow sbot redis $PROYECTOS/personal/security-bot/SecurityBot "redis-server"
-        createWindow sbot cloudsql $PROYECTOS/personal/security-bot/SecurityBot "cloud_sql_proxy -instances=marine-aria-384916:us-central1:main-db=tcp:5432"
+        createWindow sbot cloudsql $PROYECTOS/personal/security-bot/SecurityBot "cloud_sql_proxy -i marine-aria-384916:us-central1:main-db -p 5432"
         ;;
     *) echo "Unavailable command... $curr"
     esac
