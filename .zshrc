@@ -1,3 +1,7 @@
+export ZSH="/Users/Joaquin/.oh-my-zsh"
+plugins=(git  docker docker-compose zsh-autosuggestions zsh-syntax-highlighting vi-mode)
+source $ZSH/oh-my-zsh.sh
+
 #GO
 export GOPATH=~/go
 export PATH=/usr/local/bin:/sbin:/usr/sbin:~/.gem/ruby/3.0.0/bin:~/configs/bashScripts:$PATH:$GOPATH/bin:$HOME/bin
@@ -37,7 +41,7 @@ export LANG=en_US.UTF-8
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 [ -s "/Users/joaquin/.bun/_bun" ] && source "/Users/joaquin/.bun/_bun"
 
-source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # direnv
 eval "$(direnv hook zsh)"
@@ -46,11 +50,6 @@ eval "$(direnv hook zsh)"
 [[ -s /Users/joaquin/.autojump/etc/profile.d/autojump.sh ]] && source /Users/joaquin/.autojump/etc/profile.d/autojump.sh
 
 
- # bun
- export BUN_INSTALL="$HOME/.bun"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
- export LANG=en_US.UTF-8
- export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 # asdf
 export ASDF_DATA_DIR="$HOME/.asdf"
@@ -59,38 +58,23 @@ export PATH="$ASDF_DATA_DIR/shims:$PATH"
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 
 export GEMINI_API_KEY=$(pass show gemini-api-key)
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/joaquin/.docker/completions $fpath)
 
-# autoload -Uz compinit && compinit
-# autoload -U +X bashcompinit && bashcompinit
-# autoload -U +X compinit && compinit
+autoload -Uz compinit bashcompinit
+compinit
+bashcompinit
 # End of Docker CLI completions
 
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
-eval "$(ssh-agent -s)" &>/dev/null
-ssh-add ~/.ssh/id_rsa_github_personal &>/dev/null
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent -s)" &>/dev/null
+  ssh-add ~/.ssh/id_rsa_github_personal &>/dev/null
+fi
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/configs/zsh/git.zsh
-source ~/configs/zsh/history.zsh
 
-bindkey -v
-bindkey '^R' history-incremental-search-backward
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search
-bindkey "^[[B" down-line-or-beginning-search
-bindkey -s ^f "tmux-fzf\n"
-setopt auto_cd
 
 # NVIM
 alias ll="ls -lh"
